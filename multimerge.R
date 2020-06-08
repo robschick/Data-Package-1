@@ -7,7 +7,8 @@ setwd('data/L1_edited')
 filenames <- list.files(full.names=FALSE)
 
 # List of data file types
-data_types <- c('All', 'Argos')
+data_types <- c('All', 'Argos', 'Behavior', 'Corrupt', 'Labels', 'Locations', 'RawArgos', 'RTC',
+                'Status', 'Summary')
 
 
 for (type in data_types) {
@@ -27,6 +28,6 @@ for (type in data_types) {
   })
   
   df <- do.call(rbind.data.frame, All)
-  write.csv(df, paste(type, ".csv"), row.names=FALSE)
+  write.csv(df, paste(type, ".csv", sep = ""), row.names=FALSE)
 
 }
