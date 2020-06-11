@@ -1,23 +1,33 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+library(shiny)
 
-library(shiny, DT)
+f <- file.choose()
+summer <- read.csv(f)
 
-shinyServer(function(input, output) {
+ui <- fluidPage(
+    titlePanel("BRS Data for Summer & Spring 2019"),
+    sidebarLayout(
+        sidebarPanel(
+            selectInput("var",
+                        label = "Choose Summer or Spring 2019",
+                        choices = c("Summer", "Spring"))
+        ),
+        mainPanel()
+    )
+)
+
+server <- function(input, output) {
     
-    #This function is repsonsible for loading in the selected file
-    filedata <- reactive({
-        infile <- input$datafile
-        if (is.null(infile)) {
-            # User has not uploaded a file yet
-            return(NULL)
-        }
-        read.csv("Summer2019.csv")
+    # Reactive value for selected dataset ----
+    datasetInput <- reactive({
+        switch(input$dataset,
+               "Summer" = summer,
+               "Spring" = spring)
     })
-})
+    
+    # Table of selected dataset ----
+    output$table <- renderTable({
+        datasetInput()
+    })
+}
+
+shinyApp(ui, server)
