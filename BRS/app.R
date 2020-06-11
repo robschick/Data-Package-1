@@ -11,7 +11,9 @@ ui <- fluidPage(
                         label = "Choose Summer or Spring 2019",
                         choices = c("Summer", "Spring"))
         ),
-        mainPanel()
+        mainPanel(
+            tableOutput("distTable")
+        )
     )
 )
 
@@ -25,7 +27,7 @@ server <- function(input, output) {
     })
     
     # Table of selected dataset ----
-    output$table <- renderTable({
+    output$summer <- renderTable({
         datasetInput()
     })
 }
