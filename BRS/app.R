@@ -7,26 +7,20 @@
 #    http://shiny.rstudio.com/
 #
 
-library(shiny)
+library(shiny, DT)
 
-ui <- fluidPage(
+read.csv("Summer2019.csv")
+Summer2019 <- read.csv("Summer2019.csv")
+
+ui <- basicPage(
+    h2("Summer 2019"),
+    DT::dataTableOutput("mytable")
 )
 
 server <- function(input, output) {
+    output$mytable = DT::renderDataTable({
+        Summer2019
+    })
 }
 
-shinyApp(
-    ui = fluidPage(
-        fluidRow(
-            column(12,
-                   dataTableOutput('table')
-            )
-        )
-    ),
-    server = function(input, output) {
-        output$table <- renderDataTable(iris)
-    }
-)
-
-# Run the application 
-shinyApp(ui = ui, server = server)
+shinyApp(ui, server)
