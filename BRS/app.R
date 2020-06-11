@@ -1,7 +1,8 @@
 library(shiny)
 
-f <- file.choose()
-summer <- read.csv(f)
+data(Spring2019)
+data(summer)
+
 
 ui <- fluidPage(
     titlePanel("BRS Data for Summer & Spring 2019"),
@@ -19,17 +20,13 @@ ui <- fluidPage(
 
 server <- function(input, output) {
     
-    # Reactive value for selected dataset ----
     datasetInput <- reactive({
         switch(input$dataset,
                "Summer" = summer,
-               "Spring" = spring)
+               "Spring" = Spring2019)
     })
     
-    # Table of selected dataset ----
-    output$summer <- renderTable({
-        datasetInput()
-    })
+    output$distTable <- renderTable(summer)
 }
 
 shinyApp(ui, server)
