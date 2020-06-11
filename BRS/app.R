@@ -26,7 +26,7 @@ server <- function(input, output) {
                "Spring" = Spring2019)
     })
     
-    output$distTable <- renderTable(summer)
+    output$distTable <- renderTable(Summer2019)
 }
 
 shinyApp(ui, server)
