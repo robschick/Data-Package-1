@@ -9,18 +9,15 @@
 
 library(shiny, DT)
 
-read.csv("Summer2019.csv")
-Summer2019 <- read.csv("Summer2019.csv")
-
-ui <- basicPage(
-    h2("Summer 2019"),
-    DT::dataTableOutput("mytable")
-)
-
-server <- function(input, output) {
-    output$mytable = DT::renderDataTable({
-        Summer2019
+shinyServer(function(input, output) {
+    
+    #This function is repsonsible for loading in the selected file
+    filedata <- reactive({
+        infile <- input$datafile
+        if (is.null(infile)) {
+            # User has not uploaded a file yet
+            return(NULL)
+        }
+        read.csv("Summer2019.csv")
     })
-}
-
-shinyApp(ui, server)
+})
