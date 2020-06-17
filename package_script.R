@@ -11,7 +11,7 @@ library(DataPackageR)
 # This is in a file called subsetCars.Rmd located in exdata/tests of the DataPackageR package.
 # For your own projects you would write your own Rmd processing file.
 processing_code <- system.file(
-  "extdata", "tests", "subsetCars.Rmd", package = "DataPackageR"
+  "cloud", "project", "package.Rmd", package = "DataPackageR"
 )
 
 # 2. Create the package framework.
