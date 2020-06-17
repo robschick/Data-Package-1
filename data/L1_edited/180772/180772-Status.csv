@@ -1,0 +1,6 @@
+DeployID,Ptt,DepthSensor,Instr,SW,RTC,Received,Time Offset,LocationQuality,Latitude,Longitude,Type,HauledOut,BrokenThermistor,BrokenLink,Transmits,BattVoltage,TransmitVoltage,TransmitCurrent,Temperature,Depth,MaxDepth,ZeroDepthOffset,LightLevel,NoDawnDusk,ReleaseType,ReleaseTime,InitiallyBroken,BurnMinutes,ReleaseDepth,FastGPSPower,TWICPower,PowerLimit,WetDry,MinWetDry,MaxWetDry,WetDryThreshold,StatusWord,TransmitPower,Resets,PreReleaseTilt,PreReleaseTiltSd,PreReleaseTiltCount,XmitQueue,FastGPSLocNumber,FastGPSFailures,BattDiscon
+ZcTag094,180772,1.000000,Mk10,,01:47:02 31-Jul-2019,01:47:05 31-Jul-2019,3,0,35.6184,-74.6262,CRC,0,0,,,,1.008,0.132,,0.0,1136.0,-1,,,,,,,,,,,231,32,255,88,256,,,,,,,,,
+ZcTag094,180772,1.000000,Mk10,,10:19:11 31-Jul-2019,10:19:13 31-Jul-2019,2,0,35.9613,-74.7689,CRC,0,0,,,,1.016,0.136,,1.0,1136.0,0,,,,,,,,,,,255,32,255,88,256,,,,,,,,,
+ZcTag094,180772,1.000000,Mk10,,,12:35:42 31-Jul-2019,,Z,35.7103,-73.8055,CRC,0,0,,801,3.312,1.016,0.144,28.00,0.0,1136.0,-1,,,,,,,,,,,129,32,255,88,256,,,,,,,,,
+ZcTag094,180772,1.000000,Mk10,,,00:04:26 01-Aug-2019,,0,36.0509,-74.4765,CRC,0,0,,993,3.376,1.016,0.136,27.70,-17.0,1988.0,2,,,,,,,,,,,255,31,255,88,256,,,,,,,,,
+ZcTag094,180772,1.000000,Mk10,,,11:20:02 01-Aug-2019,,0,35.8918,-74.4431,CRC,0,0,,1121,3.376,1.024,0.140,26.70,-24.0,1988.0,0,,,,,,,,,,,255,31,255,88,256,,,,,,,,,

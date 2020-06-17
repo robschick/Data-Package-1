@@ -1,0 +1,6 @@
+DeployID,Ptt,DepthSensor,Instr,SW,RTC,Received,Time Offset,LocationQuality,Latitude,Longitude,Type,HauledOut,BrokenThermistor,BrokenLink,Transmits,BattVoltage,TransmitVoltage,TransmitCurrent,Temperature,Depth,MaxDepth,ZeroDepthOffset,LightLevel,NoDawnDusk,ReleaseType,ReleaseTime,InitiallyBroken,BurnMinutes,ReleaseDepth,FastGPSPower,TWICPower,PowerLimit,WetDry,MinWetDry,MaxWetDry,WetDryThreshold,StatusWord,TransmitPower,Resets,PreReleaseTilt,PreReleaseTiltSd,PreReleaseTiltCount,XmitQueue,FastGPSLocNumber,FastGPSFailures,BattDiscon
+GmTag223,180764,1.000000,Mk10,,19:44:11 08-May-2019,19:44:13 08-May-2019,2,0,45.8894,-26.6844,CRC,0,0,,,,0.992,0.116,,1.0,0.0,0,,,,,,,,,,,241,41,41,92,,,,,,,,,,
+GmTag223,180764,1.000000,Mk10,,,23:03:22 08-May-2019,,0,35.6219,-74.7672,CRC,0,0,,577,3.376,1.000,0.108,19.90,1.0,0.0,-1,,,,,,,,,,,234,41,41,92,,,,,,,,,,
+GmTag223,180764,1.000000,Mk10,,01:12:16 09-May-2019,01:12:18 09-May-2019,2,1,35.5574,-74.7634,CRC,0,0,,,,1.000,0.116,,1.0,540.0,-1,,,,,,,,,,,154,36,255,92,256,,,,,,,,,
+GmTag223,180764,1.000000,Mk10,,,02:13:01 09-May-2019,,1,35.5467,-74.7346,CRC,0,0,,705,3.376,0.992,0.104,24.10,1.0,540.0,-1,,,,,,,,,,,233,36,255,92,256,,,,,,,,,
+GmTag223,180764,1.000000,Mk10,,02:54:35 09-May-2019,02:54:37 09-May-2019,2,1,35.5609,-74.7353,CRC,0,0,,,,0.984,0.116,,1.0,540.0,-1,,,,,,,,,,,179,36,255,92,256,,,,,,,,,
