@@ -1,3 +1,9 @@
-setwd('data')
+setwd('/cloud/project/data')
 
-data <- readRDS("zc84_diveIds.rds")
+dive_labels <- readRDS("zc84_diveIds.rds")
+
+setwd('/cloud/project/data/L1_edited/180753')
+
+zc084 <- read_csv("180753-Series.csv")
+
+merged <- cbind(zc084, dive_labels)
