@@ -12,22 +12,16 @@ that are then stored in an R data package.
 
 In the `config.yml` for this example, this file is listed first, and therefore processed first.
 
-This particular document simply subsets the `cars` data set:
+```{r}
+library(dplyr)
+cars <- read.csv(project_extdata_path('cars.csv'))
 
-```{r cars}
-summary(cars)
-dim(cars)
+tidy_cars <- cars %>%
+  rename(speed_mph = speed, stopping_distace = dist)
 ```
 
 `cars` consists of a data frame of 50 rows and two columns. The `?cars` documentation specifies that it consists of speed and stopping distances of cars.
 
-Let's say, for some reason, we are only interested in the stopping distances of cars traveling greater than 20 miles per hour.
-
-```{r}
-cars_over_20 = cars
-```
-
-The data frame `cars_over_20` now holds this information. 
 
 # Storing data set objects and making making accessible to other processing scripts. 
 
