@@ -13,22 +13,24 @@ library(DataPackageR)
 
 # 1. Create a package directory structure
 datapackage_skeleton(name = "BRSPackage",
-                     path = tempdir(),
+                     path = '/cloud',
                      force = TRUE,
                      raw_data_dir = '/cloud/project/data/raw_data')
 
 
+
 # 2. Add raw data to the package.
+
 # write our raw data to a csv
-write.csv(x = cars,file = file.path(tempdir(),"cars.csv"),row.names = FALSE)
+#write.csv(x = locations,file = file.path('/cloud',"Locations.csv"),row.names = FALSE)
 # this works because we called datapackage_skeleton() first.
-use_raw_dataset(file.path(tempdir(),"cars.csv"))
+use_raw_dataset(DataPackageR::project_extdata_path("All_Locations.csv"))
 
 
 # 3. Add a data processing script. Edit your processing script (in Rmd file)
-use_processing_script(file = "tidy_cars.Rmd",
-                      author = "Greg Finak",
-                      title = "Process cars into tidy_cars.")
+use_processing_script(file = "Locations RMD.Rmd",
+                      author = "Jennifer Schultz",
+                      title = "Process all locations.")
 
 # 4. Let DataPackageR know about the data objects to store in the package.
 use_data_object("tidy_cars")
