@@ -12,9 +12,10 @@ library(DataPackageR)
 
 
 # 1. Create a package directory structure
-datapackage_skeleton(name = "TidyCars",
+datapackage_skeleton(name = "BRSPackage",
                      path = tempdir(),
-                     force = TRUE)
+                     force = TRUE,
+                     raw_data_dir = '/cloud/project/data/raw_data')
 
 
 # 2. Add raw data to the package.
