@@ -369,7 +369,7 @@ summary {
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
 <pre class="r"><code>setwd('/cloud/project/data')
-locations &lt;- read_csv(&quot;Locations .csv&quot;)</code></pre>
+locations &lt;- read_csv(&quot;All_Locations.csv&quot;)</code></pre>
 <pre><code>## Warning: Missing column names filled in: 'X1' [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -394,20 +394,20 @@ locations &lt;- read_csv(&quot;Locations .csv&quot;)</code></pre>
 ##   Comment = col_character()
 ## )</code></pre>
 <pre class="r"><code>locations</code></pre>
-<pre><code>## # A tibble: 4,110 x 19
+<pre><code>## # A tibble: 7,295 x 19
 ##       X1 DeployID    Ptt Instr Date  Type  Quality Latitude Longitude
 ##    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-##  1     1 GmTag224 180760 Mk10  15:4… Argos 1           41.5    -103. 
-##  2     2 GmTag224 180760 Mk10  16:1… Argos B           35.6     -74.5
-##  3     3 GmTag224 180760 Mk10  16:5… Argos B           35.7     -74.5
-##  4     4 GmTag224 180760 Mk10  20:3… Argos 0           35.8     -74.8
-##  5     5 GmTag224 180760 Mk10  21:5… Argos B           36.0     -74.7
-##  6     6 GmTag224 180760 Mk10  22:2… Argos 0           35.9     -74.9
-##  7     7 GmTag224 180760 Mk10  22:2… Argos 0           35.8     -74.8
-##  8     8 GmTag224 180760 Mk10  00:0… Argos 1           35.9     -74.8
-##  9     9 GmTag224 180760 Mk10  00:1… Argos 1           35.9     -74.7
-## 10    10 GmTag224 180760 Mk10  00:2… Argos 3           35.9     -74.8
-## # … with 4,100 more rows, and 10 more variables: Error.radius &lt;dbl&gt;,
+##  1     1 ZcTag084 180753 Mk10  13:0… Argos 0           24.6     -22.2
+##  2     2 ZcTag084 180753 Mk10  14:0… Argos B           32.9     -59.1
+##  3     3 ZcTag084 180753 Mk10  14:1… Argos 0           33.3     -76.5
+##  4     4 ZcTag084 180753 Mk10  14:4… Argos A           34.6     -66.7
+##  5     5 ZcTag084 180753 Mk10  15:1… Argos B           33.3     -76.5
+##  6     6 ZcTag084 180753 Mk10  00:0… Argos 0           35.7     -74.7
+##  7     7 ZcTag084 180753 Mk10  01:2… Argos 0           35.7     -74.7
+##  8     8 ZcTag084 180753 Mk10  01:3… Argos 0           35.6     -74.8
+##  9     9 ZcTag084 180753 Mk10  02:0… Argos 0           35.6     -74.8
+## 10    10 ZcTag084 180753 Mk10  03:0… Argos A           35.6     -74.8
+## # … with 7,285 more rows, and 10 more variables: Error.radius &lt;dbl&gt;,
 ## #   Error.Semi.major.axis &lt;dbl&gt;, Error.Semi.minor.axis &lt;dbl&gt;,
 ## #   Error.Ellipse.orientation &lt;dbl&gt;, Offset &lt;lgl&gt;, Offset.orientation &lt;lgl&gt;,
 ## #   GPE.MSD &lt;lgl&gt;, GPE.U &lt;lgl&gt;, Count &lt;lgl&gt;, Comment &lt;chr&gt;</code></pre>

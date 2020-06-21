@@ -15,7 +15,7 @@ library(knitr)
 
 ```{r cars}
 setwd('/cloud/project/data')
-locations <- read_csv("Locations .csv")
+locations <- read_csv("All_Locations.csv")
 locations
 ```
 
