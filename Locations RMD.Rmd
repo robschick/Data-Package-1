@@ -1,0 +1,23 @@
+---
+title: "Locations RMD"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+```
+
+## R Markdown
+
+
+
+```{r cars}
+setwd('/cloud/project/data')
+locations <- read_csv("Locations .csv")
+locations
+```
+
+
+
