@@ -3,10 +3,11 @@
 #df$Date <- as.Date(as.character(df$Date, format = "%Y-%m-%d"))
 
 library(shiny)
+library(DT)
 
 
 loc <- read.csv("All_Locations.csv")
-
+# i.e. upload depth data
 
 ui <- fluidPage(
     selectInput("ID", "Choose a Tag:",
@@ -16,18 +17,27 @@ ui <- fluidPage(
                        label = "Choose the Controlled Exposure Experiment(s):",
                        choices = c("CEE1", "CEE2", "CEE3", "CEE4")),
     submitButton("Generate Visualization", icon("refresh")),
-    plotOutput(outputId = "tsplot")
+    plotOutput(outputId = "tsplot"),
+    
+    h2("The Locations Data"),
+    DT::dataTableOutput("mytable")
 )
 server <- function(input, output){
     datasetInput <- reactive({
         loc[loc$DeployID == input$ID, ]
     }) 
-    # output$distTable <- renderTable({
-    #     loc
-    # })
+    
+    output$distTable <- renderTable({
+        loc
+    })
+    
     output$tsplot <- renderPlot({
         dataset <- datasetInput()
         plot(as.ts(dataset$Latitude, dataset$Longitude))
+    })
+    
+    output$mytable = DT::renderDataTable({
+        loc
     })
 }
 shinyApp(ui, server)
