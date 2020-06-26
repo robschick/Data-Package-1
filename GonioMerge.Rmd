@@ -1,0 +1,37 @@
+---
+title: "Gonio"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(lubridate)
+library(dplyr, warn.conflicts = FALSE)
+library(tsibble)
+library(readr)
+```
+
+## R Markdown
+
+```{r gonio}
+gonio <- read_csv("gonio_gpx_merge_2019.csv")
+```
+
+```{r data}
+new_gonio <- gonio %>%
+  distinct()
+new_gonio
+```
+
+```{r}
+gonio_tsbl <- as_tsibble(new_gonio, key=hex, time=date)
+```
+
+```{r}
+gonio_tsbl %>%
+  group_by_key() %>%
+  index_by(date = ~ as_date(.)) %>% 
+  summarise(max_strength_db = max(strength_db))
+```
