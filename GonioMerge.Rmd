@@ -21,8 +21,9 @@ gonio <- read_csv("gonio_gpx_merge_2019.csv")
 
 ```{r data}
 new_gonio <- gonio %>%
-  distinct()
-new_gonio
+ distinct()
+
+are_duplicated(new_gonio, key = hex, index = date)
 ```
 
 ```{r}
