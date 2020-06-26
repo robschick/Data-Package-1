@@ -1,0 +1,15 @@
+TRACE [2020-06-25 06:14:07] Logging to /cloud/project/Test/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-06-25 06:14:07] Processing data
+TRACE [2020-06-25 06:14:07] Reading yaml configuration
+TRACE [2020-06-25 06:14:07] Found /cloud/project/Test/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-06-25 06:14:07] Processing 1 of 1: /cloud/project/Test/BRSPackage/data-raw/locations.Rmd
+
+TRACE [2020-06-25 06:14:08] 1 data set(s) created by locations.Rmd
+TRACE [2020-06-25 06:14:08] NEWS.md file not found, creating!
+TRACE [2020-06-25 06:14:08] NEWS.md file found, updating!
+TRACE [2020-06-25 06:14:08] Saving to data
+TRACE [2020-06-25 06:14:08] Copied documentation to /cloud/project/Test/BRSPackage/R/BRSPackage.R
+TRACE [2020-06-25 06:14:08] Done
+TRACE [2020-06-25 06:14:08] DataPackageR succeeded
+TRACE [2020-06-25 06:14:08] Building documentation
+TRACE [2020-06-25 06:14:09] Building package

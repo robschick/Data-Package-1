@@ -1,0 +1,8 @@
+configuration:
+  files:
+    locations.Rmd:
+      enabled: yes
+  objects:
+  - locations
+  render_root:
+    tmp: '762502'
