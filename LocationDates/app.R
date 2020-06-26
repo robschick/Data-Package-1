@@ -15,7 +15,7 @@ ui <- fluidPage(
     
     sidebarLayout(
         sidebarPanel(
-            h2("The Locations Data"),
+            h2("Create a BRS Plot"),
             
             selectInput("ID", "Choose a Tag:",
                         choices = c("ZcTag084", "ZcTag082", "ZcTag083", "ZcTag085", "ZcTag087", "ZcTag088", "ZcTag086", "GmTag224", "ZcTag092", "ZcTag090", "ZcTag093", "GmTag223", "GmTag227", "ZcTag095", "GmTag225", "ZcTag089", "ZcTag094", "ZcTag097", "ZcTag096", "GmTag226", "ZcTag091")),
