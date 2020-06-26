@@ -23,7 +23,7 @@ server <- function(input, output, session) {
     
     
     
-    data <- read.csv("/cloud/project/June15/All_Locations.csv")
+    data <- read.csv("/cloud/project/All_Locations.csv")
     data$long <- as.numeric(data$Longitude)
     data$lat <- as.numeric(data$Latitude)
     
