@@ -24,17 +24,21 @@ ui <- fluidPage(
                                label = "Choose the Controlled Exposure Experiment(s):",
                                choices = c("CEE1", "CEE2", "CEE3", "CEE4")),
             submitButton("Generate Visualization", icon("refresh")),
-            plotOutput(outputId = "tsplot"),
+            #plotOutput(outputId = "tsplot"),
             
         ),
         mainPanel(
             tabsetPanel(
                 id = 'dataset',
-                tabPanel("loc", DT::dataTableOutput("mytable1")),
-                tabPanel("ser", DT::dataTableOutput("mytable2")),
-                tabPanel("range", DT::dataTableOutput("mytable3")),
-                tabPanel("cee", DT::dataTableOutput("mytable4"))
-            )
+                
+                tabPanel("Plot", plotOutput(outputId = "tsplot")),
+                
+                tabPanel("Locations", DT::dataTableOutput("mytable1")),
+                tabPanel("Series", DT::dataTableOutput("mytable2")),
+                tabPanel("SeriesRange", DT::dataTableOutput("mytable3")),
+                tabPanel("CEE Metadata", DT::dataTableOutput("mytable4"))
+            ),
+            #plotOutput(outputId = "tsplot")
         )
     )
 )
