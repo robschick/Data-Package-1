@@ -1,0 +1,43 @@
+---
+title: Locations and Deployment Locations Intersection.
+author: Larry Zheng
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(lubridate)
+```
+
+## R Markdown
+
+
+
+```{r cars}
+locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
+deploy <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/2019_SatTag_DeployLocations.csv")
+```
+
+```{r}
+deploy <- deploy %>%
+  rename_all(funs(str_replace(., "_DUML", "")))
+deploy
+```
+
+```{r deploy-make-datetime}
+deploy <- deploy %>%
+  mutate(date_time = as_datetime(paste(date, TimeOn)))
+deploy
+```
+
+
+```{r}
+locations %>%
+  group_by(SatTag_ID) %>%
+  if () {
+    
+  } 
+  # If datetime < datetime of deploy, then remove observation
+```
+
