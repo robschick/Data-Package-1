@@ -13,7 +13,7 @@ library(DataPackageR)
 
 # 1. Create a package directory structure
 datapackage_skeleton(name = "BRSPackage",
-                     path = '/cloud',
+                     path = '/cloud/project/Test',
                      force = TRUE,
                      raw_data_dir = '/cloud/project/data/raw_data')
 
@@ -32,19 +32,99 @@ datapackage_skeleton(name = "BRSPackage",
 
 
 # 3. Add a data processing script. Edit your processing script (in Rmd file)
-use_processing_script(file = "Locations RMD.Rmd",
+use_processing_script(file = "locations.Rmd",
                       author = "Jennifer Schultz",
-                      title = "Process all locations.")
+                      title = "Process all locations.",
+                      overwrite = TRUE)
+
+# use_processing_script(file = "/cloud/package/data/raw_data/Locations RMD.Rmd",
+#                       overwrite = TRUE)
+
+# use_processing_script(system.file("extdata", 
+#                                   "tests",
+#                                   "subsetCars.Rmd",
+#                                   package = "DataPackageR"))
 
 # 4. Let DataPackageR know about the data objects to store in the package.
 use_data_object("locations")
 
-
-
-
 # Build the package (for the first time).
 options("DataPackageR_interact" = FALSE)
-package_build(packageName = file.path('/cloud/project',"BRSPackage"), install = FALSE)
+package_build(packageName = '/cloud/project/Test/BRSPackage', install = FALSE)
+
+
+
+# Series
+
+# 3. Add a data processing script. Edit your processing script (in Rmd file)
+use_processing_script(file = "series.Rmd",
+                      author = "Larry Zheng",
+                      title = "Raw series.",
+                      overwrite = TRUE)
+
+# 4. Let DataPackageR know about the data objects to store in the package.
+use_data_object("series")
+
+
+# Build the package.
+options("DataPackageR_interact" = FALSE)
+package_build(packageName = '/cloud/project/Test/BRSPackage', install = FALSE)
+
+
+
+# Series Range
+
+# 3. Add a data processing script. Edit your processing script (in Rmd file)
+use_processing_script(file = "series_range.Rmd",
+                      author = "Larry Zheng",
+                      title = "Raw series range.",
+                      overwrite = TRUE)
+
+# 4. Let DataPackageR know about the data objects to store in the package.
+use_data_object("series_range")
+
+
+# Build the package.
+options("DataPackageR_interact" = FALSE)
+package_build(packageName = '/cloud/project/Test/BRSPackage', install = FALSE)
+
+
+# CEE Metadata
+
+# 3. Add a data processing script. Edit your processing script (in Rmd file)
+use_processing_script(file = "cee",
+                      author = "Larry Zheng",
+                      title = "Raw CEE.",
+                      overwrite = TRUE)
+
+# 4. Let DataPackageR know about the data objects to store in the package.
+use_data_object("cee")
+
+
+# Build the package.
+options("DataPackageR_interact" = FALSE)
+package_build(packageName = '/cloud/project/Test/BRSPackage', install = FALSE)
+
+
+
+# Locations Intersected with Deployment
+
+# 3. Add a data processing script. Edit your processing script (in Rmd file)
+use_processing_script(file = "locations_intersect.Rmd",
+                      author = "Larry Zheng",
+                      title = "Locations Intersected with Deployment.",
+                      overwrite = TRUE)
+
+# 4. Let DataPackageR know about the data objects to store in the package.
+use_data_object("locations_intersect")
+
+
+# Build the package.
+options("DataPackageR_interact" = FALSE)
+package_build(packageName = '/cloud/project/Test/BRSPackage', install = FALSE)
+
+
+
 
 
 # Edit the data set documentation: edit the documentation.R file under data-raw
