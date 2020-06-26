@@ -9,8 +9,10 @@
 #'     and/or DataPackageR::load_all
 #' _datasets() to load them.
 #' @seealso
-#' \link{locations}
+#' \link{series_range}
 NULL
+
+
 
 
 
@@ -47,3 +49,71 @@ NULL
 
 
 
+
+
+#' Detailed description of the data
+#' @name series
+#' @docType data
+#' @title Descriptive data title
+#' @format a \code{spec_tbl_df} containing the following fields:
+#' \describe{
+#' \item{X1}{}
+#' \item{DeployID}{}
+#' \item{Ptt}{}
+#' \item{DepthSensor}{}
+#' \item{Source}{}
+#' \item{Instr}{}
+#' \item{Day}{}
+#' \item{Time}{}
+#' \item{LocationQuality}{}
+#' \item{Latitude}{}
+#' \item{Longitude}{}
+#' \item{Depth}{}
+#' \item{DRange}{}
+#' \item{Temperature}{}
+#' \item{TRange}{}
+#' \item{Activity}{}
+#' \item{ARange}{}
+#' }
+#' @source The data comes from________________________.
+#' @seealso
+#' \link{BRSPackage}
+NULL
+
+
+
+
+#' Detailed description of the data
+#' @name series_range
+#' @docType data
+#' @title Descriptive data title
+#' @format a \code{spec_tbl_df} containing the following fields:
+#' \describe{
+#' \item{X1}{}
+#' \item{DeployID}{}
+#' \item{Ptt}{}
+#' \item{DepthSensor}{}
+#' \item{Source}{}
+#' \item{Instr}{}
+#' \item{Count}{}
+#' \item{Start}{}
+#' \item{End}{}
+#' \item{LocationQuality}{}
+#' \item{Latitude}{}
+#' \item{Longitude}{}
+#' \item{MinDepth}{}
+#' \item{MinDepthAccuracy}{}
+#' \item{MaxDepth}{}
+#' \item{MaxDepthAccuracy}{}
+#' \item{MinTemp}{}
+#' \item{MinTempAccuracy}{}
+#' \item{MaxTemp}{}
+#' \item{MaxTempAccuracy}{}
+#' \item{MobMean}{}
+#' \item{MobSD}{}
+#' \item{ActivitySum}{}
+#' }
+#' @source The data comes from________________________.
+#' @seealso
+#' \link{BRSPackage}
+NULL

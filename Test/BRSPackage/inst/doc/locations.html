@@ -370,9 +370,7 @@ summary {
 
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
-<pre class="r"><code>#setwd('/cloud/project/Test/BRSPackage/inst/extdata/raw_data')
-locations &lt;- read_csv(&quot;/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv&quot;)</code></pre>
-<pre><code>## Warning: Missing column names filled in: 'X1' [1]</code></pre>
+<pre class="r"><code>locations &lt;- read_csv(&quot;/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv&quot;)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   X1 = col_double(),
@@ -395,23 +393,6 @@ locations &lt;- read_csv(&quot;/cloud/project/Test/BRSPackage/inst/extdata/raw_d
 ##   Count = col_logical(),
 ##   Comment = col_character()
 ## )</code></pre>
-<pre class="r"><code>locations</code></pre>
-<pre><code>## # A tibble: 7,295 x 19
-##       X1 DeployID    Ptt Instr Date  Type  Quality Latitude Longitude Error.radius Error.Semi.majo…
-##    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;            &lt;dbl&gt;
-##  1     1 ZcTag084 180753 Mk10  13:0… Argos 0           24.6     -22.2         6081            25354
-##  2     2 ZcTag084 180753 Mk10  14:0… Argos B           32.9     -59.1        27486           503952
-##  3     3 ZcTag084 180753 Mk10  14:1… Argos 0           33.3     -76.5        57676           101365
-##  4     4 ZcTag084 180753 Mk10  14:4… Argos A           34.6     -66.7         5137           179600
-##  5     5 ZcTag084 180753 Mk10  15:1… Argos B           33.3     -76.5        78530            82005
-##  6     6 ZcTag084 180753 Mk10  00:0… Argos 0           35.7     -74.7         2340            13736
-##  7     7 ZcTag084 180753 Mk10  01:2… Argos 0           35.7     -74.7         6424            57773
-##  8     8 ZcTag084 180753 Mk10  01:3… Argos 0           35.6     -74.8         3871            24381
-##  9     9 ZcTag084 180753 Mk10  02:0… Argos 0           35.6     -74.8         3330            84577
-## 10    10 ZcTag084 180753 Mk10  03:0… Argos A           35.6     -74.8         5656            10874
-## # … with 7,285 more rows, and 8 more variables: Error.Semi.minor.axis &lt;dbl&gt;,
-## #   Error.Ellipse.orientation &lt;dbl&gt;, Offset &lt;lgl&gt;, Offset.orientation &lt;lgl&gt;, GPE.MSD &lt;lgl&gt;, GPE.U &lt;lgl&gt;,
-## #   Count &lt;lgl&gt;, Comment &lt;chr&gt;</code></pre>
 </div>
 
 
