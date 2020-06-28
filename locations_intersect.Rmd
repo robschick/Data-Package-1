@@ -20,8 +20,7 @@ deploy <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/2019_Sa
 ```
 
 ```{r}
-deploy <- deploy %>%
-  rename_all(funs(str_replace(., "_DUML", "")))
+deploy$SatTag_ID = substr(deploy$SatTag_ID,1,nchar(deploy$SatTag_ID)-5)
 deploy
 ```
 
@@ -33,11 +32,22 @@ deploy
 
 
 ```{r}
-locations %>%
-  group_by(SatTag_ID) %>%
-  if () {
-    
-  } 
-  # If datetime < datetime of deploy, then remove observation
+# Add column of when tag was put on the individual
+tag_on_tib <- deploy[match(locations$DeployID, deploy$SatTag_ID),27]
+tag_on_vec <- pull(tag_on_tib, date_time)
+
+locations$tag_on <- tag_on_vec
+# Subset: [rows, columns]. 27th column is datetime of when tag on
+
+locations <- locations %>%
+  mutate(date_time = as.POSIXct(Date, format = "%H:%M:%S %d-%B-%Y"))
+# Use B for month format because months are written out, not in decimal format
+locations
+```
+
+```{r}
+# Remove observations where Date is before tag was on
+locations <- locations[!(locations$date_time < locations$tag_on),]
+locations
 ```
 
