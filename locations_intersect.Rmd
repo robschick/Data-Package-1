@@ -26,7 +26,7 @@ deploy
 
 ```{r deploy-make-datetime}
 deploy <- deploy %>%
-  mutate(date_time = as_datetime(paste(date, TimeOn)))
+  mutate(date_time = as.POSIXct(paste(date, " ", as.character(TimeOn)), format = "%d-%B-%y %H:%M:%S"))
 deploy
 ```
 
@@ -47,7 +47,13 @@ locations
 
 ```{r}
 # Remove observations where Date is before tag was on
-locations <- locations[!(locations$date_time < locations$tag_on),]
-locations
+processed_locations <- locations %>%
+  filter(date_time >= tag_on)
+
+processed_locations
+
+removed_locations <- locations %>%
+  filter(date_time < tag_on)
+removed_locations
 ```
 
