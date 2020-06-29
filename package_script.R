@@ -10,10 +10,11 @@ library(DataPackageR)
 # 3. We add a processing script to process cars into tidy_cars. (DataPackageR::use_processing_script())
 # 4. We define the tidy data object (named tidy_cars) that will be stored in our data package. (DataPackageR::use_data_object())
 
+path <- '/cloud/project/Test2'
 
 # 1. Create a package directory structure
 datapackage_skeleton(name = "BRSPackage",
-                     path = '/cloud/project/Test',
+                     path = path,
                      force = TRUE,
                      raw_data_dir = '/cloud/project/data/raw_data')
 
@@ -32,13 +33,13 @@ datapackage_skeleton(name = "BRSPackage",
 
 
 # 3. Add a data processing script. Edit your processing script (in Rmd file)
-use_processing_script(file = "locations.Rmd",
-                      author = "Jennifer Schultz",
-                      title = "Process all locations.",
-                      overwrite = TRUE)
-
-# use_processing_script(file = "/cloud/package/data/raw_data/Locations RMD.Rmd",
+# use_processing_script(file = "locations.Rmd",
+#                       author = "Jennifer Schultz",
+#                       title = "Process all locations.",
 #                       overwrite = TRUE)
+
+use_processing_script(file = "/cloud/project/data/raw_data/locations.Rmd",
+                      overwrite = TRUE)
 
 # use_processing_script(system.file("extdata", 
 #                                   "tests",
@@ -50,7 +51,7 @@ use_data_object("locations")
 
 # Build the package (for the first time).
 options("DataPackageR_interact" = FALSE)
-package_build(packageName = '/cloud/project/Test/BRSPackage', install = FALSE)
+package_build(packageName = paste(path, '/BRSPackage', sep = ""), install = FALSE)
 
 
 
@@ -122,6 +123,14 @@ use_data_object("locations_intersect")
 # Build the package.
 options("DataPackageR_interact" = FALSE)
 package_build(packageName = '/cloud/project/Test/BRSPackage', install = FALSE)
+
+
+
+
+
+#package_function <- function()
+
+
 
 
 
