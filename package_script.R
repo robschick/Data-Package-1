@@ -128,7 +128,18 @@ package_build(packageName = '/cloud/project/Test/BRSPackage', install = FALSE)
 
 
 
-#package_function <- function()
+# function to process and include multiple dataframes in package
+package_function <- function(rmd_path, dataframe_to_store) {
+  use_processing_script(file = rmd_path,
+                        overwrite = TRUE)
+  
+  # 4. Let DataPackageR know about the data objects to store in the package.
+  use_data_object(dataframe_to_store)
+  
+  # Build the package.
+  options("DataPackageR_interact" = FALSE)
+  package_build(packageName = paste(path, '/BRSPackage', sep = ""), install = FALSE)
+}
 
 
 
