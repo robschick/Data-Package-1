@@ -20,14 +20,15 @@ gonio <- read_csv("gonio_gpx_merge_2019.csv")
 ```
 
 ```{r data}
-new_gonio <- gonio %>%
- distinct()
+new_gonio <- gonio[1:10,] # %>%
+ #distinct() %>%
+  #slice(1:10)
 
 are_duplicated(new_gonio, key = hex, index = date)
 ```
 
 ```{r}
-gonio_tsbl <- as_tsibble(new_gonio, key=hex, time=date)
+gonio_tsbl <- as_tsibble(new_gonio, key=hex, index=date)
 ```
 
 ```{r}
