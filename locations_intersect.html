@@ -432,9 +432,8 @@ deploy</code></pre>
 ## #   Reaction &lt;dbl&gt;, BehavResponse1 &lt;chr&gt;, BehavResponse2 &lt;chr&gt;,
 ## #   Reapproached &lt;chr&gt;, TimeLapsebtwApproaches &lt;time&gt;, Comments &lt;chr&gt;</code></pre>
 <pre class="r"><code>deploy &lt;- deploy %&gt;%
-  mutate(date_time = as_datetime(paste(date, TimeOn)))</code></pre>
-<pre><code>## Warning: 591 failed to parse.</code></pre>
-<pre class="r"><code>deploy</code></pre>
+  mutate(date_time = as.POSIXct(paste(date, &quot; &quot;, as.character(TimeOn)), format = &quot;%d-%B-%y %H:%M:%S&quot;))
+deploy</code></pre>
 <pre><code>## # A tibble: 612 x 27
 ##    SatTag_ID date  Lat_Tag_on Long_Tag_on sightno TagType TagSettings    PTT
 ##    &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;
@@ -485,26 +484,40 @@ locations</code></pre>
 ## #   GPE.MSD &lt;lgl&gt;, GPE.U &lt;lgl&gt;, Count &lt;lgl&gt;, Comment &lt;chr&gt;, tag_on &lt;dttm&gt;,
 ## #   date_time &lt;dttm&gt;</code></pre>
 <pre class="r"><code># Remove observations where Date is before tag was on
-locations &lt;- locations[!(locations$date_time &lt; locations$tag_on),]
-locations</code></pre>
-<pre><code>## # A tibble: 3,459 x 21
+processed_locations &lt;- locations %&gt;%
+  filter(date_time &gt;= tag_on)
+
+processed_locations</code></pre>
+<pre><code>## # A tibble: 7,293 x 21
 ##       X1 DeployID    Ptt Instr Date  Type  Quality Latitude Longitude
 ##    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-##  1   617 ZcTag082 180754 Mk10  20:4… Argos 0           35.6     -74.7
-##  2   618 ZcTag082 180754 Mk10  00:3… Argos 0           35.2     -74.8
-##  3   619 ZcTag082 180754 Mk10  00:3… Argos 0           35.4     -75.3
-##  4   620 ZcTag082 180754 Mk10  00:3… Argos 0           35.5     -74.9
-##  5   621 ZcTag082 180754 Mk10  00:3… Argos 0           29.3    -104. 
-##  6   622 ZcTag082 180754 Mk10  01:1… Argos 0           40.8     -49.3
-##  7   623 ZcTag082 180754 Mk10  02:1… Argos B           35.7     -74.7
-##  8   624 ZcTag082 180754 Mk10  02:1… Argos 0           35.2     -73.4
-##  9   625 ZcTag082 180754 Mk10  02:5… Argos Z           35.2     -74.2
-## 10   626 ZcTag082 180754 Mk10  09:0… Argos 0           28.0     -43.0
-## # … with 3,449 more rows, and 12 more variables: Error.radius &lt;dbl&gt;,
+##  1     1 ZcTag084 180753 Mk10  13:0… Argos 0           24.6     -22.2
+##  2     2 ZcTag084 180753 Mk10  14:0… Argos B           32.9     -59.1
+##  3     3 ZcTag084 180753 Mk10  14:1… Argos 0           33.3     -76.5
+##  4     4 ZcTag084 180753 Mk10  14:4… Argos A           34.6     -66.7
+##  5     5 ZcTag084 180753 Mk10  15:1… Argos B           33.3     -76.5
+##  6     6 ZcTag084 180753 Mk10  00:0… Argos 0           35.7     -74.7
+##  7     7 ZcTag084 180753 Mk10  01:2… Argos 0           35.7     -74.7
+##  8     8 ZcTag084 180753 Mk10  01:3… Argos 0           35.6     -74.8
+##  9     9 ZcTag084 180753 Mk10  02:0… Argos 0           35.6     -74.8
+## 10    10 ZcTag084 180753 Mk10  03:0… Argos A           35.6     -74.8
+## # … with 7,283 more rows, and 12 more variables: Error.radius &lt;dbl&gt;,
 ## #   Error.Semi.major.axis &lt;dbl&gt;, Error.Semi.minor.axis &lt;dbl&gt;,
 ## #   Error.Ellipse.orientation &lt;dbl&gt;, Offset &lt;lgl&gt;, Offset.orientation &lt;lgl&gt;,
 ## #   GPE.MSD &lt;lgl&gt;, GPE.U &lt;lgl&gt;, Count &lt;lgl&gt;, Comment &lt;chr&gt;, tag_on &lt;dttm&gt;,
 ## #   date_time &lt;dttm&gt;</code></pre>
+<pre class="r"><code>removed_locations &lt;- locations %&gt;%
+  filter(date_time &lt; tag_on)
+removed_locations</code></pre>
+<pre><code>## # A tibble: 2 x 21
+##      X1 DeployID    Ptt Instr Date  Type  Quality Latitude Longitude
+##   &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+## 1  4248 ZcTag093 180763 Mk10  15:0… Argos 0           35.6     -74.6
+## 2  4249 ZcTag093 180763 Mk10  15:0… Argos 0           35.7     -74.6
+## # … with 12 more variables: Error.radius &lt;dbl&gt;, Error.Semi.major.axis &lt;dbl&gt;,
+## #   Error.Semi.minor.axis &lt;dbl&gt;, Error.Ellipse.orientation &lt;dbl&gt;, Offset &lt;lgl&gt;,
+## #   Offset.orientation &lt;lgl&gt;, GPE.MSD &lt;lgl&gt;, GPE.U &lt;lgl&gt;, Count &lt;lgl&gt;,
+## #   Comment &lt;chr&gt;, tag_on &lt;dttm&gt;, date_time &lt;dttm&gt;</code></pre>
 </div>
 
 

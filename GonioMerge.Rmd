@@ -7,33 +7,33 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(knitr)
-library(lubridate)
-library(dplyr, warn.conflicts = FALSE)
-library(tsibble)
+library(dplyr)
 library(readr)
 ```
 
 ## R Markdown
 
 ```{r gonio}
-gonio <- read_csv("gonio_gpx_merge_2019.csv")
-```
+gonio <- read_csv('gonio_gpx_merge_2019.csv')
+gonio <- gonio %>%
+  mutate(date = as.character(date))
 
-```{r data}
-new_gonio <- gonio[1:10,] # %>%
- #distinct() %>%
-  #slice(1:10)
+gonio <- gonio %>%
+  mutate(date_time = parse_datetime(date, format = "%Y-%m-%d %H:%M:%S", locale = locale(tz = 'UTC'))) %>%
+  filter(!gps_gonio_time_difference_s > 60,
+        strength_db < 0)
+ 
+gonio$gap <- c(0, diff(gonio$date_time) > 120)
+gonio$group <- cumsum(gonio$gap) + 1
+ 
+gonio_out <- gonio %>%
+  group_by(DeployID, group) %>%
+  filter(strength_db == max(strength_db)) %>%
+  select(platform, DeployID, date_time, lon, lat, group, strength_db)
+ 
+gonio_out <- gonio_out %>%
+  group_by(DeployID, group) %>%
+  slice_head()
 
-are_duplicated(new_gonio, key = hex, index = date)
-```
-
-```{r}
-gonio_tsbl <- as_tsibble(new_gonio, key=hex, index=date)
-```
-
-```{r}
-gonio_tsbl %>%
-  group_by_key() %>%
-  index_by(date = ~ as_date(.)) %>% 
-  summarise(max_strength_db = max(strength_db))
+print(gonio_out)
 ```
