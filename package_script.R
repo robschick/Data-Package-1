@@ -141,15 +141,26 @@ package_function <- function(rmd_path, dataframe_to_store) {
   package_build(packageName = paste(path, '/BRSPackage', sep = ""), install = FALSE)
 }
 
-package_function("/cloud/project/data/raw_data/locations.Rmd”, “locations”)
-package_function("/cloud/project/data/raw_data/series.Rmd", "series")
-package_function("/cloud/project/data/raw_data/series_range.Rmd", "series_range")
-package_function("/cloud/project/data/raw_data/locations_intersect.Rmd", "locations_intersect")
-package_function("/cloud/project/data/raw_data/cee.Rmd", "cee")
+# package_function("/cloud/project/data/raw_data/locations.Rmd", "locations")
+# package_function("/cloud/project/data/raw_data/series.Rmd", "series")
+# package_function("/cloud/project/data/raw_data/series_range.Rmd", "series_range")
+# package_function("/cloud/project/data/raw_data/locations_intersect.Rmd", "locations_intersect")
+# package_function("/cloud/project/data/raw_data/cee.Rmd", "cee")
 
+paths <- c("/cloud/project/data/raw_data/locations.Rmd",
+           "/cloud/project/data/raw_data/series.Rmd", 
+           "/cloud/project/data/raw_data/series_range.Rmd",
+           "/cloud/project/data/raw_data/locations_intersect.Rmd",
+           "/cloud/project/data/raw_data/cee.Rmd")
+dataframes <- c("locations",
+                "series",
+                "series_range",
+                "locations_intersect",
+                "cee") 
 
-
-
+for (i in length(paths)) {
+  package_function(paths[i], dataframes[i])
+}
 
 
 # Edit the data set documentation: edit the documentation.R file under data-raw
