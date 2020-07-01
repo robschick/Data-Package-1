@@ -1,0 +1,40 @@
+---
+title: cee_locations.
+author: Larry Zheng
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+```
+
+## R Markdown
+
+```{r}
+locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
+```
+
+
+```{r read_csvs}
+cee <- read_csv(file = "/cloud/project/Test/BRSPackage/inst/extdata/raw_data/ATLANTIC-BRS_CEE Metadata.csv")
+
+```
+
+```{r}
+cee19_01 <- data.frame(DeployID=character(),
+                 Start.Date.Locs=as.Date(character()), 
+                 End.Date.Locs=as.Date(character()), 
+                 Length.Locs=integer(),
+                 Num.Data.Points=integer(),
+                 Num.Satellite=integer(),
+                 Num.Aux=integer(),
+                 Num.Before.CEE=integer(),
+                 Num.After.CEE=integer(),
+                 stringsAsFactors=TRUE) 
+```
+
+```{r}
+
+```
+
