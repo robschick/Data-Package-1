@@ -407,21 +407,65 @@ summary {
 ##   SightingNo = col_character(),
 ##   Comments = col_character()
 ## )</code></pre>
-<pre class="r"><code>aux</code></pre>
-<pre><code>## # A tibble: 229 x 11
-##    Tag   Date  Time       Lat  Long DataSource Vessel Category Error_in_m
-##    &lt;chr&gt; &lt;chr&gt; &lt;time&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;         &lt;dbl&gt;
-##  1 GmTa… 5/8/… 18:29:07  35.7 -74.8 Sightings  Barber Fluke            50
-##  2 GmTa… 5/8/… 18:39:35  35.7 -74.8 Tagging    Barber Fluke            50
-##  3 GmTa… 5/11… 12:50:35  35.8 -74.8 Sightings  Barber Fluke            50
-##  4 GmTa… 7/28… 15:19:22  35.8 -74.8 Sightings  Barber Fluke            50
-##  5 GmTa… 7/28… 15:41:00  35.8 -74.8 Tagging    Barber Fluke            50
-##  6 GmTa… 8/19… 21:44:04  35.9 -74.7 Sightings  Kahuna Distant        1000
-##  7 GmTa… 7/28… 17:10:43  35.9 -74.8 Sightings  Barber Fluke            50
-##  8 GmTa… 7/28… 17:13:47  35.9 -74.8 Tagging    Barber Fluke            50
-##  9 GmTa… 7/28… 17:43:43  35.8 -74.8 Sightings  Barber Fluke            50
-## 10 GmTa… 7/28… 17:50:44  35.8 -74.8 Tagging    Barber Fluke            50
-## # … with 219 more rows, and 2 more variables: SightingNo &lt;chr&gt;, Comments &lt;chr&gt;</code></pre>
+<pre class="r"><code>aux %&gt;%
+  select(Date)</code></pre>
+<pre><code>## # A tibble: 229 x 1
+##    Date   
+##    &lt;chr&gt;  
+##  1 5/8/19 
+##  2 5/8/19 
+##  3 5/11/19
+##  4 7/28/19
+##  5 7/28/19
+##  6 8/19/19
+##  7 7/28/19
+##  8 7/28/19
+##  9 7/28/19
+## 10 7/28/19
+## # … with 219 more rows</code></pre>
+<pre class="r"><code>merge &lt;- list.files(path = &quot;/cloud/project/Test/BRSPackage/Interleave&quot;, 
+                    pattern = &quot;*.csv&quot;, full.names = TRUE) %&gt;%
+  lapply(read_csv) %&gt;%
+  bind_rows</code></pre>
+<pre><code>## Warning: Missing column names filled in: 'X1' [1]</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   X1 = col_double(),
+##   DeployID = col_character(),
+##   Ptt = col_double(),
+##   Instr = col_character(),
+##   Date = col_character(),
+##   Type = col_character(),
+##   Quality = col_character(),
+##   Latitude = col_double(),
+##   Longitude = col_double(),
+##   Error.radius = col_double(),
+##   Error.Semi.major.axis = col_double(),
+##   Error.Semi.minor.axis = col_double(),
+##   Error.Ellipse.orientation = col_double(),
+##   Offset = col_logical(),
+##   Offset.orientation = col_logical(),
+##   GPE.MSD = col_logical(),
+##   GPE.U = col_logical(),
+##   Count = col_logical(),
+##   Comment = col_character()
+## )</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Tag = col_character(),
+##   Date = col_character(),
+##   Time = col_time(format = &quot;&quot;),
+##   Lat = col_double(),
+##   Long = col_double(),
+##   DataSource = col_character(),
+##   Vessel = col_character(),
+##   Category = col_character(),
+##   Error_in_m = col_double(),
+##   SightingNo = col_character(),
+##   Comments = col_character()
+## )</code></pre>
+<pre class="r"><code>#merge %&gt;%
+ #select(Date, Latitude, Lat, DeployID, Tag, Error_in_m, Time)</code></pre>
 </div>
 
 
