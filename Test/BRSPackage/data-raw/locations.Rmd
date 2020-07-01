@@ -13,6 +13,6 @@ library(knitr)
 
 
 
-```{r cars}
+```{r locations}
 locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
 ```

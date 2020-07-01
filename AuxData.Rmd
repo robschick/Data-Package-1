@@ -1,0 +1,22 @@
+---
+title: "Aux Data"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+```
+
+## R Markdown
+
+```{r csv}
+locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
+aux <- read_csv("AuxDataErrorStructure.csv")
+```
+
+```{r merge}
+
+```
+
