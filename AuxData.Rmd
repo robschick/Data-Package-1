@@ -16,9 +16,10 @@ library(readr)
 
 ```{r csv}
 locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
-aux <- read_csv("AuxDataErrorStructure.csv")
+aux <- read_csv("AuxDataErrorStructure.csv") %>%
+  mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = "%m/%d/%y %H:%M:%S"))
 aux %>%
-  select(Date)
+  select(date_time)
 ```
 
 ```{r merge}
