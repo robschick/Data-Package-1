@@ -31,7 +31,7 @@ server <- function(input, output, session) {
         distinct(DeployID)
     
     
-    data.SP <- SpatialPointsDataFrame(data[, c(8,9)], data[, -c(8,9)])
+    data.SP <- SpatialPointsDataFrame(data[, c("long","lat")], data[, -c("long","lat")])
     
     output$mymap <- renderLeaflet({
         leaflet() %>%
