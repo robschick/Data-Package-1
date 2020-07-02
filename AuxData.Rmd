@@ -10,16 +10,20 @@ library(knitr)
 library(plyr)
 library(stringr)
 library(readr)
+library(gdata)
 ```
 
 ## R Markdown
 
 ```{r csv}
 locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
+locations %>%
+  select(Date, Latitude, Longitude, Error.Semi.major.axis, Error.radius, Error.Semi.minor.axis, Error.Ellipse.orientation)
+
 aux <- read_csv("AuxDataErrorStructure.csv") %>%
   mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = "%m/%d/%y %H:%M:%S"))
 aux %>%
-  select(date_time)
+  select(date_time, Tag, Lat, Long, Category, Error_in_m)
 ```
 
 ```{r merge}
