@@ -3,6 +3,8 @@
 #df$Date <- as.Date(as.character(df$Date, format = "%Y-%m-%d"))
 
 library(shiny)
+library(ggplot2)
+library(ggspatial)
 library(DT)
 
 
@@ -17,10 +19,9 @@ ui <- fluidPage(
         sidebarPanel(
             
             h2("Create a BRS Plot"),
-            
-            uiOutput("select_tag"),
-            #selectInput("ID", "Choose a Tag:",
-            #choices = c("ZcTag084", "ZcTag082", "ZcTag083", "ZcTag085", "ZcTag087", "ZcTag088", "ZcTag086", "GmTag224", "ZcTag092", "ZcTag090", "ZcTag093", "GmTag223", "GmTag227", "ZcTag095", "GmTag225", "ZcTag089", "ZcTag094", "ZcTag097", "ZcTag096", "GmTag226", "ZcTag091")),
+            selectInput("ID", "DeployID", selected = "ZcTag084",
+                        choices = unique(loc$DeployID)),
+            # uiOutput("select_tag"),
             dateRangeInput("date", "Choose a Date Range:"),
             checkboxGroupInput("varcee",
                                label = "Choose the Controlled Exposure Experiment(s):",
@@ -51,30 +52,26 @@ server <- function(input, output){
     
     output$tsplot <- renderPlot({
         dataset <- datasetInput()
-        plot(as.ts(dataset$Latitude))
+        # plot(as.ts(dataset$Latitude))
+        ggplot(dataset, aes(Longitude, Latitude))+
+            geom_spatial_point()+
+            ggtitle(paste0('Raw Locations from: ', input$ID))
     })
     
     #update loc tab based on tag selected
-    updateloc <- reactive({ 
-        loc %>% 
-            filter(DeployID == input$ID)
-    })
-    
-    # 1st Input rendered by the server <---
-    output$select_tag <- renderUI({
-        #selectizeInput('ID', 'Choose a Tag:', choices = c("choose" = "", levels(loc$DeployID)))
-        selectInput("ID", "Choose a Tag:",
-                    choices = c("ZcTag084", "ZcTag082", "ZcTag083", "ZcTag085", "ZcTag087", "ZcTag088", "ZcTag086", "GmTag224", "ZcTag092", "ZcTag090", "ZcTag093", "GmTag223", "GmTag227", "ZcTag095", "GmTag225", "ZcTag089", "ZcTag094", "ZcTag097", "ZcTag096", "GmTag226", "ZcTag091"))
-    })
+    # updateloc <- reactive({
+    #     loc %>%
+    #         filter(DeployID == input$ID)
+    # })
     
     output$mytable1 = DT::renderDataTable({
-        updateloc()
+        datasetInput()
     })
     
     
     updateser <- reactive({ 
         ser %>% 
-            filter(DeployID == input$ID)
+            dplyr::filter(DeployID == input$ID)
     })
     output$mytable2 = DT::renderDataTable({
         updateser()
@@ -83,7 +80,7 @@ server <- function(input, output){
 
     updaterange <- reactive({ 
         range %>% 
-            filter(DeployID == input$ID)
+            dplyr::filter(DeployID == input$ID)
     })
     output$mytable3 = DT::renderDataTable({
         updaterange()
