@@ -1,0 +1,22 @@
+---
+title: Raw series range.
+author: Larry Zheng
+vignette: >
+  %\VignetteIndexEntry{Raw series range.}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+```
+
+## R Markdown
+
+
+
+```{r cars}
+series_range <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_SeriesRange.csv")
+```

@@ -1,0 +1,67 @@
+TRACE [2020-06-29 18:53:44] Logging to /cloud/project/Test2/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-06-29 18:53:44] Processing data
+TRACE [2020-06-29 18:53:44] Reading yaml configuration
+TRACE [2020-06-29 18:53:44] Found /cloud/project/Test2/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-06-29 18:53:45] Processing 1 of 1: /cloud/project/Test2/BRSPackage/data-raw/locations.Rmd
+
+TRACE [2020-06-29 18:53:45] 1 data set(s) created by locations.Rmd
+TRACE [2020-06-29 18:53:45] NEWS.md file not found, creating!
+TRACE [2020-06-29 18:53:45] NEWS.md file found, updating!
+TRACE [2020-06-29 18:53:45] Saving to data
+TRACE [2020-06-29 18:53:45] Copied documentation to /cloud/project/Test2/BRSPackage/R/BRSPackage.R
+TRACE [2020-06-29 18:53:45] Done
+TRACE [2020-06-29 18:53:45] DataPackageR succeeded
+TRACE [2020-06-29 18:53:45] Building documentation
+TRACE [2020-06-29 18:53:46] Building package
+TRACE [2020-06-29 19:18:26] Logging to /cloud/project/Test2/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-06-29 19:18:26] Processing data
+TRACE [2020-06-29 19:18:26] Reading yaml configuration
+TRACE [2020-06-29 19:18:26] Found /cloud/project/Test2/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-06-29 19:18:26] Found /cloud/project/Test2/BRSPackage/data-raw/series.Rmd
+TRACE [2020-06-29 19:18:26] Processing 1 of 2: /cloud/project/Test2/BRSPackage/data-raw/locations.Rmd
+
+TRACE [2020-06-29 19:18:26] 1 data set(s) created by locations.Rmd
+TRACE [2020-06-29 19:18:26] Processing 2 of 2: /cloud/project/Test2/BRSPackage/data-raw/series.Rmd
+
+TRACE [2020-06-29 19:18:26] 1 data set(s) created by series.Rmd
+TRACE [2020-06-29 19:18:27] NEWS.md file found, updating!
+DEBUG [2020-06-29 19:18:27] series added.
+DEBUG [2020-06-29 19:18:27] series added.
+DEBUG [2020-06-29 19:18:27] series added.
+TRACE [2020-06-29 19:18:27] NEWS.md file found, updating!
+TRACE [2020-06-29 19:18:27] NEWS.md file found, updating!
+TRACE [2020-06-29 19:18:27] Data has been updated and DataVersion string incremented automatically to 0.1.1
+TRACE [2020-06-29 19:18:27] Saving to data
+TRACE [2020-06-29 19:18:27] Copied documentation to /cloud/project/Test2/BRSPackage/R/BRSPackage.R
+TRACE [2020-06-29 19:18:27] Done
+TRACE [2020-06-29 19:18:27] DataPackageR succeeded
+TRACE [2020-06-29 19:18:27] Building documentation
+TRACE [2020-06-29 19:18:28] Building package
+TRACE [2020-06-29 19:18:37] Logging to /cloud/project/Test2/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-06-29 19:18:37] Processing data
+TRACE [2020-06-29 19:18:37] Reading yaml configuration
+TRACE [2020-06-29 19:18:37] Found /cloud/project/Test2/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-06-29 19:18:37] Found /cloud/project/Test2/BRSPackage/data-raw/series.Rmd
+TRACE [2020-06-29 19:18:37] Found /cloud/project/Test2/BRSPackage/data-raw/series_range.Rmd
+TRACE [2020-06-29 19:18:37] Processing 1 of 3: /cloud/project/Test2/BRSPackage/data-raw/locations.Rmd
+
+TRACE [2020-06-29 19:18:38] 1 data set(s) created by locations.Rmd
+TRACE [2020-06-29 19:18:38] Processing 2 of 3: /cloud/project/Test2/BRSPackage/data-raw/series.Rmd
+
+TRACE [2020-06-29 19:18:38] 1 data set(s) created by series.Rmd
+TRACE [2020-06-29 19:18:38] Processing 3 of 3: /cloud/project/Test2/BRSPackage/data-raw/series_range.Rmd
+
+TRACE [2020-06-29 19:18:38] 1 data set(s) created by series_range.Rmd
+TRACE [2020-06-29 19:18:39] NEWS.md file found, updating!
+DEBUG [2020-06-29 19:18:39] series_range added.
+DEBUG [2020-06-29 19:18:39] series_range added.
+DEBUG [2020-06-29 19:18:39] series_range added.
+TRACE [2020-06-29 19:18:39] NEWS.md file found, updating!
+TRACE [2020-06-29 19:18:39] NEWS.md file found, updating!
+TRACE [2020-06-29 19:18:39] Data has been updated and DataVersion string incremented automatically to 0.1.2
+TRACE [2020-06-29 19:18:39] Saving to data
+TRACE [2020-06-29 19:18:39] Copied documentation to /cloud/project/Test2/BRSPackage/R/BRSPackage.R
+TRACE [2020-06-29 19:18:39] Done
+TRACE [2020-06-29 19:18:39] DataPackageR succeeded
+TRACE [2020-06-29 19:18:39] Building documentation
+TRACE [2020-06-29 19:18:40] Building package
