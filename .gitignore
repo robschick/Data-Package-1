@@ -2,5 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+<<<<<<< HEAD
+=======
 *.Rproj
 .DS_Store
+>>>>>>> upstream/master

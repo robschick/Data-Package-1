@@ -1,0 +1,22 @@
+---
+title: Raw series.
+author: Larry Zheng
+vignette: >
+  %\VignetteIndexEntry{Raw series.}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+```
+
+## R Markdown
+
+
+
+```{r cars}
+series <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Series.csv")
+```

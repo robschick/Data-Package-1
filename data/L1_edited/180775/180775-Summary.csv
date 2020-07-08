@@ -1,0 +1,2 @@
+DeployID,Ptt,Instr,SW,PercentDecoded,Passes,PercentArgosLoc,MsgPerPass,DS,DI,MinPower,AvgPower,MaxPower,MinInterval,EarliestXmitTime,LatestXmitTime,XmitDays,EarliestDataTime,LatestDataTime,DataDays,ReleaseDate,ReleaseType,DeployDate
+GmTag226,180775,Mk10,,93,539,98,6,3046,,,,,29,20:42:04 28-Jul-2019,02:39:01 22-Aug-2019,24,17:51:00 28-Jul-2019,00:28:32 22-Aug-2019,24,,,

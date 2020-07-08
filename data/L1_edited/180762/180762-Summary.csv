@@ -1,0 +1,2 @@
+DeployID,Ptt,Instr,SW,PercentDecoded,Passes,PercentArgosLoc,MsgPerPass,DS,DI,MinPower,AvgPower,MaxPower,MinInterval,EarliestXmitTime,LatestXmitTime,XmitDays,EarliestDataTime,LatestDataTime,DataDays,ReleaseDate,ReleaseType,DeployDate
+ZcTag090,180762,Mk10,,76,165,98,4,579,,,,,14,15:52:24 29-Jul-2019,15:27:50 14-Aug-2019,16,12:00:00 29-Jul-2019,00:00:00 12-Aug-2019,14,,,

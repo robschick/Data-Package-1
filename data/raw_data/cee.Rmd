@@ -1,0 +1,18 @@
+---
+title: cee.
+author: Larry Zheng
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+```
+
+## R Markdown
+
+
+
+```{r cars}
+cee <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/ATLANTIC-BRS_CEE Metadata.csv")
+```

@@ -1,0 +1,38 @@
+---
+title: "Aux Data"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(plyr)
+library(stringr)
+library(readr)
+library(gdata)
+```
+
+## R Markdown
+
+```{r csv}
+locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv") %>%
+  mutate(Date = as.POSIXct(Date, format = "%H:%M:%S %d-%B-%y")) %>%
+  select(DeployID, Date, Latitude, Longitude)
+locations
+
+aux <- read_csv("AuxDataErrorStructure.csv") %>%
+  mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = "%m/%d/%y %H:%M:%S")) %>%
+  select(Tag, date_time, Lat, Long)
+aux
+```
+
+```{r merge}
+merge <- list.files(path = "/cloud/project/Test/BRSPackage/Interleave", 
+                    pattern = "*.csv", full.names = TRUE) %>%
+  lapply(read_csv) %>%
+  bind_rows
+merge %>%
+ select(Date, Latitude, Lat, DeployID, Tag, Error_in_m, Time)
+```
+
