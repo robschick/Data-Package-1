@@ -14,7 +14,7 @@ library(knitr)
 
 
 ```{r cars}
-setwd('/cloud/project/Test/BRSPackage/inst/extdata/raw_data')
+setwd('/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data')
 locations <- read_csv("All_Locations.csv")
 locations
 ```

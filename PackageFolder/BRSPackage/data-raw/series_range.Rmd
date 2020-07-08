@@ -1,5 +1,5 @@
 ---
-title: Raw series.
+title: Raw series range.
 author: Larry Zheng
 ---
 
@@ -14,5 +14,5 @@ library(knitr)
 
 
 ```{r cars}
-series <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Series.csv")
+series_range <- read_csv("/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data/All_SeriesRange.csv")
 ```
