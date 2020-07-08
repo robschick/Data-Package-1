@@ -393,21 +393,21 @@ summary {
 ##   Comment = col_character()
 ## )</code></pre>
 <pre class="r"><code>locations %&gt;%
-  select(Date, Latitude, Longitude, Error.Semi.major.axis, Error.radius, Error.Semi.minor.axis, Error.Ellipse.orientation)</code></pre>
-<pre><code>## # A tibble: 7,295 x 7
-##    Date  Latitude Longitude Error.Semi.majo… Error.radius Error.Semi.mino…
-##    &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;            &lt;dbl&gt;
-##  1 13:0…     24.6     -22.2            25354         6081             1458
-##  2 14:0…     32.9     -59.1           503952        27486             1499
-##  3 14:1…     33.3     -76.5           101365        57676            32817
-##  4 14:4…     34.6     -66.7           179600         5137              146
-##  5 15:1…     33.3     -76.5            82005        78530            75201
-##  6 00:0…     35.7     -74.7            13736         2340              398
-##  7 01:2…     35.7     -74.7            57773         6424              714
-##  8 01:3…     35.6     -74.8            24381         3871              614
-##  9 02:0…     35.6     -74.8            84577         3330              131
-## 10 03:0…     35.6     -74.8            10874         5656             2941
-## # … with 7,285 more rows, and 1 more variable: Error.Ellipse.orientation &lt;dbl&gt;</code></pre>
+  select(DeployID, Date, Latitude, Longitude)</code></pre>
+<pre><code>## # A tibble: 7,295 x 4
+##    DeployID Date                 Latitude Longitude
+##    &lt;chr&gt;    &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;
+##  1 ZcTag084 13:03:36 23-May-2019     24.6     -22.2
+##  2 ZcTag084 14:09:24 23-May-2019     32.9     -59.1
+##  3 ZcTag084 14:10:42 23-May-2019     33.3     -76.5
+##  4 ZcTag084 14:48:53 23-May-2019     34.6     -66.7
+##  5 ZcTag084 15:12:43 23-May-2019     33.3     -76.5
+##  6 ZcTag084 00:00:19 24-May-2019     35.7     -74.7
+##  7 ZcTag084 01:24:40 24-May-2019     35.7     -74.7
+##  8 ZcTag084 01:39:37 24-May-2019     35.6     -74.8
+##  9 ZcTag084 02:04:16 24-May-2019     35.6     -74.8
+## 10 ZcTag084 03:06:55 24-May-2019     35.6     -74.8
+## # … with 7,285 more rows</code></pre>
 <pre class="r"><code>aux &lt;- read_csv(&quot;AuxDataErrorStructure.csv&quot;) %&gt;%
   mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = &quot;%m/%d/%y %H:%M:%S&quot;))</code></pre>
 <pre><code>## Parsed with column specification:
@@ -425,78 +425,22 @@ summary {
 ##   Comments = col_character()
 ## )</code></pre>
 <pre class="r"><code>aux %&gt;%
-  select(date_time, Tag, Lat, Long, Category, Error_in_m)</code></pre>
-<pre><code>## # A tibble: 229 x 6
-##    date_time           Tag        Lat  Long Category Error_in_m
-##    &lt;dttm&gt;              &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;
-##  1 2019-05-08 18:29:07 GmTag223  35.7 -74.8 Fluke            50
-##  2 2019-05-08 18:39:35 GmTag223  35.7 -74.8 Fluke            50
-##  3 2019-05-11 12:50:35 GmTag223  35.8 -74.8 Fluke            50
-##  4 2019-07-28 15:19:22 GmTag224  35.8 -74.8 Fluke            50
-##  5 2019-07-28 15:41:00 GmTag224  35.8 -74.8 Fluke            50
-##  6 2019-08-19 21:44:04 GmTag224  35.9 -74.7 Distant        1000
-##  7 2019-07-28 17:10:43 GmTag225  35.9 -74.8 Fluke            50
-##  8 2019-07-28 17:13:47 GmTag225  35.9 -74.8 Fluke            50
-##  9 2019-07-28 17:43:43 GmTag226  35.8 -74.8 Fluke            50
-## 10 2019-07-28 17:50:44 GmTag226  35.8 -74.8 Fluke            50
+  select(Tag, date_time, Lat, Long)</code></pre>
+<pre><code>## # A tibble: 229 x 4
+##    Tag      date_time             Lat  Long
+##    &lt;chr&gt;    &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt;
+##  1 GmTag223 2019-05-08 18:29:07  35.7 -74.8
+##  2 GmTag223 2019-05-08 18:39:35  35.7 -74.8
+##  3 GmTag223 2019-05-11 12:50:35  35.8 -74.8
+##  4 GmTag224 2019-07-28 15:19:22  35.8 -74.8
+##  5 GmTag224 2019-07-28 15:41:00  35.8 -74.8
+##  6 GmTag224 2019-08-19 21:44:04  35.9 -74.7
+##  7 GmTag225 2019-07-28 17:10:43  35.9 -74.8
+##  8 GmTag225 2019-07-28 17:13:47  35.9 -74.8
+##  9 GmTag226 2019-07-28 17:43:43  35.8 -74.8
+## 10 GmTag226 2019-07-28 17:50:44  35.8 -74.8
 ## # … with 219 more rows</code></pre>
-<pre class="r"><code>merge &lt;- list.files(path = &quot;/cloud/project/Test/BRSPackage/Interleave&quot;, 
-                    pattern = &quot;*.csv&quot;, full.names = TRUE) %&gt;%
-  lapply(read_csv) %&gt;%
-  bind_rows</code></pre>
-<pre><code>## Warning: Missing column names filled in: 'X1' [1]</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   X1 = col_double(),
-##   DeployID = col_character(),
-##   Ptt = col_double(),
-##   Instr = col_character(),
-##   Date = col_character(),
-##   Type = col_character(),
-##   Quality = col_character(),
-##   Latitude = col_double(),
-##   Longitude = col_double(),
-##   Error.radius = col_double(),
-##   Error.Semi.major.axis = col_double(),
-##   Error.Semi.minor.axis = col_double(),
-##   Error.Ellipse.orientation = col_double(),
-##   Offset = col_logical(),
-##   Offset.orientation = col_logical(),
-##   GPE.MSD = col_logical(),
-##   GPE.U = col_logical(),
-##   Count = col_logical(),
-##   Comment = col_character()
-## )</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   Tag = col_character(),
-##   Date = col_character(),
-##   Time = col_time(format = &quot;&quot;),
-##   Lat = col_double(),
-##   Long = col_double(),
-##   DataSource = col_character(),
-##   Vessel = col_character(),
-##   Category = col_character(),
-##   Error_in_m = col_double(),
-##   SightingNo = col_character(),
-##   Comments = col_character()
-## )</code></pre>
-<pre class="r"><code>merge %&gt;%
- select(Date, Latitude, Lat, DeployID, Tag, Error_in_m, Time)</code></pre>
-<pre><code>## # A tibble: 7,524 x 7
-##    Date                 Latitude   Lat DeployID Tag   Error_in_m Time  
-##    &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;time&gt;
-##  1 13:03:36 23-May-2019     24.6    NA ZcTag084 &lt;NA&gt;          NA    NA 
-##  2 14:09:24 23-May-2019     32.9    NA ZcTag084 &lt;NA&gt;          NA    NA 
-##  3 14:10:42 23-May-2019     33.3    NA ZcTag084 &lt;NA&gt;          NA    NA 
-##  4 14:48:53 23-May-2019     34.6    NA ZcTag084 &lt;NA&gt;          NA    NA 
-##  5 15:12:43 23-May-2019     33.3    NA ZcTag084 &lt;NA&gt;          NA    NA 
-##  6 00:00:19 24-May-2019     35.7    NA ZcTag084 &lt;NA&gt;          NA    NA 
-##  7 01:24:40 24-May-2019     35.7    NA ZcTag084 &lt;NA&gt;          NA    NA 
-##  8 01:39:37 24-May-2019     35.6    NA ZcTag084 &lt;NA&gt;          NA    NA 
-##  9 02:04:16 24-May-2019     35.6    NA ZcTag084 &lt;NA&gt;          NA    NA 
-## 10 03:06:55 24-May-2019     35.6    NA ZcTag084 &lt;NA&gt;          NA    NA 
-## # … with 7,514 more rows</code></pre>
+<p>``{r merge} merge &lt;- list.files(path = “/cloud/project/Test/BRSPackage/Interleave”, pattern = &quot;*.csv&quot;, full.names = TRUE) %&gt;% lapply(read_csv) %&gt;% bind_rows merge %&gt;% select(Date, Latitude, Lat, DeployID, Tag, Error_in_m, Time) ```</p>
 </div>
 
 

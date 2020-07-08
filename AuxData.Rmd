@@ -18,15 +18,15 @@ library(gdata)
 ```{r csv}
 locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
 locations %>%
-  select(Date, Latitude, Longitude, Error.Semi.major.axis, Error.radius, Error.Semi.minor.axis, Error.Ellipse.orientation)
+  select(DeployID, Date, Latitude, Longitude)
 
 aux <- read_csv("AuxDataErrorStructure.csv") %>%
   mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = "%m/%d/%y %H:%M:%S"))
 aux %>%
-  select(date_time, Tag, Lat, Long, Category, Error_in_m)
+  select(Tag, date_time, Lat, Long)
 ```
 
-```{r merge}
+``{r merge}
 merge <- list.files(path = "/cloud/project/Test/BRSPackage/Interleave", 
                     pattern = "*.csv", full.names = TRUE) %>%
   lapply(read_csv) %>%
