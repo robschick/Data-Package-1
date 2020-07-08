@@ -1,0 +1,28 @@
+---
+title: Locations RMD
+output: html_document
+vignette: >
+  %\VignetteIndexEntry{Locations RMD}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+```
+
+## R Markdown
+
+
+
+```{r cars}
+setwd('/cloud/project/Test/BRSPackage/inst/extdata/raw_data')
+locations <- read_csv("All_Locations.csv")
+locations
+```
+
+
+
+

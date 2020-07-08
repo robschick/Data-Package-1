@@ -1,0 +1,14 @@
+configuration:
+  files:
+    locations.Rmd:
+      enabled: yes
+    series.Rmd:
+      enabled: yes
+    series_range.Rmd:
+      enabled: yes
+  objects:
+  - locations
+  - series
+  - series_range
+  render_root:
+    tmp: '509195'
