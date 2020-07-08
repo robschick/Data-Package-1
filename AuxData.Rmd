@@ -16,17 +16,18 @@ library(gdata)
 ## R Markdown
 
 ```{r csv}
-locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
-locations %>%
+locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv") %>%
+  mutate(Date = as.POSIXct(Date, format = "%H:%M:%S %d-%B-%y")) %>%
   select(DeployID, Date, Latitude, Longitude)
+locations
 
 aux <- read_csv("AuxDataErrorStructure.csv") %>%
-  mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = "%m/%d/%y %H:%M:%S"))
-aux %>%
+  mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = "%m/%d/%y %H:%M:%S")) %>%
   select(Tag, date_time, Lat, Long)
+aux
 ```
 
-``{r merge}
+```{r merge}
 merge <- list.files(path = "/cloud/project/Test/BRSPackage/Interleave", 
                     pattern = "*.csv", full.names = TRUE) %>%
   lapply(read_csv) %>%
