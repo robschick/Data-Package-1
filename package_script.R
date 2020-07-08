@@ -10,7 +10,7 @@ library(DataPackageR)
 # 3. We add a processing script to process cars into tidy_cars. (DataPackageR::use_processing_script())
 # 4. We define the tidy data object (named tidy_cars) that will be stored in our data package. (DataPackageR::use_data_object())
 
-path <- '/cloud/project/Test2'
+path <- '/cloud/project/PackageFolder'
 
 # 1. Create a package directory structure
 datapackage_skeleton(name = "BRSPackage",
