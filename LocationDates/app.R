@@ -19,13 +19,13 @@ ui <- fluidPage(
         sidebarPanel(
             
             h2("Create a BRS Plot"),
+            selectInput("CEE",
+                        label = "Choose the Controlled Exposure Experiment(s):",
+                        choices = c("CEE1", "CEE2", "CEE3", "CEE4")),
             selectInput("ID", "DeployID", selected = "ZcTag084",
                         choices = unique(loc$DeployID)),
             # uiOutput("select_tag"),
             dateRangeInput("date", "Choose a Date Range:"),
-            checkboxGroupInput("varcee",
-                               label = "Choose the Controlled Exposure Experiment(s):",
-                               choices = c("CEE1", "CEE2", "CEE3", "CEE4")),
             submitButton("Generate Visualization", icon("refresh")),
             #plotOutput(outputId = "tsplot"),
             
