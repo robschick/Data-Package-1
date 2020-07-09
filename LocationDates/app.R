@@ -12,18 +12,19 @@ loc <- read.csv("All_Locations.csv")
 ser <- read.csv("All_Series.csv")
 range <- read.csv("All_SeriesRange.csv")
 cee <- read.csv("ATLANTIC-BRS_CEE Metadata.csv")
+fake <- read.csv("fakedataCEE.csv")
 
 ui <- fluidPage(
     
     sidebarLayout(
         sidebarPanel(
-            
             h2("Create a BRS Plot"),
             selectInput("CEE",
                         label = "Choose the Controlled Exposure Experiment(s):",
                         choices = c("CEE1", "CEE2", "CEE3", "CEE4")),
-            selectInput("ID", "DeployID", selected = "ZcTag084",
-                        choices = unique(loc$DeployID)),
+            #selectInput("ID", "DeployID", selected = "ZcTag084",
+            #            choices = unique(loc$DeployID)),
+            uiOutput("select_var2"),
             # uiOutput("select_tag"),
             dateRangeInput("date", "Choose a Date Range:"),
             submitButton("Generate Visualization", icon("refresh")),
@@ -46,6 +47,7 @@ ui <- fluidPage(
     )
 )
 server <- function(input, output){
+    
     datasetInput <- reactive({
         loc[loc$DeployID == input$ID, ]
     }) 
@@ -56,6 +58,18 @@ server <- function(input, output){
         ggplot(dataset, aes(Longitude, Latitude))+
             geom_spatial_point()+
             ggtitle(paste0('Raw Locations from: ', input$ID))
+    })
+    
+    output$select_var2 <- renderUI({
+        choice_var2 <- reactive({
+            fake %>% 
+                filter(CEE == input$CEE) %>% 
+                pull(DeployID) %>% 
+                as.character() #coerced to character to have text and not the number of the factor
+        })
+        
+        selectizeInput("ID", "DeployID", choices = c("select" = "", choice_var2()))
+        #selectizeInput('var2', 'Select variable 2', choices = c("select" = "", choice_var2()))
     })
     
     #update loc tab based on tag selected
