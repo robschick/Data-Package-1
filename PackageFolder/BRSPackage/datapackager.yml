@@ -1,14 +1,7 @@
 configuration:
   files:
-    locations.Rmd:
+    cee.Rmd:
       enabled: yes
-    series.Rmd:
-      enabled: yes
-    series_range.Rmd:
-      enabled: yes
-  objects:
-  - locations
-  - series
-  - series_range
+  objects: cee
   render_root:
-    tmp: '509195'
+    tmp: '188489'
