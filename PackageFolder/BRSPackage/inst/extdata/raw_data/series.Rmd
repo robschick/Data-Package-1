@@ -7,6 +7,7 @@ author: Larry Zheng
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(knitr)
+library(xts)
 ```
 
 ## R Markdown
@@ -16,3 +17,18 @@ library(knitr)
 ```{r cars}
 series <- read_csv("/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data/All_Series.csv")
 ```
+
+## Prep for Dygraph
+Idea here is to prepare the dive data for plotting as a dygraph.
+
+```{r}
+series$timestamp = as.POSIXct(paste(series$Day, series$Time), format = "%d-%b-%Y %H:%M:%S", tz = "UTC")
+series_tbl <- tibble::tibble(
+    date = series$timestamp,
+    depth = -1 * series$Depth,
+    lower = -1 * (series$Depth - series$DRange),
+    upper = -1 * (series$Depth + series$DRange))  
+ 
+series_xts <- tk_xts(series_tbl, tzone = "UTC")
+```
+
