@@ -1,5 +1,5 @@
 ---
-title: Raw series.
+title: Raw series processed for dygraph.
 author: Larry Zheng
 ---
 

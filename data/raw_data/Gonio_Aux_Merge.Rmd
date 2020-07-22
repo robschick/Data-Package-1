@@ -28,14 +28,16 @@ locations <- read_csv("/cloud/project/data/raw_data/All_Locations.csv") %>%
 locations
 ```
 
+
 ```{r aux}
 aux <- read_csv("/cloud/project/data/raw_data/2019_AuxDataErrorStructure_20200609.csv") %>%
   mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = "%m/%d/%y %H:%M:%S"),
          Error_in_m = as.character(Error_in_m)) %>%
   filter(Category != "Gonio") %>%
-  select(Tag, date_time, Lat, Long, Vessel, Error_in_m) %>%
+  select(Tag, date_time, Lat, Long, Vessel, Error_in_m)
+
+aux <- aux %>%
   mutate(Quality = rep("User",nrow(aux)))
-aux
 ```
 
 ```{r gonio}
