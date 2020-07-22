@@ -155,3 +155,9 @@ processed_combined <- processed_combined %>%
 processed_combined %>% dplyr::summarise(n = n())
 processed_combined
 ```
+
+```{r new csv}
+write.csv(processed_combined, "gonio_aux_merge.csv")
+print(processed_combined)
+```
+

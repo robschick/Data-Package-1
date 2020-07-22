@@ -11,8 +11,101 @@ library(knitr)
 
 ## R Markdown
 
+```{r}
+locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
+```
 
 
-```{r cars}
-cee <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/ATLANTIC-BRS_CEE Metadata.csv")
+```{r read_csvs}
+cee <- read_csv(file = "/cloud/project/data/raw_data/ATLANTIC-BRS_CEE Metadata.csv") %>%
+  mutate(date_time = as.POSIXct(paste(Date, as.character(CEE.Times)), format = "%m/%d/%y %H:%M:%S"))
+cee
+```
+
+```{r}
+cee19_01 <- data.frame(DeployID=character(),
+                 Start.Date.Locs=as.Date(character()), 
+                 End.Date.Locs=as.Date(character()), 
+                 Length.Locs=integer(),
+                 Num.Data.Points.Locs=integer(),
+                 Num.Satellite=integer(),
+                 Num.Aux=integer(),
+                 Num.Locs.Before.CEE=integer(),
+                 Num.Locs.After.CEE=integer(),
+                 Start.Date.Series=as.Date(character()), 
+                 End.Date.Series=as.Date(character()), 
+                 Length.Series=integer(),
+                 Num.Data.Points.Series=integer(),
+                 Num.Series.Before.CEE=integer(),
+                 Num.Series.After.CEE=integer(),
+                 stringsAsFactors=TRUE) 
+```
+
+```{r}
+deploy_ids_tib <- cee[1, "Focal.animals"]
+deploy_ids <- deploy_ids_tib  %>%
+  pull(Focal.animals) %>%
+  str_split("  ")
+
+deploy_ids <- as.vector(unlist(deploy_ids, use.names=FALSE))
+
+
+cee19_01 <- data.frame(deploy_ids,
+                 stringsAsFactors=TRUE) 
+
+```
+
+Vector Initializations
+```{r}
+len <- length(deploy_ids)
+
+Start.Date.Locs <- rep(now(), length = len)
+End.Date.Locs <- rep(now(), length = len)
+Length.Locs <- rep(NA, length = len)
+Num.Data.Points.Locs <- vector(length = len)
+Num.Satellite <- vector(length = len)
+Num.Aux <- vector(length = len)
+Num.Locs.Before.CEE <- vector(length = len)
+Num.Locs.After.CEE <- vector(length = len)
+Start.Date.Series <- rep(now(), length = len)
+End.Date.Series <- rep(now(), length = len)
+Length.Series <- rep(NA, length = len)
+Num.Data.Points.Series <- vector(length = len)
+Num.Series.Before.CEE <- vector(length = len)
+Num.Series.After.CEE <- vector(length = len)
+```
+
+
+
+Test of the loop
+```{r}
+individual_locs <- locations %>%
+    filter(DeployID == deploy_ids[1])
+
+Start.Date.Locs[1] <- as.POSIXct(first(individual_locs$Date),  format = "%H:%M:%S %d-%B-%Y")
+
+# Start.Date.Locs <- c(Start.Date.Locs, as.POSIXct(first(individual_locs$Date),  format = "%H:%M:%S %d-%B-%Y"))
+End.Date.Locs[1] <- as.POSIXct(last(individual_locs$Date),  format = "%H:%M:%S %d-%B-%Y")
+Length.Locs[1] <- (End.Date.Locs[1] - Start.Date.Locs[1])
+
+Num.Data.Points.Locs[1] <- nrow(individual_locs)
+# Num.Satellite <- vector(length = len)
+# Num.Aux <- vector(length = len)
+
+# For before and after: make two subsetted dataframes of locations filtered by datetime before and after cee
+
+locs_before_count <- individual_locs %>%
+  filter(Date < )
+
+# Num.Locs.Before.CEE <- vector(length = len)
+# Num.Locs.After.CEE <- vector(length = len)
+```
+
+
+Loop
+```{r}
+for (i in length(deploy_ids)) {
+  individual_locs <- locations %>%
+    filter(DeployID = deploy_ids[i])
+}
 ```
