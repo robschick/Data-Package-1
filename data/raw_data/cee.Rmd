@@ -11,18 +11,15 @@ library(knitr)
 
 ## R Markdown
 
-```{r}
-locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
-```
-
-
 ```{r read_csvs}
+processed <- read_csv("/cloud/project/data/raw_data/gonio_aux_merge.csv")
+processed
 cee <- read_csv(file = "/cloud/project/data/raw_data/ATLANTIC-BRS_CEE Metadata.csv") %>%
   mutate(date_time = as.POSIXct(paste(Date, as.character(CEE.Times)), format = "%m/%d/%y %H:%M:%S"))
 cee
 ```
 
-```{r}
+``{r}
 cee19_01 <- data.frame(DeployID=character(),
                  Start.Date.Locs=as.Date(character()), 
                  End.Date.Locs=as.Date(character()), 
@@ -56,7 +53,7 @@ cee19_01 <- data.frame(deploy_ids,
 ```
 
 Vector Initializations
-```{r}
+``{r}
 len <- length(deploy_ids)
 
 Start.Date.Locs <- rep(now(), length = len)
@@ -78,7 +75,7 @@ Num.Series.After.CEE <- vector(length = len)
 
 
 Test of the loop
-```{r}
+``{r}
 individual_locs <- locations %>%
     filter(DeployID == deploy_ids[1])
 
@@ -103,7 +100,7 @@ locs_before_count <- individual_locs %>%
 
 
 Loop
-```{r}
+``{r}
 for (i in length(deploy_ids)) {
   individual_locs <- locations %>%
     filter(DeployID = deploy_ids[i])
