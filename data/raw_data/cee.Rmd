@@ -43,7 +43,7 @@ series_cee19_01 <- series_cee19_01 %>%
   mutate(series_date_range = series_end_date - series_start_date)
 cee19_01
 series_cee19_01
-total <- merge(cee19_01, series_cee19_01, by= "DeployID")
+total <- merge(cee19_01, series_cee19_01, by= "DeployID", all=TRUE)
 total
 ```
 
