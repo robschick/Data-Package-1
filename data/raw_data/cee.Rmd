@@ -18,12 +18,14 @@ processed
 cee <- read_csv(file = "/cloud/project/data/raw_data/ATLANTIC-BRS_CEE Metadata.csv") %>%
   mutate(date_time = as.POSIXct(paste(Date, as.character(CEE.Times)), format = "%m/%d/%y %H:%M:%S"))
 cee
+series <- read_csv("/cloud/project/data/raw_data/All_Series.csv") %>%
+  mutate(date_time = as.POSIXct(paste(Day, as.character(Time)), format = "%d-%B-%Y %H:%M:%S"))
+series
 ```
 
 ```{r}
 cee19_01 <- processed %>%
-  group_by(DeployID)
-cee19_01 <- cee19_01 %>%
+  group_by(DeployID) %>%
   summarize(start_date = range(date_time)[1],
             end_date = range(date_time)[2])
 cee19_01 <- cee19_01 %>%
@@ -32,6 +34,12 @@ cee19_01 <- cee19_01 %>%
   mutate(date_range = as.integer(date_range))
 cee19_01 <- cee19_01 %>%
   mutate(average_locs = nrow(cee19_01)/date_range)
+cee19_01 <- series %>%
+  group_by(DeployID) %>%
+  summarize(series_start_date = range(date_time)[1],
+            series_end_date = range(date_time)[2])
+cee19_01 <- cee19_01 %>%
+  mutate(series_date_range = series_end_date - series_start_date)
 cee19_01
 ```
 
