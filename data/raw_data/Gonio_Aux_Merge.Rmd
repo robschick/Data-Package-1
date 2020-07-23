@@ -23,8 +23,9 @@ library(devtools)
 
 ```{r locations}
 locations <- read_csv("/cloud/project/data/raw_data/All_Locations.csv") %>%
-  mutate(date_time = parse_datetime(Date, format = "%H:%M:%S %d-%b-%Y", locale = locale(tz = 'UTC'))) %>%
-  select(DeployID, date_time, Latitude, Longitude, Quality, Error.Semi.major.axis, Error.Semi.minor.axis, Error.Ellipse.orientation)
+  mutate(date_time = parse_datetime(Date, format = "%H:%M:%S %d-%b-%Y", locale = locale(tz = 'UTC')),
+         Source = rep("locations",nrow(locations))) %>%
+  select(DeployID, date_time, Latitude, Longitude, Quality, Error.Semi.major.axis, Error.Semi.minor.axis, Error.Ellipse.orientation, Source)
 locations
 ```
 
@@ -37,7 +38,9 @@ aux <- read_csv("/cloud/project/data/raw_data/2019_AuxDataErrorStructure_2020060
   select(Tag, date_time, Lat, Long, Vessel, Error_in_m)
 
 aux <- aux %>%
-  mutate(Quality = rep("User",nrow(aux)))
+  mutate(Quality = rep("User",nrow(aux)),
+         Source = rep("aux",nrow(aux)))
+aux
 ```
 
 ```{r gonio}
@@ -66,7 +69,8 @@ gonio_out <- gonio_out %>%
   strength_db > -120 & strength_db <= -110 ~ 2500, 
   strength_db <= -120 ~ 3000)) %>%
   select(DeployID, date_time, lat, lon, platform, distance) %>%
-  mutate(Quality = rep("User",nrow(gonio_out)))
+  mutate(Quality = rep("User",nrow(gonio_out)),
+         Source = rep("gonio",nrow(gonio_out)))
 gonio_out
 ```
 
