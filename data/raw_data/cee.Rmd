@@ -37,7 +37,8 @@ Larry's chunk
 cee19_01 <- processed %>%
   group_by(DeployID) %>%
   summarize(start_date = range(date_time)[1],
-            end_date = range(date_time)[2]) %>% 
+            end_date = range(date_time)[2],
+            num_data_points = n()) %>% 
   mutate(date_range = end_date - start_date)
 
 cee19_01
