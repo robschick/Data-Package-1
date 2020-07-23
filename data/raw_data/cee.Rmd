@@ -56,8 +56,25 @@ cee19_01 <- processed %>%
 
 cee19_01
 ```
-summarize(num_data_points = n()) %>%
 
+
+Larry's chunk draft
+```{r}
+cee19_01 <- processed %>%
+  group_by(DeployID) %>%
+  mutate(
+         num_satellite = case_when(startsWith(Source, "locations") ~ n()),
+         num_aux = case_when(startsWith(Source, "aux") ~ n()),
+         num_gonio = case_when(startsWith(Source, "gonio") ~ n())
+         )
+  summarize(start_date = range(date_time)[1],
+            end_date = range(date_time)[2]
+            ) %>% 
+  mutate(date_range = end_date - start_date
+         )
+
+cee19_01
+```
 
 
 ```{r}
