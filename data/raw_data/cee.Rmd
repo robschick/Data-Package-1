@@ -22,11 +22,16 @@ cee
 
 ```{r}
 cee19_01 <- processed %>%
-  group_by(DeployID) %>%
+  group_by(DeployID)
+cee19_01 <- cee19_01 %>%
   summarize(start_date = range(date_time)[1],
-            end_date = range(date_time)[2]) %>% 
+            end_date = range(date_time)[2])
+cee19_01 <- cee19_01 %>%
   mutate(date_range = end_date - start_date)
-
+cee19_01 <- cee19_01 %>%
+  mutate(date_range = as.integer(date_range))
+cee19_01 <- cee19_01 %>%
+  mutate(average_locs = nrow(cee19_01)/date_range)
 cee19_01
 ```
 
