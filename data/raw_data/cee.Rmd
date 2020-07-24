@@ -28,10 +28,11 @@ series
 cee19_01 <- processed %>%
   group_by(DeployID) %>%
   summarize(start_date = range(date_time)[1],
-            end_date = range(date_time)[2]) %>%
+            end_date = range(date_time)[2],
+            num_fixes = n()) %>%
   mutate(date_range = end_date - start_date) %>%
   mutate(date_range = as.integer(date_range)) %>%
-  mutate(average_locs = nrow(cee19_01)/date_range)
+  mutate(average_locs = num_fixes/date_range)
 
 series_cee19_01 <- series %>%
   group_by(DeployID) %>%
