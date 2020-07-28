@@ -52,20 +52,6 @@ total
 
 Larry's chunk
 ```{r}
-cee19_01 <- processed %>%
-  #filter(DeployID %in% animals) %>% #animals will be passed in function call: animals in a particular CEE
-  group_by(DeployID) %>%
-  summarize(start_date = range(date_time)[1],
-            end_date = range(date_time)[2]
-            ) %>% 
-  mutate(date_range = end_date - start_date)
-
-cee19_01
-```
-
-
-Larry's chunk draft
-```{r}
 cee19_01_start <- cee$date_time[1]
 cee19_01_end <- cee$date_time[2]
 
@@ -98,18 +84,6 @@ cee19_01_after <- processed %>%
   count() %>%
   rename(num_after_cee = n)
 
-  # mutate(
-  #        num_satellite = case_when(startsWith(Source, "locations") ~ n()),
-  #        num_aux = case_when(startsWith(Source, "aux") ~ n()),
-  #        num_gonio = case_when(startsWith(Source, "gonio") ~ n()),
-  #        num_before_cee = case_when(date_time < cee19_01_start ~ n()),
-  #        num_after_cee = case_when(date_time > cee19_01_end ~ n())
-  #        ) %>%
-  # summarize(start_date = range(date_time)[1],
-  #           end_date = range(date_time)[2]
-  #           ) %>% 
-  # mutate(date_range = end_date - start_date
-  #        )
 
 cee19_01 <- merge(cee19_01, cee19_01_counts, by= "DeployID", all=TRUE)
 cee19_01 <- merge(cee19_01, cee19_01_bef, by= "DeployID", all=TRUE)
