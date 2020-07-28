@@ -2,6 +2,6 @@ configuration:
   files:
     cee.Rmd:
       enabled: yes
-  objects: cee
+  objects: aux
   render_root:
-    tmp: '188489'
+    tmp: '76076'
