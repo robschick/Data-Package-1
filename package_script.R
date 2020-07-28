@@ -10,48 +10,11 @@ library(DataPackageR)
 
 path <- '/cloud/project/PackageFolder'
 
-# 1. Create a package directory structure
+# Create a package directory structure
 datapackage_skeleton(name = "BRSPackage",
                      path = path,
                      force = TRUE,
                      raw_data_dir = '/cloud/project/data/raw_data')
-
-
-
-# 2. Add raw data to the package. (not necessary because of raw_data_dir argument in datapackage_skeleton)
-
-# write our raw data to a csv
-#write.csv(x = locations,file = file.path('/cloud',"Locations.csv"),row.names = FALSE)
-
-# this works because we called datapackage_skeleton() first.
-# use_raw_dataset() moves the file or path in its argument into inst/extdata under the 
-# data package source tree. This raw (usually non-tidy) data will be installed with the data pacakge.
-
-# use_raw_dataset(DataPackageR::project_extdata_path("All_Locations.csv"))
-
-
-# 3. Add a data processing script. Edit your processing script (in Rmd file)
-# use_processing_script(file = "locations.Rmd",
-#                       author = "Jennifer Schultz",
-#                       title = "Process all locations.",
-#                       overwrite = TRUE)
-
-#use_processing_script(file = "/cloud/project/data/raw_data/locations.Rmd",
-                      #overwrite = TRUE)
-
-# use_processing_script(system.file("extdata", 
-#                                   "tests",
-#                                   "subsetCars.Rmd",
-#                                   package = "DataPackageR"))
-
-# 4. Let DataPackageR know about the data objects to store in the package.
-#use_data_object("locations")
-
-# Build the package (for the first time).
-#options("DataPackageR_interact" = FALSE)
-#package_build(packageName = paste(path, '/BRSPackage', sep = ""), install = FALSE)
-
-
 
 
 
@@ -61,7 +24,7 @@ package_function <- function(rmd_path, dataframes_to_store) {
   use_processing_script(file = rmd_path,
                         overwrite = TRUE)
   
-  # 4. Let DataPackageR know about the data objects to store in the package.
+  # Let DataPackageR know about the data objects to store in the package.
   for (i in range(length(dataframes_to_store))) {
     use_data_object(dataframes_to_store[i])
   }
@@ -77,13 +40,15 @@ paths <- c("/cloud/project/data/raw_data/locations.Rmd",
            "/cloud/project/data/raw_data/series.Rmd", 
            "/cloud/project/data/raw_data/series_range.Rmd",
            "/cloud/project/data/raw_data/locations_intersect.Rmd",
+           "/cloud/project/data/raw_data/Gonio_Aux_Locs_Merge.Rmd",
            "/cloud/project/data/raw_data/cee.Rmd")
 # names of dataframes to store
 dataframes_to_store <- c(c("locations"),
-                c("series"),
+                c("series", "series_xts"),
                 c("series_range"),
                 c("locations_intersect"),
-                c("cee")) 
+                c("aux","gonio","processed_gonio_aux_locs"),
+                c("cee19_01", "cee19_02", "cee19_03", "cee19_04")) 
 
 # Call function for each Rmd and each dataframe
 for (i in length(paths)) {
