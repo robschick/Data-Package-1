@@ -94,6 +94,10 @@ cee19_01
 ```
 
 
+```{r final_dataframe}
+final_df <- merge(total, cee19_01, by= "DeployID", all=TRUE)
+final_df
+```
 
 Loop
 ```{r}
