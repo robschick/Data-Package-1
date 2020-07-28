@@ -368,6 +368,7 @@ summary {
 
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
+<p>We created a Data Package that consists of raw data, including the series data that show the depths, the series data that show the depth bins, the locations data, the deployment locations, the cee metadata on the ships locations and timing of each event, and the auxiliary data. We also processed the gonio merge file and grouped each deployID within 2 minutes, and choosing the row with the lowest strength_db. We also created a new column for distance based on the strength_db, using the upper range. This way, we could merge the gonio and the aux data using the crawl function, and finall merging it with the locations. We processed the data by creating dataframes for the series data showing depths and depth bins, and the locations data. We also temporally intersected the deployment locations with the locations data to remove any locations reported by the tag before it was actually on the whale. Furthermore, we intersected the cee metadata with the final merged dataframe of locations, gonio, and aux. We created a function to create this merged dataframe with all cees.</p>
 </div>
 
 
