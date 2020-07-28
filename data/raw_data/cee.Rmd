@@ -23,91 +23,20 @@ series <- read_csv("/cloud/project/data/raw_data/All_Series.csv") %>%
 series
 ```
 
-
-```{r}
-cee19_01 <- processed %>%
-  group_by(DeployID) %>%
-  summarize(start_date = range(date_time)[1],
-            end_date = range(date_time)[2],
-            num_fixes = n()) %>%
-  mutate(date_range = end_date - start_date) %>%
-  mutate(date_range = as.integer(date_range)) %>%
-  mutate(average_locs = num_fixes/date_range)
-
-series_cee19_01 <- series %>%
-  group_by(DeployID) %>%
-  summarize(series_start_date = range(date_time)[1],
-            series_end_date = range(date_time)[2])
-
-series_cee19_01 <- series_cee19_01 %>%
-  mutate(series_date_range = series_end_date - series_start_date)
-
-cee19_01
-series_cee19_01
-
-total <- merge(cee19_01, series_cee19_01, by= "DeployID", all=TRUE)
-total
-```
-
-
-Larry's chunk
-```{r}
-cee19_01_start <- cee$date_time[1]
-cee19_01_end <- cee$date_time[2]
-
-cee19_01 <- processed %>%
-  #filter(DeployID %in% animals) %>% #animals will be passed in function call: animals in a particular CEE
-  group_by(DeployID) %>%
-  summarize(start_date = range(date_time)[1],
-            end_date = range(date_time)[2]
-            ) %>% 
-  mutate(date_range = end_date - start_date
-         )
-
-cee19_01_counts <- processed %>%
-  #filter(DeployID %in% animals) %>% #animals will be passed in function call: animals in a particular CEE
-  group_by(DeployID) %>%
-  count(Source) %>%
-  spread(Source, n)
-  
-cee19_01_bef <- processed %>%
-  #filter(DeployID %in% animals) %>% #animals will be passed in function call: animals in a particular CEE
-  filter(date_time < cee19_01_start) %>%
-  group_by(DeployID) %>%
-  count() %>%
-  rename(num_before_cee = n)
-
-cee19_01_after <- processed %>%
-  #filter(DeployID %in% animals) %>% #animals will be passed in function call: animals in a particular CEE
-  filter(date_time > cee19_01_end) %>%
-  group_by(DeployID) %>%
-  count() %>%
-  rename(num_after_cee = n)
-
-
-cee19_01 <- merge(cee19_01, cee19_01_counts, by= "DeployID", all=TRUE)
-cee19_01 <- merge(cee19_01, cee19_01_bef, by= "DeployID", all=TRUE)
-cee19_01 <- merge(cee19_01, cee19_01_after, by= "DeployID", all=TRUE) %>% 
-  replace(is.na(.), 0)
-
-cee19_01
-```
-
-
-```{r final_dataframe}
-final_df <- merge(total, cee19_01, by= "DeployID", all=TRUE)
-final_df
-```
-
 Loop
 ```{r}
 cee_names <- c("cee19_01", "cee19_02", "cee19_03", "cee19_04")
+name_index <- 1
 
 for (i in seq(from = 1, to = length(cee), by = 2)) {
   cee_start <- cee$date_time[i]
   cee_end <- cee$date_time[i+1]
-  animals <- cee$Focal.animals[i]
+  animals <- strsplit(cee$Focal.animals[i], " ")
+  animals <- unlist(animals)
   
-  assign(cee_names[i], cee_function(cee_start, cee_end, animals))
+  assign(cee_names[name_index], cee_function(cee_start, cee_end, animals))
+  name_index <- name_index + 1
 }
+
+#paste("cee19_0", as.character(i),sep="")
 ```
