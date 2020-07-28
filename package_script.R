@@ -56,14 +56,16 @@ datapackage_skeleton(name = "BRSPackage",
 
 
 # function to process and include multiple dataframes in package
-package_function <- function(rmd_path, dataframe_to_store) {
+package_function <- function(rmd_path, dataframes_to_store) {
   # Data processing script (load in from rmd_path)
   use_processing_script(file = rmd_path,
                         overwrite = TRUE)
   
   # 4. Let DataPackageR know about the data objects to store in the package.
-  use_data_object(dataframe_to_store)
-  
+  for (i in range(length(dataframes_to_store))) {
+    use_data_object(dataframes_to_store[i])
+  }
+
   # Build the package.
   options("DataPackageR_interact" = FALSE)
   package_build(packageName = paste(path, '/BRSPackage', sep = ""), install = FALSE)
@@ -77,15 +79,15 @@ paths <- c("/cloud/project/data/raw_data/locations.Rmd",
            "/cloud/project/data/raw_data/locations_intersect.Rmd",
            "/cloud/project/data/raw_data/cee.Rmd")
 # names of dataframes to store
-dataframes <- c("locations",
-                "series",
-                "series_range",
-                "locations_intersect",
-                "cee") 
+dataframes_to_store <- c(c("locations"),
+                c("series"),
+                c("series_range"),
+                c("locations_intersect"),
+                c("cee")) 
 
 # Call function for each Rmd and each dataframe
 for (i in length(paths)) {
-  package_function(paths[i], dataframes[i])
+  package_function(paths[i], dataframes_to_store[i])
 }
 
 
