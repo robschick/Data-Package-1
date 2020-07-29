@@ -49,6 +49,7 @@ aux
 gonio <- read_csv('/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data/gonio_gpx_merge_2019.csv')
 gonio <- gonio %>%
   mutate(date = as.character(date))
+gonio
 
 gonio <- gonio %>%
   mutate(date_time = parse_datetime(date, format = "%Y-%m-%d %H:%M:%S", locale = locale(tz = 'UTC'))) %>% 

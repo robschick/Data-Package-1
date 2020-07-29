@@ -140,44 +140,65 @@ NULL
 #' Detailed description of the data
 #' @name aux
 #' @docType data
-#' @title Descriptive data title
+#' @title Auxiliary data from user observations
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
-#' \item{DeployID}{}
-#' \item{start_date}{}
-#' \item{end_date}{}
-#' \item{num_fixes}{}
-#' \item{date_range}{}
-#' \item{average_locs}{}
-#' \item{series_start_date}{}
-#' \item{series_end_date}{}
-#' \item{series_date_range}{}
-#' \item{num_before_cee}{}
-#' \item{num_after_cee}{}
+#' \item{Tag}{}
+#' \item{Date}{}
+#' \item{Time}{}
+#' \item{Lat}{}
+#' \item{Long}{}
+#' \item{DataSource}{}
+#' \item{Vessel}{}
+#' \item{Category}{}
+#' \item{Error_in_m}{}
+#' \item{SightingNo}{}
+#' \item{Comments}{}
 #' }
-#' @source The data comes from________________________.
+#' @source The data comes from the 2019 BRS Study.
 #' @seealso
 NULL
 
 #' Detailed description of the data
 #' @name gonio
 #' @docType data
-#' @title Descriptive data title
+#' @title Data from the goniometer
+#' @format a \code{data.frame} containing the following fields:
+#' \describe{
+#' \item{hex{}
+#' \item{date}{}
+#' \item{datenum}{}
+#' \item{gonio_bearing_deg}{}
+#' \item{strength_db}{}
+#' \item{platform}{}
+#' \item{ptt}{}
+#' \item{DeployID}{}
+#' \item{lon}{}
+#' \item{lat}{}
+#' \item{boat_bearing_deg}{}
+#' \item{boat_speed_kph}{}
+#' \item{gps_gonio_time_difference_s}{}
+#' }
+#' @source The data comes from the 2019 BRS Study.
+#' @seealso
+NULL
+
+#' Detailed description of the data
+#' @name gonio_out
+#' @docType data
+#' @title Collapsed gonio data
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
 #' \item{DeployID}{}
-#' \item{start_date}{}
-#' \item{end_date}{}
-#' \item{num_fixes}{}
-#' \item{date_range}{}
-#' \item{average_locs}{}
-#' \item{series_start_date}{}
-#' \item{series_end_date}{}
-#' \item{series_date_range}{}
-#' \item{num_before_cee}{}
-#' \item{num_after_cee}{}
+#' \item{date_time}{}
+#' \item{lat}{}
+#' \item{lon}{}
+#' \item{platform}{}
+#' \item{distance}{}
+#' \item{Quality}{}
+#' \item{Source}{}
 #' }
-#' @source The data comes from________________________.
+#' @source The data comes from the 2019 BRS Study.
 #' @seealso
 NULL
 
