@@ -143,19 +143,19 @@ NULL
 #' @title Auxiliary data from user observations
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
-#' \item{Tag}{}
-#' \item{Date}{}
-#' \item{Time}{}
-#' \item{Lat}{}
-#' \item{Long}{}
-#' \item{DataSource}{}
-#' \item{Vessel}{}
-#' \item{Category}{}
-#' \item{Error_in_m}{}
-#' \item{SightingNo}{}
-#' \item{Comments}{}
+#' \item{Tag}{The ID identifying an individual whale.}
+#' \item{Date}{The date of an observation.}
+#' \item{Time}{The time of an observation.}
+#' \item{Lat}{The latitude where an individual whale was observed.}
+#' \item{Long}{The longitude where an individual whale was observed.}
+#' \item{DataSource}{Whether the observation was from a tagging or sighting.}
+#' \item{Vessel}{The vessel the observation was made from.}
+#' \item{Category}{How the observation was made.}
+#' \item{Error_in_m}{The error of the observation in meters.}
+#' \item{SightingNo}{The number of the sighting.}
+#' \item{Comments}{Any notes about a particular observation.}
 #' }
-#' @source The data comes from the 2019 BRS Study.
+#' @source The data comes from the user observations of the 2019 BRS Study.
 #' @seealso
 NULL
 
@@ -165,19 +165,19 @@ NULL
 #' @title Data from the goniometer
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
-#' \item{hex{}
-#' \item{date}{}
-#' \item{datenum}{}
-#' \item{gonio_bearing_deg}{}
-#' \item{strength_db}{}
-#' \item{platform}{}
-#' \item{ptt}{}
-#' \item{DeployID}{}
-#' \item{lon}{}
-#' \item{lat}{}
-#' \item{boat_bearing_deg}{}
-#' \item{boat_speed_kph}{}
-#' \item{gps_gonio_time_difference_s}{}
+#' \item{hex{The hex number identifying an individual whale.}
+#' \item{date}{The date of an observation.}
+#' \item{datenum}{The date and time of an observation in numerical format.}
+#' \item{gonio_bearing_deg}{The orientation of the goniometer in degrees.}
+#' \item{strength_db}{The received sound level of the whale in dB}
+#' \item{platform}{The vessel the observation was made from.}
+#' \item{ptt}{The number identifying an individual whale.}
+#' \item{DeployID}{The ID identifying an individual whale.}
+#' \item{lat}{The latitude where an individual whale was observed.}
+#' \item{lon}{The longitude where an individual whale was observed.}
+#' \item{boat_bearing_deg}{The orientation of the boat in degrees.}
+#' \item{boat_speed_kph}{The speed of the boat during the observation.}
+#' \item{gps_gonio_time_difference_s}{The difference in recorded times of the gps and goniometer in seconds.}
 #' }
 #' @source The data comes from the 2019 BRS Study.
 #' @seealso
@@ -189,16 +189,16 @@ NULL
 #' @title Collapsed gonio data
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
-#' \item{DeployID}{}
-#' \item{date_time}{}
-#' \item{lat}{}
-#' \item{lon}{}
-#' \item{platform}{}
-#' \item{distance}{}
-#' \item{Quality}{}
-#' \item{Source}{}
+#' \item{DeployID}{The ID identifying an individual whale.}
+#' \item{date_time}{The date and time of an observation.}
+#' \item{lat}{The latitude where an individual whale was observed.}
+#' \item{lon}{The longitude where an individual whale was observed.}
+#' \item{platform}{The vessel the observation was made from.}
+#' \item{distance}{A measure of the error of the observation.}
+#' \item{Quality}{The category based on the magnitude of error of an observation.}
+#' \item{Source}{Whether an observation is from locations, auxiliary, or goniometer data.}
 #' }
-#' @source The data comes from the 2019 BRS Study.
+#' @source The data comes from the goniometer data from the 2019 BRS Study.
 #' @seealso
 NULL
 
@@ -209,16 +209,16 @@ NULL
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
 #' \item{DeployID}{The ID identifying an individual whale.}
-#' \item{Latitude}{}
-#' \item{Longitude}{}
-#' \item{Error.Semi.major.axis}{}
-#' \item{Error.Semi.minor.axis}{}
-#' \item{Quality}{}
+#' \item{Latitude}{The latitude where an individual whale was observed.}
+#' \item{Longitude}{The longitude where an individual whale was observed.}
+#' \item{Error.Semi.major.axis}{The semi major axis error of an individual observation.}
+#' \item{Error.Semi.minor.axis}{The semi minor axis error of an individual obseravtion.}
+#' \item{Error.Ellipse.orientation}{The ellipse orientation error of an individual observation.}
+#' \item{Quality}{The category based on the magnitude of error of an observation.}
 #' \item{Source}{Whether an observation is from locations, auxiliary, or goniometer data.}
-#' \item{Error.Ellipse.Orientation}{}
 #' \item{date_time}{The date and time of an observation.}
 #' }
-#' @source The data comes from________________________.
+#' @source The data comes from locations, aux, and gonio.
 #' @seealso
 NULL
 
