@@ -22,7 +22,9 @@ library(devtools)
 ## R Markdown
 
 ```{r locations}
-locations <- read_csv("/cloud/project/data/raw_data/All_Locations.csv") %>%
+locations <- read_csv("/cloud/project/data/raw_data/All_Locations.csv")
+
+locations <- locations %>%
   mutate(date_time = parse_datetime(Date, format = "%H:%M:%S %d-%b-%Y", locale = locale(tz = 'UTC')),
          Source = rep("locations",nrow(locations))) %>%
   select(DeployID, date_time, Latitude, Longitude, Quality, Error.Semi.major.axis, Error.Semi.minor.axis, Error.Ellipse.orientation, Source)
@@ -112,7 +114,7 @@ all_combined
 ```
 
 
-
+Crawl filtering for duplicate times
 ```{r}
 make_unique <- function(x) {
   xts::make.time.unique(x$date_time,eps = 10)
@@ -129,6 +131,7 @@ processed_combined <- all_combined %>%
 processed_combined
 ```
 
+Crawl filtering for speeds
 ```{r}
 future::plan(sequential)
 
@@ -141,8 +144,9 @@ processed_combined %>% dplyr::summarise(n = n())
 processed_combined
 ```
 
+Max velocity is 10 km/hr (2.7778 m/s) for Ziphus, 15 km/hr (4.1667 m/s) for Globicephala
 ```{r}
-processed_combined <- processed_combined %>% 
+processed_gonio_aux_locs <- processed_combined %>% 
   dplyr::mutate(filtered = furrr::future_map(data, ~ argosfilter::sdafilter(
     lat = .x$Latitude,
     lon = .x$Longitude,
@@ -156,12 +160,12 @@ processed_combined <- processed_combined %>%
   dplyr::select(-filtered) %>% 
   dplyr::arrange(DeployID,date_time)
 
-processed_combined %>% dplyr::summarise(n = n())
-processed_combined
+processed_gonio_aux_locs %>% dplyr::summarise(n = n())
+processed_gonio_aux_locs
 ```
 
 ```{r new csv}
-write.csv(processed_combined, "gonio_aux_merge.csv")
-print(processed_combined)
+write.csv(processed_gonio_aux_locs, "gonio_aux_merge.csv")
+print(processed_gonio_aux_locs)
 ```
 

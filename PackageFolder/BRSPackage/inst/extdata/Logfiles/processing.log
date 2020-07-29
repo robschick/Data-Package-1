@@ -1,24 +1,25 @@
-TRACE [2020-07-17 17:46:11] Logging to /cloud/project/PackageFolder/BRSPackage/inst/extdata/Logfiles/processing.log
-TRACE [2020-07-17 17:46:11] Processing data
-TRACE [2020-07-17 17:46:11] Reading yaml configuration
-TRACE [2020-07-17 17:46:11] Found /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
-TRACE [2020-07-17 17:46:11] Processing 1 of 1: /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-07-28 20:10:08] Logging to /cloud/project/PackageFolder/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-07-28 20:10:08] Processing data
+TRACE [2020-07-28 20:10:08] Reading yaml configuration
+TRACE [2020-07-28 20:10:08] Found /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-07-28 20:10:08] Processing 1 of 1: /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
 
-TRACE [2020-07-17 17:47:20] Logging to /cloud/project/PackageFolder/BRSPackage/inst/extdata/Logfiles/processing.log
-TRACE [2020-07-17 17:47:20] Processing data
-TRACE [2020-07-17 17:47:20] Reading yaml configuration
-TRACE [2020-07-17 17:47:20] Found /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
-TRACE [2020-07-17 17:47:20] Processing 1 of 1: /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-07-28 20:10:12] 0 data set(s) created by cee.Rmd
+TRACE [2020-07-28 20:10:12] NEWS.md file not found, creating!
+TRACE [2020-07-28 20:10:12] NEWS.md file found, updating!
+TRACE [2020-07-28 20:10:12] Saving to data
+TRACE [2020-07-28 20:14:11] Logging to /cloud/project/PackageFolder/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-07-28 20:14:11] Processing data
+TRACE [2020-07-28 20:14:11] Reading yaml configuration
+TRACE [2020-07-28 20:14:11] Found /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-07-28 20:14:11] Processing 1 of 1: /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
 
-TRACE [2020-07-17 17:49:08] Logging to /cloud/project/PackageFolder/BRSPackage/inst/extdata/Logfiles/processing.log
-TRACE [2020-07-17 17:49:08] Processing data
-TRACE [2020-07-17 17:49:08] Reading yaml configuration
-TRACE [2020-07-17 17:49:08] Found /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
-TRACE [2020-07-17 17:49:08] Processing 1 of 1: /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
-
-TRACE [2020-07-17 17:49:33] Logging to /cloud/project/PackageFolder/BRSPackage/inst/extdata/Logfiles/processing.log
-TRACE [2020-07-17 17:49:33] Processing data
-TRACE [2020-07-17 17:49:33] Reading yaml configuration
-TRACE [2020-07-17 17:49:33] Found /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
-TRACE [2020-07-17 17:49:33] Processing 1 of 1: /cloud/project/PackageFolder/BRSPackage/data-raw/cee.Rmd
-
+TRACE [2020-07-28 20:14:12] 0 data set(s) created by cee.Rmd
+TRACE [2020-07-28 20:14:12] NEWS.md file found, updating!
+TRACE [2020-07-28 20:14:12] Processed data sets match existing data sets at version 0.1.0
+TRACE [2020-07-28 20:14:12] Saving to data
+TRACE [2020-07-28 20:14:12] Copied documentation to /cloud/project/PackageFolder/BRSPackage/R/BRSPackage.R
+TRACE [2020-07-28 20:14:12] Done
+TRACE [2020-07-28 20:14:12] DataPackageR succeeded
+TRACE [2020-07-28 20:14:12] Building documentation
+TRACE [2020-07-28 20:14:13] Building package
