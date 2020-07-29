@@ -22,7 +22,7 @@ library(devtools)
 ## R Markdown
 
 ```{r locations}
-locations <- read_csv("/cloud/project/data/raw_data/All_Locations.csv")
+locations <- read_csv("/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
 
 locations <- locations %>%
   mutate(date_time = parse_datetime(Date, format = "%H:%M:%S %d-%b-%Y", locale = locale(tz = 'UTC')),
@@ -33,7 +33,7 @@ locations
 
 
 ```{r aux}
-aux <- read_csv("/cloud/project/data/raw_data/2019_AuxDataErrorStructure_20200609.csv") %>%
+aux <- read_csv("/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data/2019_AuxDataErrorStructure_20200609.csv") %>%
   mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = "%m/%d/%y %H:%M:%S"),
          Error_in_m = as.character(Error_in_m)) %>%
   filter(Category != "Gonio") %>%
@@ -46,7 +46,7 @@ aux
 ```
 
 ```{r gonio}
-gonio <- read_csv('/cloud/project/data/raw_data/gonio_gpx_merge_2019.csv')
+gonio <- read_csv('/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data/gonio_gpx_merge_2019.csv')
 gonio <- gonio %>%
   mutate(date = as.character(date))
 
