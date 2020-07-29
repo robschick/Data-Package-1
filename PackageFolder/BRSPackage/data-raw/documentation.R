@@ -17,44 +17,56 @@ NULL
 #' Detailed description of the data
 #' @name locations
 #' @docType data
-#' @title Descriptive data title
+#' @title Location of different whales
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
 #' \item{DeployID}{}
-#' \item{start_date}{}
-#' \item{end_date}{}
-#' \item{num_fixes}{}
-#' \item{date_range}{}
-#' \item{average_locs}{}
-#' \item{series_start_date}{}
-#' \item{series_end_date}{}
-#' \item{series_date_range}{}
-#' \item{num_before_cee}{}
-#' \item{num_after_cee}{}
+#' \item{Ptt}{}
+#' \item{Instr}{}
+#' \item{Date}{}
+#' \item{Type}{}
+#' \item{Quality}{}
+#' \item{Latitude}{}
+#' \item{Longitude}{}
+#' \item{Error.radius}{}
+#' \item{Error.Semi.major.axis}{}
+#' \item{Error.Semi.minor.axis}{}
+#' \item{Error.Ellipse.orientation}{}
+#' \item{Offset}{}
+#' \item{Offset.orientation}{}
+#' \item{GPE.MSD}{}
+#' \item{GPE.U}{}
+#' \item{Count}{}
+#' \item{Comment}{}
 #' }
-#' @source The data comes from________________________.
+#' @source The data comes from the 2019 BRS Study.
 #' @seealso
 NULL
 
 #' Detailed description of the data
 #' @name series
 #' @docType data
-#' @title Descriptive data title
+#' @title Dive data of whales
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
 #' \item{DeployID}{}
-#' \item{start_date}{}
-#' \item{end_date}{}
-#' \item{num_fixes}{}
-#' \item{date_range}{}
-#' \item{average_locs}{}
-#' \item{series_start_date}{}
-#' \item{series_end_date}{}
-#' \item{series_date_range}{}
-#' \item{num_before_cee}{}
-#' \item{num_after_cee}{}
+#' \item{Ptt}{}
+#' \item{DepthSensor}{}
+#' \item{Source}{}
+#' \item{Instr}{}
+#' \item{Day}{}
+#' \item{Time}{}
+#' \item{LocationQuality}{}
+#' \item{Latitude}{}
+#' \item{Longitude}{}
+#' \item{Depth}{}
+#' \item{DRange}{}
+#' \item{Temperature}{}
+#' \item{TRange}{}
+#' \item{Activity}{}
+#' \item{ARange}{}
 #' }
-#' @source The data comes from________________________.
+#' @source The data comes from the 2019 BRS Study.
 #' @seealso
 NULL
 
@@ -76,29 +88,30 @@ NULL
 #' \item{num_before_cee}{}
 #' \item{num_after_cee}{}
 #' }
-#' @source The data comes from________________________.
+#' @source The data comes from the 2019 BRS Study.
 #' @seealso
 NULL
 
 #' Detailed description of the data
 #' @name series_range
 #' @docType data
-#' @title Descriptive data title
+#' @title Depth bins of whales
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
 #' \item{DeployID}{}
-#' \item{start_date}{}
-#' \item{end_date}{}
-#' \item{num_fixes}{}
-#' \item{date_range}{}
-#' \item{average_locs}{}
-#' \item{series_start_date}{}
-#' \item{series_end_date}{}
-#' \item{series_date_range}{}
-#' \item{num_before_cee}{}
-#' \item{num_after_cee}{}
+#' \item{Ptt}{}
+#' \item{DepthSensor}{}
+#' \item{Source}{}
+#' \item{Instr}{}
+#' \item{Count}{}
+#' \item{Start}{}
+#' \item{End}{}
+#' \item{MinDepth}{}
+#' \item{MinDepthAccuracy}{}
+#' \item{MaxDepth}{}
+#' \item{MaxDepthAccuracy}{}
 #' }
-#' @source The data comes from________________________.
+#' @source The data comes from the 2019 BRS Study.
 #' @seealso
 NULL
 
