@@ -15,7 +15,7 @@ NULL
 
 
 #' Detailed description of the data
-#' @name NA
+#' @name locations
 #' @docType data
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
@@ -37,7 +37,7 @@ NULL
 NULL
 
 #' Detailed description of the data
-#' @name NA
+#' @name series
 #' @docType data
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
@@ -59,7 +59,7 @@ NULL
 NULL
 
 #' Detailed description of the data
-#' @name NA
+#' @name series_xts
 #' @docType data
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
@@ -81,7 +81,7 @@ NULL
 NULL
 
 #' Detailed description of the data
-#' @name NA
+#' @name series_range
 #' @docType data
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
@@ -103,7 +103,7 @@ NULL
 NULL
 
 #' Detailed description of the data
-#' @name NA
+#' @name locations_intersect
 #' @docType data
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
@@ -125,7 +125,7 @@ NULL
 NULL
 
 #' Detailed description of the data
-#' @name NA
+#' @name aux
 #' @docType data
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
@@ -147,7 +147,7 @@ NULL
 NULL
 
 #' Detailed description of the data
-#' @name NA
+#' @name gonio
 #' @docType data
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
@@ -169,7 +169,7 @@ NULL
 NULL
 
 #' Detailed description of the data
-#' @name NA
+#' @name processed_gonio_aux_locs
 #' @docType data
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
@@ -191,7 +191,7 @@ NULL
 NULL
 
 #' Detailed description of the data
-#' @name NA
+#' @name cee19_01
 #' @docType data
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
