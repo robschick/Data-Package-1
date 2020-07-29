@@ -16,6 +16,7 @@ library(xts)
 
 ```{r cars}
 series <- read_csv("/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data/All_Series.csv")
+series
 ```
 
 ## Prep for Dygraph
