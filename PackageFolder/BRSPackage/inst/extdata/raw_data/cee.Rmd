@@ -13,12 +13,12 @@ library(lubridate)
 ## R Markdown
 
 ```{r read_csvs}
-processed <- read_csv("/cloud/project/data/raw_data/gonio_aux_merge.csv")
+processed <- read_csv("/cloud/project/PackageFolder/BRSPackage/inst/extdata//raw_data/gonio_aux_merge.csv")
 processed
 cee <- read_csv(file = "/cloud/project/data/raw_data/ATLANTIC-BRS_CEE Metadata.csv") %>%
   mutate(date_time = as.POSIXct(paste(Date, as.character(CEE.Times)), format = "%m/%d/%y %H:%M:%S"))
 cee
-series <- read_csv("/cloud/project/data/raw_data/All_Series.csv") %>%
+series <- read_csv("/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data/All_Series.csv") %>%
   mutate(date_time = as.POSIXct(paste(Day, as.character(Time)), format = "%d-%B-%Y %H:%M:%S"))
 series
 ```
