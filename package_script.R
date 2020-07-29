@@ -46,7 +46,7 @@ paths <- c("/cloud/project/data/raw_data/locations.Rmd",
 dataframes_to_store <- c(c("locations"),
                 c("series", "series_xts"),
                 c("series_range"),
-                c("locations_intersect"),
+                c("processed_locations"),
                 c("aux","gonio","processed_gonio_aux_locs"),
                 c("cee19_01", "cee19_02", "cee19_03", "cee19_04")) 
 

@@ -116,7 +116,7 @@ NULL
 NULL
 
 #' Detailed description of the data
-#' @name locations_intersect
+#' @name processed_locations
 #' @docType data
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
@@ -187,17 +187,15 @@ NULL
 #' @title Descriptive data title
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
-#' \item{DeployID}{}
-#' \item{start_date}{}
-#' \item{end_date}{}
-#' \item{num_fixes}{}
-#' \item{date_range}{}
-#' \item{average_locs}{}
-#' \item{series_start_date}{}
-#' \item{series_end_date}{}
-#' \item{series_date_range}{}
-#' \item{num_before_cee}{}
-#' \item{num_after_cee}{}
+#' \item{DeployID}{The ID identifying an individual whale.}
+#' \item{Latitude}{}
+#' \item{Longitude}{}
+#' \item{Error.Semi.major.axis}{}
+#' \item{Error.Semi.minor.axis}{}
+#' \item{Quality}{}
+#' \item{Source}{Whether an observation is from locations, auxiliary, or goniometer data.}
+#' \item{Error.Ellipse.Orientation}{}
+#' \item{date_time}{The date and time of an observation.}
 #' }
 #' @source The data comes from________________________.
 #' @seealso
