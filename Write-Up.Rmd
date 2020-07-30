@@ -12,3 +12,6 @@ output: html_document
 * We temporally intersected the deployment locations with the locations data to remove any locations reported by the tag before it was actually on the whale.
 * We intersected the cee metadata with the dataframe containing locations, gonio, and aux. 
 * We created a function to create this intersection with all cees. 
+
+#### Using the Data Package
+
