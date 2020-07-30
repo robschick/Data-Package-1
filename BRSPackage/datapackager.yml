@@ -1,0 +1,7 @@
+configuration:
+  files:
+    cee.Rmd:
+      enabled: yes
+  objects: aux
+  render_root:
+    tmp: '64679'

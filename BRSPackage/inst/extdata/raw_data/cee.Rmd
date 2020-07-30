@@ -1,0 +1,98 @@
+---
+title: cee.
+author: Larry Zheng
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(lubridate)
+```
+
+## R Markdown
+
+```{r read_csvs}
+processed <- read_csv("/cloud/project/data/raw_data/gonio_aux_merge.csv")
+processed
+cee <- read_csv(file = "/cloud/project/data/raw_data/ATLANTIC-BRS_CEE Metadata.csv") %>%
+  mutate(date_time = as.POSIXct(paste(Date, as.character(CEE.Times)), format = "%m/%d/%y %H:%M:%S"))
+cee
+series <- read_csv("/cloud/project/data/raw_data/All_Series.csv") %>%
+  mutate(date_time = as.POSIXct(paste(Day, as.character(Time)), format = "%d-%B-%Y %H:%M:%S"))
+series
+```
+
+
+```{r function}
+cee_function <- function(cee_start, cee_end, animals) {
+  #Jennifer's chunk
+  this_cee <- processed %>%
+    filter(DeployID %in% animals) %>%
+    group_by(DeployID) %>%
+    summarize(start_date = range(date_time)[1],
+              end_date = range(date_time)[2],
+              num_fixes = n()) %>%
+    mutate(date_range = end_date - start_date,
+           date_range = as.integer(date_range),
+           average_locs = num_fixes/date_range)
+
+  series_cee <- series %>%
+    filter(DeployID %in% animals) %>%
+    group_by(DeployID) %>%
+    summarize(series_start_date = range(date_time)[1],
+              series_end_date = range(date_time)[2]) %>%
+    mutate(series_date_range = series_end_date - series_start_date)
+  
+  total <- merge(this_cee, series_cee, by= "DeployID", all=TRUE)
+  
+  #Larry's chunk
+  cee_counts <- processed %>%
+    filter(DeployID %in% animals) %>% #animals will be passed in function call: animals in a particular CEE
+    group_by(DeployID) %>%
+    count(Source) %>%
+    spread(Source, n)
+    
+  cee_bef <- processed %>%
+    filter(DeployID %in% animals,
+           date_time < cee_start) %>%
+    group_by(DeployID) %>%
+    count() %>%
+    rename(num_before_cee = n)
+  
+  cee_after <- processed %>%
+    filter(DeployID %in% animals,
+      date_time > cee_end) %>%
+    group_by(DeployID) %>%
+    count() %>%
+    rename(num_after_cee = n)
+  
+  #Combine dataframes
+  total2 <- merge(cee_counts, cee_bef, by= "DeployID", all=TRUE)
+  total2 <- merge(total2, cee_after, by= "DeployID", all=TRUE) %>% 
+    replace(is.na(.), 0)
+  
+  final_df <- merge(total, total2, by= "DeployID", all=TRUE)
+  
+  return(final_df)
+}
+```
+
+
+Loop
+```{r}
+cee_names <- c("cee19_01", "cee19_02", "cee19_03", "cee19_04")
+name_index <- 1
+
+for (i in seq(from = 1, to = length(cee), by = 2)) {
+  cee_start <- cee$date_time[i]
+  cee_end <- cee$date_time[i+1]
+  animals <- strsplit(cee$Focal.animals[i], " ")
+  animals <- unlist(animals)
+  
+  assign(cee_names[name_index], cee_function(cee_start, cee_end, animals))
+  name_index <- name_index + 1
+}
+
+#paste("cee19_0", as.character(i),sep="")
+```
