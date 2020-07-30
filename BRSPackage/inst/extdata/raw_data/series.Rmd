@@ -8,6 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(knitr)
 library(xts)
+library(timetk)
 ```
 
 ## R Markdown
@@ -30,5 +31,6 @@ series_tbl <- tibble::tibble(
     upper = -1 * (series$Depth + series$DRange))  
  
 series_xts <- tk_xts(series_tbl, tzone = "UTC")
+series_xts
 ```
 
