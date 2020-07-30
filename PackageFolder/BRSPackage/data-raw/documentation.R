@@ -73,20 +73,13 @@ NULL
 #' Detailed description of the data
 #' @name series_xts
 #' @docType data
-#' @title Descriptive data title
+#' @title Diving data for dygraph
 #' @format a \code{data.frame} containing the following fields:
 #' \describe{
-#' \item{DeployID}{}
-#' \item{start_date}{}
-#' \item{end_date}{}
-#' \item{num_fixes}{}
-#' \item{date_range}{}
-#' \item{average_locs}{}
-#' \item{series_start_date}{}
-#' \item{series_end_date}{}
-#' \item{series_date_range}{}
-#' \item{num_before_cee}{}
-#' \item{num_after_cee}{}
+#' \item{date}{The date of the observation from an individual whale.}
+#' \item{depth}{The depth of the observation from an individual whale.}
+#' \item{lower}{The lower bound for the depth.}
+#' \item{upper}{The upper bound for the depth.}
 #' }
 #' @source The data comes from the 2019 BRS Study.
 #' @seealso
