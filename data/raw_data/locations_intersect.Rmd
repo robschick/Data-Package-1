@@ -15,8 +15,8 @@ library(lubridate)
 
 
 ```{r cars}
-locations <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
-deploy <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/2019_SatTag_DeployLocations.csv")
+locations <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
+deploy <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/2019_SatTag_DeployLocations.csv")
 ```
 
 ```{r}

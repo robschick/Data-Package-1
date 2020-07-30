@@ -14,5 +14,5 @@ library(knitr)
 
 
 ```{r cars}
-series_range <- read_csv("/cloud/project/Test/BRSPackage/inst/extdata/raw_data/All_SeriesRange.csv")
+series_range <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/All_SeriesRange.csv")
 ```

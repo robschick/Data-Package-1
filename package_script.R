@@ -20,14 +20,14 @@ datapackage_skeleton(name = "BRSPackage",
 
 
 # function to process and include multiple dataframes in package
-package_function <- function(rmd_path, dataframes_to_store) {
+package_function <- function(rmd_path, dataframe_to_store) {
   # Data processing script (load in from rmd_path)
   use_processing_script(file = rmd_path,
                         overwrite = TRUE)
   
   # Let DataPackageR know about the data objects to store in the package.
-  for (i in range(length(dataframes_to_store))) {
-    use_data_object(dataframes_to_store[i])
+  for (i in seq(length(dataframe_to_store))) {
+    use_data_object(dataframe_to_store[i])
   }
 
   # Build the package.
@@ -60,7 +60,9 @@ for (i in length(paths)) {
 # Edit the data set documentation: edit the documentation.R file under data-raw
 # ensure we run document() from the DataPackageR namespace and not document() from roxygen or devtools.
 #package_path <- file.path(tempdir(),"TidyCars"))
-DataPackageR::document(path)
+new_path <- '/cloud/project/BRSPackage'
+
+DataPackageR::document(new_path)
 
 
 
