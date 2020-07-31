@@ -37,22 +37,24 @@ package_function <- function(rmd_path, dataframe_to_store) {
 
 
 # paths of Rmd files used to process
-paths <- c("/cloud/project/data/raw_data/locations.Rmd",
+paths <- c("/cloud/project/data/raw_data/cee.Rmd",
+           "/cloud/project/data/raw_data/locations.Rmd",
            "/cloud/project/data/raw_data/series.Rmd", 
            "/cloud/project/data/raw_data/series_range.Rmd",
            "/cloud/project/data/raw_data/locations_intersect.Rmd",
-           "/cloud/project/data/raw_data/Gonio_Aux_Locs_Merge.Rmd",
-           "/cloud/project/data/raw_data/cee.Rmd")
+           "/cloud/project/data/raw_data/Gonio_Aux_Locs_Merge.Rmd"
+           )
 # names of dataframes to store
-dataframes_to_store <- c(c("locations"),
+dataframes_to_store <- c(c("cee19_01", "cee19_02", "cee19_03", "cee19_04"),
+                c("locations"),
                 c("series", "series_xts"),
                 c("series_range"),
                 c("processed_locations"),
-                c("aux","gonio","processed_gonio_aux_locs"),
-                c("cee19_01", "cee19_02", "cee19_03", "cee19_04")) 
+                c("aux","gonio","processed_gonio_aux_locs")
+                ) 
 
 # Call function for each Rmd and each dataframe
-for (i in length(paths)) {
+for (i in seq(length(paths))) {
   package_function(paths[i], dataframes_to_store[i])
 }
 

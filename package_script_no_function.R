@@ -18,6 +18,22 @@ datapackage_skeleton(name = "BRSPackage",
                      raw_data_dir = '/cloud/project/data/raw_data')
 
 
+# CEE
+
+use_processing_script(file = "/cloud/project/data/raw_data/cee.Rmd",
+                      overwrite = TRUE)
+
+# Let DataPackageR know about the data objects to store in the package.
+use_data_object("cee19_01")
+use_data_object("cee19_02")
+use_data_object("cee19_03")
+use_data_object("cee19_04")
+
+# Build the package.
+options("DataPackageR_interact" = FALSE)
+package_build(packageName = paste(path, '/BRSPackage', sep = ""), install = FALSE)
+
+
 
 # LOCATIONS
 
@@ -91,20 +107,7 @@ package_build(packageName = paste(path, '/BRSPackage', sep = ""), install = FALS
 
 
 
-# CEE
 
-use_processing_script(file = "/cloud/project/data/raw_data/cee.Rmd",
-                      overwrite = TRUE)
-
-# Let DataPackageR know about the data objects to store in the package.
-use_data_object("cee19_01")
-use_data_object("cee19_02")
-use_data_object("cee19_03")
-use_data_object("cee19_04")
-
-# Build the package.
-options("DataPackageR_interact" = FALSE)
-package_build(packageName = paste(path, '/BRSPackage', sep = ""), install = FALSE)
 
 
 

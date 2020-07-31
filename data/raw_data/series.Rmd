@@ -16,7 +16,7 @@ library(timetk)
 
 
 ```{r cars}
-series <- read_csv("/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data/All_Series.csv")
+series <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/All_Series.csv")
 ```
 
 ## Prep for Dygraph

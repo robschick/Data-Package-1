@@ -16,7 +16,7 @@ library(timetk)
 
 
 ```{r cars}
-series <- read_csv("/cloud/project/PackageFolder/BRSPackage/inst/extdata/raw_data/All_Series.csv")
+series <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/All_Series.csv")
 ```
 
 ## Prep for Dygraph
@@ -31,6 +31,5 @@ series_tbl <- tibble::tibble(
     upper = -1 * (series$Depth + series$DRange))  
  
 series_xts <- tk_xts(series_tbl, tzone = "UTC")
-series_xts
 ```
 

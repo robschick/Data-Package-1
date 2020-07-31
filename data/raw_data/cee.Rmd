@@ -29,8 +29,8 @@ cee_function <- function(cee_start, cee_end, animals) {
   #Jennifer's chunk
   this_cee <- processed %>%
     filter(DeployID %in% animals) %>%
-    group_by(DeployID) %>%
-    summarize(start_date = range(date_time)[1],
+    dplyr::group_by(DeployID) %>%
+    dplyr::summarize(start_date = range(date_time)[1],
               end_date = range(date_time)[2],
               num_fixes = n()) %>%
     mutate(date_range = end_date - start_date,
@@ -84,7 +84,7 @@ Loop
 cee_names <- c("cee19_01", "cee19_02", "cee19_03", "cee19_04")
 name_index <- 1
 
-for (i in seq(from = 1, to = length(cee), by = 2)) {
+for (i in seq(from = 1, to = nrow(cee), by = 2)) {
   cee_start <- cee$date_time[i]
   cee_end <- cee$date_time[i+1]
   animals <- strsplit(cee$Focal.animals[i], " ")
@@ -96,3 +96,4 @@ for (i in seq(from = 1, to = length(cee), by = 2)) {
 
 #paste("cee19_0", as.character(i),sep="")
 ```
+

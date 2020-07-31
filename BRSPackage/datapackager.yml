@@ -1,0 +1,11 @@
+configuration:
+  files:
+    cee.Rmd:
+      enabled: yes
+  objects:
+  - cee19_01
+  - cee19_02
+  - cee19_03
+  - cee19_04
+  render_root:
+    tmp: '47340'

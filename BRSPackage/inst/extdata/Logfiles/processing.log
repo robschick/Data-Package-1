@@ -1,0 +1,6 @@
+TRACE [2020-07-31 18:45:39] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-07-31 18:45:39] Processing data
+TRACE [2020-07-31 18:45:39] Reading yaml configuration
+TRACE [2020-07-31 18:45:39] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-07-31 18:45:39] Processing 1 of 1: /cloud/project/BRSPackage/data-raw/cee.Rmd
+
