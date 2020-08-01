@@ -1,0 +1,176 @@
+---
+title: Gonio_Aux_Merge
+output: html_document
+vignette: >
+  %\VignetteIndexEntry{Gonio_Aux_Merge}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(plyr)
+library(stringr)
+library(argosfilter)
+library(readr)
+library(gdata)
+library(purrr)
+library(furrr)
+library(xts)
+library(devtools)
+```
+
+## R Markdown
+
+```{r locations}
+locations <- read_csv("/cloud/project/data/raw_data/All_Locations.csv")
+
+locations <- locations %>%
+  mutate(date_time = parse_datetime(Date, format = "%H:%M:%S %d-%b-%Y", locale = locale(tz = 'UTC')),
+         Source = rep("locations",nrow(locations))) %>%
+  select(DeployID, date_time, Latitude, Longitude, Quality, Error.Semi.major.axis, Error.Semi.minor.axis, Error.Ellipse.orientation, Source)
+locations
+```
+
+
+```{r aux}
+aux <- read_csv("/cloud/project/data/raw_data/2019_AuxDataErrorStructure_20200609.csv") %>%
+  mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = "%m/%d/%y %H:%M:%S"),
+         Error_in_m = as.character(Error_in_m)) %>%
+  filter(Category != "Gonio") %>%
+  select(Tag, date_time, Lat, Long, Vessel, Error_in_m)
+
+aux <- aux %>%
+  mutate(Quality = rep("User",nrow(aux)),
+         Source = rep("aux",nrow(aux)))
+aux
+```
+
+```{r gonio}
+gonio <- read_csv('/cloud/project/data/raw_data/gonio_gpx_merge_2019.csv')
+gonio <- gonio %>%
+  mutate(date = as.character(date))
+
+gonio <- gonio %>%
+  mutate(date_time = parse_datetime(date, format = "%Y-%m-%d %H:%M:%S", locale = locale(tz = 'UTC'))) %>% 
+  filter(!gps_gonio_time_difference_s > 60, strength_db < 0)
+gonio$gap <- c(0, diff(gonio$date_time) > 120) 
+gonio$group <- cumsum(gonio$gap) + 1
+gonio_out <- gonio %>% 
+  group_by(DeployID, group) %>% 
+  filter(strength_db == max(strength_db))
+gonio_out <- gonio_out %>% 
+  group_by(DeployID, group) %>% 
+  slice_head() %>%
+  ungroup()
+
+gonio_out <- gonio_out %>% 
+  mutate(distance = case_when(
+  strength_db > -50 ~ 100,
+  strength_db > -100 & strength_db <= -50 ~ 500, 
+  strength_db > -110 & strength_db <= -100 ~ 1000, 
+  strength_db > -120 & strength_db <= -110 ~ 2500, 
+  strength_db <= -120 ~ 3000)) %>%
+  select(DeployID, date_time, lat, lon, platform, distance) %>%
+  mutate(Quality = rep("User",nrow(gonio_out)),
+         Source = rep("gonio",nrow(gonio_out)))
+gonio_out
+```
+
+```{r rename_aux}
+aux <- aux %>%
+  rename(replace = c("Tag" = "DeployID", "Lat" = "lat", "Long" = "lon", "Vessel" = "platform",
+                     "Error_in_m" = "distance"))
+```
+
+
+Combine aux and gonio
+```{r combine_aux_gonio}
+combined_df <- rbind(aux, gonio_out) %>%
+  mutate(platform = factor(platform)) %>% 
+  mutate(DeployID = recode(DeployID, ZcTag82 = "ZcTag082", ZcTag83 = "ZcTag083", ZcTag84 = "ZcTag084",
+         ZcTag85 = "ZcTag085", ZcTag86 = "ZcTag086", ZcTag87 = "ZcTag087",
+         ZcTag88 = "ZcTag088", ZcTag89 = "ZcTag089"),
+         platform = recode(platform, charter = "Charter", barber = "Barber"))
+combined_df
+```
+
+
+
+Rename combined_df column names
+```{r}
+renamed_combined_df <- combined_df %>%
+  select(-platform) %>%
+  rename(replace = c("lat" = "Latitude", "lon" = "Longitude",
+                     "distance" = "Error.Semi.major.axis")) %>%
+  mutate(Error.Semi.minor.axis = Error.Semi.major.axis,
+         Error.Ellipse.orientation = rep(0,nrow(combined_df)))
+```
+
+
+Combine locations with renamed_combined_df
+```{r}
+all_combined <- rbind(renamed_combined_df, locations)
+all_combined
+```
+
+
+Crawl filtering for duplicate times
+```{r}
+make_unique <- function(x) {
+  xts::make.time.unique(x$date_time,eps = 10)
+}
+
+processed_combined <- all_combined %>% 
+  dplyr::arrange(DeployID,date_time) %>% 
+  dplyr::group_by(DeployID) %>% tidyr::nest() %>% 
+  dplyr::mutate(unique_time = purrr::map(data, make_unique)) %>% 
+  tidyr::unnest() %>%
+  dplyr::select(-date_time) %>%
+  rename(replace = c("unique_time" = "date_time")) 
+  #select(-unique_time1)
+processed_combined
+```
+
+Crawl filtering for speeds
+```{r}
+future::plan(sequential)
+
+processed_combined <- processed_combined %>% 
+  dplyr::arrange(DeployID, date_time) %>% 
+  dplyr::group_by(DeployID) %>% 
+  tidyr::nest() 
+
+processed_combined %>% dplyr::summarise(n = n())
+processed_combined
+```
+
+Max velocity is 10 km/hr (2.7778 m/s) for Ziphus, 15 km/hr (4.1667 m/s) for Globicephala
+```{r}
+processed_gonio_aux_locs <- processed_combined %>% 
+  dplyr::mutate(filtered = furrr::future_map(data, ~ argosfilter::sdafilter(
+    lat = .x$Latitude,
+    lon = .x$Longitude,
+    dtime = .x$date_time,
+    lc = .x$Quality,
+    vmax = case_when(startsWith(DeployID, "Z") ~ 2.7778,
+                     startsWith(DeployID, "G") ~ 4.1667)
+  ))) %>% 
+  tidyr::unnest() %>% 
+  dplyr::filter(filtered %in% c("not", "end_location")) %>% 
+  dplyr::select(-filtered) %>% 
+  dplyr::arrange(DeployID,date_time)
+
+processed_gonio_aux_locs %>% dplyr::summarise(n = n())
+processed_gonio_aux_locs
+```
+
+```{r new csv}
+write.csv(processed_gonio_aux_locs, "gonio_aux_merge.csv")
+print(processed_gonio_aux_locs)
+```
+
+

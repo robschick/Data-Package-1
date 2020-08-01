@@ -2,10 +2,28 @@ configuration:
   files:
     cee.Rmd:
       enabled: yes
+    locations.Rmd:
+      enabled: yes
+    series.Rmd:
+      enabled: yes
+    series_range.Rmd:
+      enabled: yes
+    locations_intersect.Rmd:
+      enabled: yes
+    Gonio_Aux_Locs_Merge.Rmd:
+      enabled: yes
   objects:
   - cee19_01
   - cee19_02
   - cee19_03
   - cee19_04
+  - locations
+  - series
+  - series_xts
+  - series_range
+  - processed_locations
+  - aux
+  - gonio
+  - processed_gonio_aux_locs
   render_root:
-    tmp: '47340'
+    tmp: '454593'
