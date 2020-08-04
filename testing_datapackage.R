@@ -6,6 +6,8 @@ library(devtools)
 # Install data package
 devtools::install_github("larryzheng0/BRSPackage")
 
+# Install from command line: R CMD INSTALL BRSPackage_1.0.tar.gz
+
 library(BRSPackage)
 
 cee

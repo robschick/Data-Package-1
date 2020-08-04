@@ -33,41 +33,46 @@ cee_function <- function(cee_start, cee_end, animals) {
     dplyr::summarize(start_date = range(date_time)[1],
               end_date = range(date_time)[2],
               num_fixes = n()) %>%
-    mutate(date_range = end_date - start_date,
-           date_range = as.integer(date_range),
-           average_locs = num_fixes/date_range)
-
+    mutate(date_range = end_date - start_date) %>%
+    mutate(date_range = as.integer(date_range)) %>%
+    mutate(average_locs = num_fixes/date_range)
+  
   series_cee <- series %>%
     filter(DeployID %in% animals) %>%
     group_by(DeployID) %>%
-    summarize(series_start_date = range(date_time)[1],
-              series_end_date = range(date_time)[2]) %>%
+    dplyr::summarize(series_start_date = range(date_time)[1],
+              series_end_date = range(date_time)[2])
+  
+  series_cee <- series_cee %>%
     mutate(series_date_range = series_end_date - series_start_date)
   
   total <- merge(this_cee, series_cee, by= "DeployID", all=TRUE)
   
   #Larry's chunk
+  cee_start <- cee$date_time[1]
+  cee_end <- cee$date_time[2]
+  
   cee_counts <- processed %>%
-    filter(DeployID %in% animals) %>% #animals will be passed in function call: animals in a particular CEE
+    filter(DeployID %in% animals) %>%
     group_by(DeployID) %>%
-    count(Source) %>%
+    dplyr::count(Source) %>%
     spread(Source, n)
     
   cee_bef <- processed %>%
-    filter(DeployID %in% animals,
-           date_time < cee_start) %>%
+    filter(DeployID %in% animals) %>%
+    filter(date_time < cee_start) %>%
     group_by(DeployID) %>%
-    count() %>%
-    rename(num_before_cee = n)
+    dplyr::count() %>%
+    dplyr::rename(num_before_cee = n)
   
   cee_after <- processed %>%
-    filter(DeployID %in% animals,
-      date_time > cee_end) %>%
+    filter(DeployID %in% animals) %>%
+    filter(date_time > cee_end) %>%
     group_by(DeployID) %>%
-    count() %>%
-    rename(num_after_cee = n)
+    dplyr::count() %>%
+    dplyr::rename(num_after_cee = n)
   
-  #Combine dataframes
+  
   total2 <- merge(cee_counts, cee_bef, by= "DeployID", all=TRUE)
   total2 <- merge(total2, cee_after, by= "DeployID", all=TRUE) %>% 
     replace(is.na(.), 0)
