@@ -3,37 +3,34 @@
 \docType{data}
 \name{series}
 \alias{series}
-\title{Descriptive data title}
+\title{Dive data of whales}
 \format{
-a \code{spec_tbl_df} containing the following fields:
+a \code{data.frame} containing the following fields:
 \describe{
-\item{X1}{}
-\item{DeployID}{}
-\item{Ptt}{}
-\item{DepthSensor}{}
+\item{DeployID}{The ID identifying an individual whale.}
+\item{Ptt}{The number identifying an individual whale.}
+\item{DepthSensor}{The depth of each observation.}
 \item{Source}{}
-\item{Instr}{}
-\item{Day}{}
-\item{Time}{}
-\item{LocationQuality}{}
-\item{Latitude}{}
-\item{Longitude}{}
-\item{Depth}{}
-\item{DRange}{}
-\item{Temperature}{}
-\item{TRange}{}
-\item{Activity}{}
-\item{ARange}{}
-\item{date_time}{}
+\item{Instr}{Instrument used to identify an individual whale.}
+\item{Day}{The date of the first observation from an individual whale.}
+\item{Time}{The time of the first observation from an individual whale.}
+\item{LocationQuality}{N/A}
+\item{Latitude}{N/A}
+\item{Longitude}{N/A}
+\item{Depth}{The depth of each individual observation.}
+\item{DRange}{The depth range of each individual observation.}
+\item{Temperature}{N/A}
+\item{TRange}{N/A}
+\item{Activity}{N/A}
+\item{ARange}{N/A}
 }
 }
 \source{
-The data comes from________________________.
+The data comes from the 2019 BRS Study.
 }
 \description{
 Detailed description of the data
 }
 \seealso{
-\link{BRSPackage}
-\link{series_xts}
+
 }

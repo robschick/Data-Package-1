@@ -182,3 +182,39 @@ TRACE [2020-08-01 01:26:43] Done
 TRACE [2020-08-01 01:26:43] DataPackageR succeeded
 TRACE [2020-08-01 01:26:43] Building documentation
 TRACE [2020-08-01 01:26:44] Building package
+TRACE [2020-08-01 02:22:06] Rebuilding data package documentation.
+TRACE [2020-08-01 02:22:42] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-08-01 02:22:42] Processing data
+TRACE [2020-08-01 02:22:42] Reading yaml configuration
+TRACE [2020-08-01 02:22:42] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-01 02:22:42] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-01 02:22:42] Found /cloud/project/BRSPackage/data-raw/series.Rmd
+TRACE [2020-08-01 02:22:42] Found /cloud/project/BRSPackage/data-raw/series_range.Rmd
+TRACE [2020-08-01 02:22:42] Found /cloud/project/BRSPackage/data-raw/locations_intersect.Rmd
+TRACE [2020-08-01 02:22:42] Found /cloud/project/BRSPackage/data-raw/Gonio_Aux_Locs_Merge.Rmd
+TRACE [2020-08-01 02:22:42] Processing 1 of 6: /cloud/project/BRSPackage/data-raw/cee.Rmd
+
+TRACE [2020-08-01 02:22:44] 5 data set(s) created by cee.Rmd
+TRACE [2020-08-01 02:22:44] Processing 2 of 6: /cloud/project/BRSPackage/data-raw/locations.Rmd
+
+TRACE [2020-08-01 02:22:45] 1 data set(s) created by locations.Rmd
+TRACE [2020-08-01 02:22:45] Processing 3 of 6: /cloud/project/BRSPackage/data-raw/series.Rmd
+
+TRACE [2020-08-01 02:22:45] 1 data set(s) created by series.Rmd
+TRACE [2020-08-01 02:22:45] Processing 4 of 6: /cloud/project/BRSPackage/data-raw/series_range.Rmd
+
+TRACE [2020-08-01 02:22:46] 1 data set(s) created by series_range.Rmd
+TRACE [2020-08-01 02:22:46] Processing 5 of 6: /cloud/project/BRSPackage/data-raw/locations_intersect.Rmd
+
+TRACE [2020-08-01 02:22:46] 1 data set(s) created by locations_intersect.Rmd
+TRACE [2020-08-01 02:22:46] Processing 6 of 6: /cloud/project/BRSPackage/data-raw/Gonio_Aux_Locs_Merge.Rmd
+
+TRACE [2020-08-01 02:23:02] 3 data set(s) created by Gonio_Aux_Locs_Merge.Rmd
+TRACE [2020-08-01 02:23:03] NEWS.md file found, updating!
+TRACE [2020-08-01 02:23:03] Processed data sets match existing data sets at version 0.1.5
+TRACE [2020-08-01 02:23:03] Saving to data
+TRACE [2020-08-01 02:23:03] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
+TRACE [2020-08-01 02:23:03] Done
+TRACE [2020-08-01 02:23:03] DataPackageR succeeded
+TRACE [2020-08-01 02:23:03] Building documentation
+TRACE [2020-08-01 02:23:04] Building package

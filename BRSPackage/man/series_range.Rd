@@ -3,41 +3,33 @@
 \docType{data}
 \name{series_range}
 \alias{series_range}
-\title{Descriptive data title}
+\title{Depth bins of whales}
 \format{
-a \code{spec_tbl_df} containing the following fields:
+a \code{data.frame} containing the following fields:
 \describe{
-\item{X1}{}
-\item{DeployID}{}
-\item{Ptt}{}
-\item{DepthSensor}{}
-\item{Source}{}
-\item{Instr}{}
+\item{DeployID}{The ID identifying an individual whale.}
+\item{Ptt}{The number identifying an individual whale.}
+\item{DepthSensor}{The depth of each observation.}
+\item{Source}{Whether an observation is from locations, auxiliary, or goniometer data.}
+\item{Instr}{Instrument used to identify an individual whale.}
 \item{Count}{}
-\item{Start}{}
-\item{End}{}
-\item{LocationQuality}{}
-\item{Latitude}{}
-\item{Longitude}{}
-\item{MinDepth}{}
-\item{MinDepthAccuracy}{}
-\item{MaxDepth}{}
-\item{MaxDepthAccuracy}{}
-\item{MinTemp}{}
-\item{MinTempAccuracy}{}
-\item{MaxTemp}{}
-\item{MaxTempAccuracy}{}
-\item{MobMean}{}
-\item{MobSD}{}
-\item{ActivitySum}{}
+\item{Start}{The date of the first observation from an individual whale.}
+\item{End}{The date of the last observation from an individual whale.}
+\item{LocationQuality}{N/A}
+\item{Latitude}{N/A}
+\item{Longitude}{N/A}
+\item{MinDepth}{The minimum depth of each observation from an individual whale.}
+\item{MinDepthAccuracy}{The accuracy of minimum depth of each each observation.}
+\item{MaxDepth}{The maximum depth of each observation from an individual whale.}
+\item{MaxDepthAccuracy}{The accuracy of maximum depth of each each observation.}
 }
 }
 \source{
-The data comes from________________________.
+The data comes from the 2019 BRS Study.
 }
 \description{
 Detailed description of the data
 }
 \seealso{
-\link{BRSPackage}
+
 }

@@ -11,3 +11,5 @@ devtools::install_github("larryzheng0/BRSPackage")
 library(BRSPackage)
 
 cee
+processed_gonio_aux_locs
+cee19_04

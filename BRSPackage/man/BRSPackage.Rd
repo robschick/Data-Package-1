@@ -17,7 +17,7 @@ and/or DataPackageR::load_all
 _datasets() to load them.
 }
 \seealso{
-\link{aux}
-\link{gonio}
-\link{processed_gonio_aux_locs}
+\link{cee19_02}
+\link{cee19_03}
+\link{cee19_04}
 }

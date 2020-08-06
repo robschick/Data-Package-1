@@ -3,36 +3,31 @@
 \docType{data}
 \name{gonio}
 \alias{gonio}
-\title{Descriptive data title}
+\title{Data from the goniometer}
 \format{
-a \code{spec_tbl_df} containing the following fields:
+a \code{data.frame} containing the following fields:
 \describe{
-\item{hex}{}
-\item{date}{}
-\item{datenum}{}
-\item{gonio_bearing_deg}{}
-\item{strength_db}{}
-\item{platform}{}
-\item{ptt}{}
-\item{DeployID}{}
-\item{lon}{}
-\item{lat}{}
-\item{boat_bearing_deg}{}
-\item{boat_speed_kph}{}
-\item{gps_gonio_time_difference_s}{}
-\item{date_time}{}
-\item{gap}{}
-\item{group}{}
+\item{hex{The hex number identifying an individual whale.}
+\item{date}{The date of an observation.}
+\item{datenum}{The date and time of an observation in numerical format.}
+\item{gonio_bearing_deg}{The orientation of the goniometer in degrees.}
+\item{strength_db}{The received sound level of the whale in dB}
+\item{platform}{The vessel the observation was made from.}
+\item{ptt}{The number identifying an individual whale.}
+\item{DeployID}{The ID identifying an individual whale.}
+\item{lat}{The latitude where an individual whale was observed.}
+\item{lon}{The longitude where an individual whale was observed.}
+\item{boat_bearing_deg}{The orientation of the boat in degrees.}
+\item{boat_speed_kph}{The speed of the boat during the observation.}
+\item{gps_gonio_time_difference_s}{The difference in recorded times of the gps and goniometer in seconds.}
 }
 }
 \source{
-The data comes from________________________.
+The data comes from the 2019 BRS Study.
 }
 \description{
 Detailed description of the data
 }
 \seealso{
-\link{BRSPackage}
-\link{aux}
-\link{processed_gonio_aux_locs}
+
 }
