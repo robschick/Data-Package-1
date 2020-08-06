@@ -103,7 +103,9 @@ renamed_combined_df <- combined_df %>%
   rename(replace = c("lat" = "Latitude", "lon" = "Longitude",
                      "distance" = "Error.Semi.major.axis")) %>%
   mutate(Error.Semi.minor.axis = Error.Semi.major.axis,
-         Error.Ellipse.orientation = rep(0,nrow(combined_df)))
+         Error.Ellipse.orientation = rep(0,nrow(combined_df))) %>%
+  mutate(Error.Semi.major.axis = as.numeric(Error.Semi.major.axis)) %>%
+  mutate(Error.Semi.minor.axis = as.numeric(Error.Semi.minor.axis))
 ```
 
 
