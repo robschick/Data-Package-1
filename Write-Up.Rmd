@@ -3,9 +3,26 @@ title: "Write-Up"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(BRSPackage)
+```
+
 ## R Markdown
 
 * We created a Data Package that consists of raw data, including the series data that show the depths, the series data that show the depth bins, the locations data, the deployment locations, the cee metadata on the ships locations and timing of each event, and the auxiliary data. 
+
+```{r raw_data}
+locations
+series
+series_range
+aux
+gonio
+```
+
+
 * We also processed the gonio merge file and grouped each deployID within 2 minutes, and chose the row with the lowest strength_db. We also created a new column for distance based on the strength_db, using the upper range. 
 * We merged the gonio and the aux data using the crawl function, and finally, we merged it with the locations data. 
 * We processed the data by creating dataframes for the series data showing depths, depth bins, and the locations data. 
