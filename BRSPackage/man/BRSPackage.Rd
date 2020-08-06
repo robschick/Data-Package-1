@@ -17,7 +17,6 @@ and/or DataPackageR::load_all
 _datasets() to load them.
 }
 \seealso{
-\link{cee19_02}
-\link{cee19_03}
-\link{cee19_04}
+NA
+\link{BRSPackage}
 }

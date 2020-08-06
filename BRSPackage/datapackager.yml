@@ -13,6 +13,7 @@ configuration:
     Gonio_Aux_Locs_Merge.Rmd:
       enabled: yes
   objects:
+  - cee
   - cee19_01
   - cee19_02
   - cee19_03
@@ -22,8 +23,8 @@ configuration:
   - series_xts
   - series_range
   - processed_locations
-  - aux
-  - gonio
+  - raw_aux
+  - raw_gonio
   - processed_gonio_aux_locs
   render_root:
-    tmp: '454593'
+    tmp: '776945'

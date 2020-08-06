@@ -9,11 +9,9 @@
 #'     and/or DataPackageR::load_all
 #' _datasets() to load them.
 #' @seealso
-#' \link{cee19_02}
-#' \link{cee19_03}
-#' \link{cee19_04}
+#' NA
+#' \link{BRSPackage}
 NULL
-
 
 
 #' Detailed description of the data
@@ -45,7 +43,6 @@ NULL
 #' @seealso
 NULL
 
-
 #' Detailed description of the data
 #' @name series
 #' @docType data
@@ -73,7 +70,6 @@ NULL
 #' @seealso
 NULL
 
-
 #' Detailed description of the data
 #' @name series_xts
 #' @docType data
@@ -95,7 +91,6 @@ NULL
 #' @source The data comes from the 2019 BRS Study.
 #' @seealso
 NULL
-
 
 #' Detailed description of the data
 #' @name series_range
@@ -122,7 +117,6 @@ NULL
 #' @source The data comes from the 2019 BRS Study.
 #' @seealso
 NULL
-
 
 #' Detailed description of the data
 #' @name processed_locations
@@ -155,7 +149,6 @@ NULL
 #' @seealso
 NULL
 
-
 #' Detailed description of the data
 #' @name aux
 #' @docType data
@@ -177,7 +170,6 @@ NULL
 #' @source The data comes from the user observations of the 2019 BRS Study.
 #' @seealso
 NULL
-
 
 #' Detailed description of the data
 #' @name gonio
@@ -203,7 +195,6 @@ NULL
 #' @seealso
 NULL
 
-
 #' Detailed description of the data
 #' @name gonio_out
 #' @docType data
@@ -222,7 +213,6 @@ NULL
 #' @source The data comes from the goniometer data from the 2019 BRS Study.
 #' @seealso
 NULL
-
 
 #' Detailed description of the data
 #' @name processed_gonio_aux_locs
@@ -243,7 +233,6 @@ NULL
 #' @source The data comes from locations, aux, and gonio.
 #' @seealso
 NULL
-
 
 #' Detailed description of the data
 #' @name cee19_01
@@ -268,97 +257,4 @@ NULL
 #' }
 #' @source The data comes from the 2019 Atlantic BRS study.
 #' @seealso
-NULL
-
-
-
-
-#' Detailed description of the data
-#' @name cee19_02
-#' @docType data
-#' @title Descriptive data title
-#' @format a \code{data.frame} containing the following fields:
-#' \describe{
-#' \item{DeployID}{}
-#' \item{start_date}{}
-#' \item{end_date}{}
-#' \item{num_fixes}{}
-#' \item{date_range}{}
-#' \item{average_locs}{}
-#' \item{series_start_date}{}
-#' \item{series_end_date}{}
-#' \item{series_date_range}{}
-#' \item{aux}{}
-#' \item{gonio}{}
-#' \item{locations}{}
-#' \item{num_before_cee}{}
-#' \item{num_after_cee}{}
-#' }
-#' @source The data comes from________________________.
-#' @seealso
-#' \link{BRSPackage}
-#' \link{cee19_03}
-#' \link{cee19_04}
-NULL
-
-
-
-
-#' Detailed description of the data
-#' @name cee19_03
-#' @docType data
-#' @title Descriptive data title
-#' @format a \code{data.frame} containing the following fields:
-#' \describe{
-#' \item{DeployID}{}
-#' \item{start_date}{}
-#' \item{end_date}{}
-#' \item{num_fixes}{}
-#' \item{date_range}{}
-#' \item{average_locs}{}
-#' \item{series_start_date}{}
-#' \item{series_end_date}{}
-#' \item{series_date_range}{}
-#' \item{aux}{}
-#' \item{gonio}{}
-#' \item{locations}{}
-#' \item{num_before_cee}{}
-#' \item{num_after_cee}{}
-#' }
-#' @source The data comes from________________________.
-#' @seealso
-#' \link{BRSPackage}
-#' \link{cee19_02}
-#' \link{cee19_04}
-NULL
-
-
-
-
-#' Detailed description of the data
-#' @name cee19_04
-#' @docType data
-#' @title Descriptive data title
-#' @format a \code{data.frame} containing the following fields:
-#' \describe{
-#' \item{DeployID}{}
-#' \item{start_date}{}
-#' \item{end_date}{}
-#' \item{num_fixes}{}
-#' \item{date_range}{}
-#' \item{average_locs}{}
-#' \item{series_start_date}{}
-#' \item{series_end_date}{}
-#' \item{series_date_range}{}
-#' \item{aux}{}
-#' \item{gonio}{}
-#' \item{locations}{}
-#' \item{num_before_cee}{}
-#' \item{num_after_cee}{}
-#' }
-#' @source The data comes from________________________.
-#' @seealso
-#' \link{BRSPackage}
-#' \link{cee19_02}
-#' \link{cee19_03}
 NULL

@@ -15,7 +15,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 DataVersion: 0.1.5
-Date: 2020-08-01
+Date: 2020-08-06
 Suggests: 
     knitr,
     rmarkdown

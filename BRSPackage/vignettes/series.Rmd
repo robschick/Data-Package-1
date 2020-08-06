@@ -20,7 +20,9 @@ library(timetk)
 
 
 ```{r cars}
-series <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/All_Series.csv")
+series <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/All_Series.csv") %>%
+    mutate(date_time = as.POSIXct(paste(Day, as.character(Time)), format = "%d-%B-%Y %H:%M:%S"))
+series
 ```
 
 ## Prep for Dygraph
@@ -29,12 +31,15 @@ Idea here is to prepare the dive data for plotting as a dygraph.
 ```{r}
 series$timestamp = as.POSIXct(paste(series$Day, series$Time), format = "%d-%b-%Y %H:%M:%S", tz = "UTC")
 series_tbl <- tibble::tibble(
+    deployID = series$DeployID,
     date = series$timestamp,
+    date_time = series$date_time,
     depth = -1 * series$Depth,
     lower = -1 * (series$Depth - series$DRange),
     upper = -1 * (series$Depth + series$DRange))  
  
 series_xts <- tk_xts(series_tbl, tzone = "UTC")
 ```
+
 
 
