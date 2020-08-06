@@ -18,8 +18,9 @@ library(BRSPackage)
 locations
 series
 series_range
-aux
-gonio
+cee
+raw_aux
+raw_gonio
 ```
 
 
