@@ -466,7 +466,7 @@ aux</code></pre>
 ##   boat_speed_kph = col_double(),
 ##   gps_gonio_time_difference_s = col_double()
 ## )</code></pre>
-<pre class="r"><code>gonio &lt;- gonio %&gt;%
+<pre class="r"><code>gonio &lt;- raw_gonio %&gt;%
   mutate(date = as.character(date))
 
 gonio &lt;- gonio %&gt;%

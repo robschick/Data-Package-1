@@ -25,10 +25,10 @@ series
 
 
 ```{r function}
-cee_function <- function(cee_start, cee_end, animals) {
+cee_function <- function(cee_start, cee_end) {
   #Jennifer's chunk
   this_cee <- processed %>%
-    filter(DeployID %in% animals) %>%
+    # filter(DeployID %in% animals) %>%
     dplyr::group_by(DeployID) %>%
     dplyr::summarize(start_date = range(date_time)[1],
               end_date = range(date_time)[2],
@@ -38,7 +38,7 @@ cee_function <- function(cee_start, cee_end, animals) {
     mutate(average_locs = num_fixes/date_range)
   
   series_cee <- series %>%
-    filter(DeployID %in% animals) %>%
+    # filter(DeployID %in% animals) %>%
     group_by(DeployID) %>%
     dplyr::summarize(series_start_date = range(date_time)[1],
               series_end_date = range(date_time)[2])
@@ -49,24 +49,22 @@ cee_function <- function(cee_start, cee_end, animals) {
   total <- merge(this_cee, series_cee, by= "DeployID", all=TRUE)
   
   #Larry's chunk
-  cee_start <- cee$date_time[1]
-  cee_end <- cee$date_time[2]
   
   cee_counts <- processed %>%
-    filter(DeployID %in% animals) %>%
+    # filter(DeployID %in% animals) %>%
     group_by(DeployID) %>%
     dplyr::count(Source) %>%
     spread(Source, n)
     
   cee_bef <- processed %>%
-    filter(DeployID %in% animals) %>%
+    # filter(DeployID %in% animals) %>%
     filter(date_time < cee_start) %>%
     group_by(DeployID) %>%
     dplyr::count() %>%
     dplyr::rename(num_before_cee = n)
   
   cee_after <- processed %>%
-    filter(DeployID %in% animals) %>%
+    # filter(DeployID %in% animals) %>%
     filter(date_time > cee_end) %>%
     group_by(DeployID) %>%
     dplyr::count() %>%
@@ -78,6 +76,10 @@ cee_function <- function(cee_start, cee_end, animals) {
     replace(is.na(.), 0)
   
   final_df <- merge(total, total2, by= "DeployID", all=TRUE)
+  
+  final_df <- final_df %>%
+    filter(start_date < cee_end,
+           end_date > cee_start)
   
   return(final_df)
 }
@@ -92,10 +94,10 @@ name_index <- 1
 for (i in seq(from = 1, to = nrow(cee), by = 2)) {
   cee_start <- cee$date_time[i]
   cee_end <- cee$date_time[i+1]
-  animals <- strsplit(cee$Focal.animals[i], " ")
-  animals <- unlist(animals)
+  # animals <- strsplit(cee$Focal.animals[i], " ")
+  # animals <- unlist(animals)
   
-  assign(cee_names[name_index], cee_function(cee_start, cee_end, animals))
+  assign(cee_names[name_index], cee_function(cee_start, cee_end))
   name_index <- name_index + 1
 }
 

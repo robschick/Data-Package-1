@@ -53,7 +53,7 @@ aux
 
 ```{r gonio}
 raw_gonio <- read_csv('/cloud/project/data/raw_data/gonio_gpx_merge_2019.csv')
-gonio <- gonio %>%
+gonio <- raw_gonio %>%
   mutate(date = as.character(date))
 
 gonio <- gonio %>%
