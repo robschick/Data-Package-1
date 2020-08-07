@@ -3,35 +3,32 @@
 \docType{data}
 \name{cee19_01}
 \alias{cee19_01}
-\title{Descriptive data title}
+\title{A summary of the individuals exposed to the first CEE}
 \format{
 a \code{data.frame} containing the following fields:
 \describe{
-\item{DeployID}{}
-\item{start_date}{}
-\item{end_date}{}
-\item{num_fixes}{}
-\item{date_range}{}
-\item{average_locs}{}
-\item{series_start_date}{}
-\item{series_end_date}{}
-\item{series_date_range}{}
-\item{aux}{}
-\item{gonio}{}
-\item{locations}{}
-\item{num_before_cee}{}
-\item{num_after_cee}{}
+\item{DeployID}{The ID identifying an individual whale.}
+\item{start_date}{The date of the first observation from an individual whale.}
+\item{end_date}{The date of the last observation from an individual whale.}
+\item{num_fixes}{The total number of observations or rows for an individual whale.}
+\item{date_range}{The number of days from the start date to the end date.}
+\item{average_locs}{The average number of satellite observations per day.}
+\item{series_start_date}{The date of the first observation from an individual whale's dive data.}
+\item{series_end_date}{The date of the last observation from an individual whale's dive data.}
+\item{series_date_range}{The number of days from the series start date to the series end date.}
+\item{aux}{The number of observations from auxiliary data.}
+\item{gonio}{The number of observations from the goniometer.}
+\item{locations}{The number of observations from the satellite.}
+\item{num_before_cee}{The total number of observations from before the first CEE.}
+\item{num_after_cee}{The total number of observations from after the first CEE.}
 }
 }
 \source{
-The data comes from________________________.
+The data comes from the 2019 Atlantic BRS study.
 }
 \description{
 Detailed description of the data
 }
 \seealso{
-\link{BRSPackage}
-\link{cee19_02}
-\link{cee19_03}
-\link{cee19_04}
+
 }

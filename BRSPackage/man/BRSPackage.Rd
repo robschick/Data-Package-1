@@ -17,7 +17,6 @@ and/or DataPackageR::load_all
 _datasets() to load them.
 }
 \seealso{
-\link{aux}
-\link{gonio}
-\link{processed_gonio_aux_locs}
+NA
+\link{BRSPackage}
 }

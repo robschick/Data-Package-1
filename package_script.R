@@ -45,12 +45,12 @@ paths <- c("/cloud/project/data/raw_data/cee.Rmd",
            "/cloud/project/data/raw_data/Gonio_Aux_Locs_Merge.Rmd"
            )
 # names of dataframes to store
-dataframes_to_store <- c(c("cee19_01", "cee19_02", "cee19_03", "cee19_04"),
+dataframes_to_store <- c(c("cee","cee19_01", "cee19_02", "cee19_03", "cee19_04"),
                 c("locations"),
                 c("series", "series_xts"),
                 c("series_range"),
                 c("processed_locations"),
-                c("aux","gonio","processed_gonio_aux_locs")
+                c("raw_aux","raw_gonio","processed_gonio_aux_locs")
                 ) 
 
 # Call function for each Rmd and each dataframe

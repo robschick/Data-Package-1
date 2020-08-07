@@ -1,13 +1,14 @@
 DataVersion: 0.1.5
-aux: 5da1fc6127c676e7b6bbfdf37f904e23
+cee: 64227798fbb9c78246774d5dd82ea763
 cee19_01: 0c39101699dbfa1ff68579512a4bd6b6
 cee19_02: b30e8acb6f51ffad0c6d2ab96e893056
 cee19_03: 5211abd715602c74dde4fa1e4a5e474f
 cee19_04: e87ee5c284561a8f8ce080e8273efd61
-gonio: 9807f0c0ba91e1b75c23c3322dd91d8b
 locations: 2c785af30a680a90edd56a598c33fa00
-processed_gonio_aux_locs: 0573237cd972bffa89a9ac6cb1c8d250
+processed_gonio_aux_locs: c7cd3d93d44744066ef003f7129b1d23
 processed_locations: 28751781c49102e58f4dd857057aa34e
+raw_aux: a127a007f711745bb9d9f0ae57132284
+raw_gonio: 19bef51f9bd0eb7c7fc0fac63770cbb4
 series: e267027c8df5b3cc0138303036360fd0
 series_range: a49272f8164444895de779fec00fb181
 series_xts: eaa82d353802cbcb5eff3d74939a4a69

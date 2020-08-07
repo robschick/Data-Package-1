@@ -3,39 +3,38 @@
 \docType{data}
 \name{processed_locations}
 \alias{processed_locations}
-\title{Descriptive data title}
+\title{Remove observations of dates before tag was placed on whale}
 \format{
-a \code{spec_tbl_df} containing the following fields:
+a \code{data.frame} containing the following fields:
 \describe{
-\item{X1}{}
-\item{DeployID}{}
-\item{Ptt}{}
-\item{Instr}{}
-\item{Date}{}
-\item{Type}{}
-\item{Quality}{}
-\item{Latitude}{}
-\item{Longitude}{}
-\item{Error.radius}{}
-\item{Error.Semi.major.axis}{}
-\item{Error.Semi.minor.axis}{}
-\item{Error.Ellipse.orientation}{}
-\item{Offset}{}
-\item{Offset.orientation}{}
-\item{GPE.MSD}{}
-\item{GPE.U}{}
-\item{Count}{}
-\item{Comment}{}
-\item{tag_on}{}
-\item{date_time}{}
+\item{DeployID}{The ID identifying an individual whale.}
+\item{Ptt}{The number identifying an individual whale.}
+\item{Instr}{Instrument used to identify an individual whale.}
+\item{Date}{The date of the first observation from an individual whale.}
+\item{Type}{Satellite used for an observation.}
+\item{Quality}{The category based on the magnitude of error of an observation.}
+\item{Latitude}{The latitude where an individual whale was observed.}
+\item{Longitude}{The longitude where an individual whale was observed.}
+\item{Error.radius}{The radius error of an individual observation.}
+\item{Error.Semi.major.axis}{The semi major axis error of an individual observation.}
+\item{Error.Semi.minor.axis}{The semi minor axis error of an individual obseravtion.}
+\item{Error.Ellipse.orientation}{The ellipse orientation error of an individual observation.}
+\item{Offset}{N/A}
+\item{Offset.orientation}{N/A}
+\item{GPE.MSD}{N/A}
+\item{GPE.U}{N/A}
+\item{Count}{N/A}
+\item{Comment}{N/A}
+\item{tag_on}{The date and time the tag was placed on each individual observation.}
+\item{date_time}{The date and time of the first observation from an individual observation.}
 }
 }
 \source{
-The data comes from________________________.
+The data comes from the 2019 BRS Study.
 }
 \description{
 Detailed description of the data
 }
 \seealso{
-\link{BRSPackage}
+
 }

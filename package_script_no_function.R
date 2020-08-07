@@ -24,6 +24,7 @@ use_processing_script(file = "/cloud/project/data/raw_data/cee.Rmd",
                       overwrite = TRUE)
 
 # Let DataPackageR know about the data objects to store in the package.
+use_data_object("cee")
 use_data_object("cee19_01")
 use_data_object("cee19_02")
 use_data_object("cee19_03")
@@ -97,8 +98,8 @@ use_processing_script(file = "/cloud/project/data/raw_data/Gonio_Aux_Locs_Merge.
                       overwrite = TRUE)
 
 # Let DataPackageR know about the data objects to store in the package.
-use_data_object("aux")
-use_data_object("gonio")
+use_data_object("raw_aux")
+use_data_object("raw_gonio")
 use_data_object("processed_gonio_aux_locs")
 
 # Build the package.

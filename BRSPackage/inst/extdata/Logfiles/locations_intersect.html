@@ -494,7 +494,8 @@ processed_locations</code></pre>
 ## 10    10 ZcTag084 180753 Mk10  03:0… Argos A           35.6     -74.8         5656            10874             2941
 ## # … with 7,283 more rows, and 9 more variables: Error.Ellipse.orientation &lt;dbl&gt;, Offset &lt;lgl&gt;, Offset.orientation &lt;lgl&gt;,
 ## #   GPE.MSD &lt;lgl&gt;, GPE.U &lt;lgl&gt;, Count &lt;lgl&gt;, Comment &lt;chr&gt;, tag_on &lt;dttm&gt;, date_time &lt;dttm&gt;</code></pre>
-<pre class="r"><code>removed_locations &lt;- locations %&gt;%
+<pre class="r"><code># The locations that were removed (we don&#39;t save this data frame)
+removed_locations &lt;- locations %&gt;%
   filter(date_time &lt; tag_on)
 removed_locations</code></pre>
 <pre><code>## # A tibble: 2 x 21

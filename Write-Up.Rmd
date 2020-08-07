@@ -3,15 +3,50 @@ title: "Write-Up"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(BRSPackage)
+```
+
 ## R Markdown
 
 * We created a Data Package that consists of raw data, including the series data that show the depths, the series data that show the depth bins, the locations data, the deployment locations, the cee metadata on the ships locations and timing of each event, and the auxiliary data. 
+
+```{r raw_data}
+locations
+series
+series_range
+cee
+raw_aux
+raw_gonio
+```
+
+
 * We also processed the gonio merge file and grouped each deployID within 2 minutes, and chose the row with the lowest strength_db. We also created a new column for distance based on the strength_db, using the upper range. 
 * We merged the gonio and the aux data using the crawl function, and finally, we merged it with the locations data. 
 * We processed the data by creating dataframes for the series data showing depths, depth bins, and the locations data. 
+* We prepared the series_xts dataframe, which consists of the series data prepared for the dygraph.
 * We temporally intersected the deployment locations with the locations data to remove any locations reported by the tag before it was actually on the whale.
+
+```{r processing_data}
+series_xts
+processed_locations
+processed_gonio_aux_locs
+```
+
 * We intersected the cee metadata with the dataframe containing locations, gonio, and aux. 
 * We created a function to create this intersection with all cees. 
 
-#### Using the Data Package
+```{r}
+cee19_01
+cee19_02
+cee19_03
+cee19_04
+```
 
+
+#### Using the Data Package
+* Download through terminal by typing "R CMD INSTALL BRSPackage_1.0.tar.gz"
+* Load in the package with "library(BRSPackage)"

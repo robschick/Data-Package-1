@@ -5,20 +5,27 @@
 \alias{series_xts}
 \title{Descriptive data title}
 \format{
-a \code{xts} containing the following fields:
+a \code{data.frame} containing the following fields:
 \describe{
-\item{depth}{}
-\item{lower}{}
-\item{upper}{}
+\item{DeployID}{}
+\item{start_date}{}
+\item{end_date}{}
+\item{num_fixes}{}
+\item{date_range}{}
+\item{average_locs}{}
+\item{series_start_date}{}
+\item{series_end_date}{}
+\item{series_date_range}{}
+\item{num_before_cee}{}
+\item{num_after_cee}{}
 }
 }
 \source{
-The data comes from________________________.
+The data comes from the 2019 BRS Study.
 }
 \description{
 Detailed description of the data
 }
 \seealso{
-\link{BRSPackage}
-\link{series}
+
 }

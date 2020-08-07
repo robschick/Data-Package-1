@@ -33,7 +33,9 @@ locations
 
 
 ```{r aux}
-aux <- read_csv("/cloud/project/data/raw_data/2019_AuxDataErrorStructure_20200609.csv") %>%
+raw_aux <- read_csv("/cloud/project/data/raw_data/2019_AuxDataErrorStructure_20200609.csv")
+
+aux <- raw_aux %>%
   mutate(date_time = as.POSIXct(paste(Date, as.character(Time)), format = "%m/%d/%y %H:%M:%S"),
          Error_in_m = as.character(Error_in_m)) %>%
   filter(Category != "Gonio") %>%
@@ -46,7 +48,7 @@ aux
 ```
 
 ```{r gonio}
-gonio <- read_csv('/cloud/project/data/raw_data/gonio_gpx_merge_2019.csv')
+raw_gonio <- read_csv('/cloud/project/data/raw_data/gonio_gpx_merge_2019.csv')
 gonio <- gonio %>%
   mutate(date = as.character(date))
 
@@ -103,7 +105,9 @@ renamed_combined_df <- combined_df %>%
   rename(replace = c("lat" = "Latitude", "lon" = "Longitude",
                      "distance" = "Error.Semi.major.axis")) %>%
   mutate(Error.Semi.minor.axis = Error.Semi.major.axis,
-         Error.Ellipse.orientation = rep(0,nrow(combined_df)))
+         Error.Ellipse.orientation = rep(0,nrow(combined_df))) %>%
+  mutate(Error.Semi.major.axis = as.numeric(Error.Semi.major.axis)) %>%
+  mutate(Error.Semi.minor.axis = as.numeric(Error.Semi.minor.axis))
 ```
 
 

@@ -5,27 +5,25 @@
 \alias{processed_gonio_aux_locs}
 \title{Descriptive data title}
 \format{
-a \code{grouped_df} containing the following fields:
+a \code{data.frame} containing the following fields:
 \describe{
-\item{DeployID}{}
-\item{Latitude}{}
-\item{Longitude}{}
-\item{Error.Semi.major.axis}{}
-\item{Quality}{}
-\item{Source}{}
-\item{Error.Semi.minor.axis}{}
-\item{Error.Ellipse.orientation}{}
-\item{date_time}{}
+\item{DeployID}{The ID identifying an individual whale.}
+\item{Latitude}{The latitude where an individual whale was observed.}
+\item{Longitude}{The longitude where an individual whale was observed.}
+\item{Error.Semi.major.axis}{The semi major axis error of an individual observation.}
+\item{Error.Semi.minor.axis}{The semi minor axis error of an individual obseravtion.}
+\item{Error.Ellipse.orientation}{The ellipse orientation error of an individual observation.}
+\item{Quality}{The category based on the magnitude of error of an observation.}
+\item{Source}{Whether an observation is from locations, auxiliary, or goniometer data.}
+\item{date_time}{The date and time of an observation.}
 }
 }
 \source{
-The data comes from________________________.
+The data comes from locations, aux, and gonio.
 }
 \description{
 Detailed description of the data
 }
 \seealso{
-\link{BRSPackage}
-\link{aux}
-\link{gonio}
+
 }

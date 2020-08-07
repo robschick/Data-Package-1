@@ -52,6 +52,7 @@ processed_locations <- locations %>%
 
 processed_locations
 
+# The locations that were removed (we don't save this data frame)
 removed_locations <- locations %>%
   filter(date_time < tag_on)
 removed_locations

@@ -370,7 +370,8 @@ summary {
 
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
-<pre class="r"><code>series &lt;- read_csv(&quot;/cloud/project/BRSPackage/inst/extdata/raw_data/All_Series.csv&quot;)</code></pre>
+<pre class="r"><code>series &lt;- read_csv(&quot;/cloud/project/BRSPackage/inst/extdata/raw_data/All_Series.csv&quot;) %&gt;%
+    mutate(date_time = as.POSIXct(paste(Day, as.character(Time)), format = &quot;%d-%B-%Y %H:%M:%S&quot;))</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   X1 = col_double(),
@@ -391,19 +392,36 @@ summary {
 ##   Activity = col_logical(),
 ##   ARange = col_logical()
 ## )</code></pre>
+<pre class="r"><code>series</code></pre>
+<pre><code>## # A tibble: 50,291 x 18
+##       X1 DeployID    Ptt DepthSensor Source Instr Day   Time  LocationQuality Latitude Longitude Depth DRange Temperature
+##    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;tim&gt; &lt;lgl&gt;           &lt;lgl&gt;    &lt;lgl&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;      
+##  1     1 ZcTag084 180753           1 Trans… Mk10  23-M… 12:50 NA              NA       NA          267   27.5 NA         
+##  2     2 ZcTag084 180753           1 Trans… Mk10  23-M… 12:55 NA              NA       NA          267   27.5 NA         
+##  3     3 ZcTag084 180753           1 Trans… Mk10  23-M… 13:00 NA              NA       NA          170   26.5 NA         
+##  4     4 ZcTag084 180753           1 Trans… Mk10  23-M… 13:05 NA              NA       NA           12   12.5 NA         
+##  5     5 ZcTag084 180753           1 Trans… Mk10  23-M… 13:10 NA              NA       NA          534   54.5 NA         
+##  6     6 ZcTag084 180753           1 Trans… Mk10  23-M… 13:15 NA              NA       NA         1165  110.  NA         
+##  7     7 ZcTag084 180753           1 Trans… Mk10  23-M… 13:20 NA              NA       NA         1360  112.  NA         
+##  8     8 ZcTag084 180753           1 Trans… Mk10  23-M… 13:25 NA              NA       NA         1360  112.  NA         
+##  9     9 ZcTag084 180753           1 Trans… Mk10  23-M… 13:30 NA              NA       NA         1360  112.  NA         
+## 10    10 ZcTag084 180753           1 Trans… Mk10  23-M… 13:35 NA              NA       NA         1360  112.  NA         
+## # … with 50,281 more rows, and 4 more variables: TRange &lt;lgl&gt;, Activity &lt;lgl&gt;, ARange &lt;lgl&gt;, date_time &lt;dttm&gt;</code></pre>
 </div>
 <div id="prep-for-dygraph" class="section level2">
 <h2>Prep for Dygraph</h2>
 <p>Idea here is to prepare the dive data for plotting as a dygraph.</p>
 <pre class="r"><code>series$timestamp = as.POSIXct(paste(series$Day, series$Time), format = &quot;%d-%b-%Y %H:%M:%S&quot;, tz = &quot;UTC&quot;)
 series_tbl &lt;- tibble::tibble(
+    deployID = series$DeployID,
     date = series$timestamp,
+    date_time = series$date_time,
     depth = -1 * series$Depth,
     lower = -1 * (series$Depth - series$DRange),
     upper = -1 * (series$Depth + series$DRange))  
  
 series_xts &lt;- tk_xts(series_tbl, tzone = &quot;UTC&quot;)</code></pre>
-<pre><code>## Using column `date` for date_var.</code></pre>
+<pre><code>## Using column `date` for date_var.Using column `date_time` for date_var.</code></pre>
 </div>
 
 

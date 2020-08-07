@@ -3,28 +3,29 @@
 \docType{data}
 \name{aux}
 \alias{aux}
-\title{Descriptive data title}
+\title{Auxiliary data from user observations}
 \format{
-a \code{tbl_df} containing the following fields:
+a \code{data.frame} containing the following fields:
 \describe{
-\item{DeployID}{}
-\item{date_time}{}
-\item{lat}{}
-\item{lon}{}
-\item{platform}{}
-\item{distance}{}
-\item{Quality}{}
-\item{Source}{}
+\item{Tag}{The ID identifying an individual whale.}
+\item{Date}{The date of an observation.}
+\item{Time}{The time of an observation.}
+\item{Lat}{The latitude where an individual whale was observed.}
+\item{Long}{The longitude where an individual whale was observed.}
+\item{DataSource}{Whether the observation was from a tagging or sighting.}
+\item{Vessel}{The vessel the observation was made from.}
+\item{Category}{How the observation was made.}
+\item{Error_in_m}{The error of the observation in meters.}
+\item{SightingNo}{The number of the sighting.}
+\item{Comments}{Any notes about a particular observation.}
 }
 }
 \source{
-The data comes from________________________.
+The data comes from the user observations of the 2019 BRS Study.
 }
 \description{
 Detailed description of the data
 }
 \seealso{
-\link{BRSPackage}
-\link{gonio}
-\link{processed_gonio_aux_locs}
+
 }
