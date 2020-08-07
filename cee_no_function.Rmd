@@ -67,8 +67,8 @@ cee19_01
 
 Larry's chunk draft
 ```{r}
-cee19_01_start <- cee$date_time[1]
-cee19_01_end <- cee$date_time[2]
+cee19_01_start <- cee$date_time[3]
+cee19_01_end <- cee$date_time[4]
 
 # cee19_01 <- processed %>%
 #   #filter(DeployID %in% animals) %>% #animals will be passed in function call: animals in a particular CEE
@@ -111,6 +111,11 @@ total2
 
 ```{r}
 final_df <- merge(total, total2, by= "DeployID", all=TRUE)
+
+final_df <- final_df %>%
+  filter(start_date < cee19_01_end,
+         end_date > cee19_01_start)
+
 final_df
 ```
 

@@ -27,4 +27,4 @@ configuration:
   - raw_gonio
   - processed_gonio_aux_locs
   render_root:
-    tmp: '776945'
+    tmp: '812473'

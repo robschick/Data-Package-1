@@ -463,10 +463,10 @@ summary {
 ##  9     9 ZcTag084 180753           1 Trans… Mk10  23-M… 13:30 NA              NA       NA         1360  112.  NA         
 ## 10    10 ZcTag084 180753           1 Trans… Mk10  23-M… 13:35 NA              NA       NA         1360  112.  NA         
 ## # … with 50,281 more rows, and 4 more variables: TRange &lt;lgl&gt;, Activity &lt;lgl&gt;, ARange &lt;lgl&gt;, date_time &lt;dttm&gt;</code></pre>
-<pre class="r"><code>cee_function &lt;- function(cee_start, cee_end, animals) {
+<pre class="r"><code>cee_function &lt;- function(cee_start, cee_end) {
   #Jennifer&#39;s chunk
   this_cee &lt;- processed %&gt;%
-    filter(DeployID %in% animals) %&gt;%
+    # filter(DeployID %in% animals) %&gt;%
     dplyr::group_by(DeployID) %&gt;%
     dplyr::summarize(start_date = range(date_time)[1],
               end_date = range(date_time)[2],
@@ -476,7 +476,7 @@ summary {
     mutate(average_locs = num_fixes/date_range)
   
   series_cee &lt;- series %&gt;%
-    filter(DeployID %in% animals) %&gt;%
+    # filter(DeployID %in% animals) %&gt;%
     group_by(DeployID) %&gt;%
     dplyr::summarize(series_start_date = range(date_time)[1],
               series_end_date = range(date_time)[2])
@@ -487,24 +487,22 @@ summary {
   total &lt;- merge(this_cee, series_cee, by= &quot;DeployID&quot;, all=TRUE)
   
   #Larry&#39;s chunk
-  cee_start &lt;- cee$date_time[1]
-  cee_end &lt;- cee$date_time[2]
   
   cee_counts &lt;- processed %&gt;%
-    filter(DeployID %in% animals) %&gt;%
+    # filter(DeployID %in% animals) %&gt;%
     group_by(DeployID) %&gt;%
     dplyr::count(Source) %&gt;%
     spread(Source, n)
     
   cee_bef &lt;- processed %&gt;%
-    filter(DeployID %in% animals) %&gt;%
+    # filter(DeployID %in% animals) %&gt;%
     filter(date_time &lt; cee_start) %&gt;%
     group_by(DeployID) %&gt;%
     dplyr::count() %&gt;%
     dplyr::rename(num_before_cee = n)
   
   cee_after &lt;- processed %&gt;%
-    filter(DeployID %in% animals) %&gt;%
+    # filter(DeployID %in% animals) %&gt;%
     filter(date_time &gt; cee_end) %&gt;%
     group_by(DeployID) %&gt;%
     dplyr::count() %&gt;%
@@ -517,6 +515,10 @@ summary {
   
   final_df &lt;- merge(total, total2, by= &quot;DeployID&quot;, all=TRUE)
   
+  final_df &lt;- final_df %&gt;%
+    filter(start_date &lt; cee_end,
+           end_date &gt; cee_start)
+  
   return(final_df)
 }</code></pre>
 <p>Loop</p>
@@ -526,10 +528,10 @@ name_index &lt;- 1
 for (i in seq(from = 1, to = nrow(cee), by = 2)) {
   cee_start &lt;- cee$date_time[i]
   cee_end &lt;- cee$date_time[i+1]
-  animals &lt;- strsplit(cee$Focal.animals[i], &quot; &quot;)
-  animals &lt;- unlist(animals)
+  # animals &lt;- strsplit(cee$Focal.animals[i], &quot; &quot;)
+  # animals &lt;- unlist(animals)
   
-  assign(cee_names[name_index], cee_function(cee_start, cee_end, animals))
+  assign(cee_names[name_index], cee_function(cee_start, cee_end))
   name_index &lt;- name_index + 1
 }</code></pre>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)

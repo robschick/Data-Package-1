@@ -1,185 +1,185 @@
-TRACE [2020-08-06 17:53:15] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
-TRACE [2020-08-06 17:53:15] Processing data
-TRACE [2020-08-06 17:53:15] Reading yaml configuration
-TRACE [2020-08-06 17:53:15] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
-TRACE [2020-08-06 17:53:15] Processing 1 of 1: /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:15] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-08-07 16:40:15] Processing data
+TRACE [2020-08-07 16:40:15] Reading yaml configuration
+TRACE [2020-08-07 16:40:15] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:15] Processing 1 of 1: /cloud/project/BRSPackage/data-raw/cee.Rmd
 
-TRACE [2020-08-06 17:53:16] 5 data set(s) created by cee.Rmd
-TRACE [2020-08-06 17:53:16] NEWS.md file not found, creating!
-TRACE [2020-08-06 17:53:16] NEWS.md file found, updating!
-TRACE [2020-08-06 17:53:16] Saving to data
-TRACE [2020-08-06 17:53:16] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
-TRACE [2020-08-06 17:53:16] Done
-TRACE [2020-08-06 17:53:16] DataPackageR succeeded
-TRACE [2020-08-06 17:53:16] Building documentation
-TRACE [2020-08-06 17:53:17] Building package
-TRACE [2020-08-06 17:53:19] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
-TRACE [2020-08-06 17:53:19] Processing data
-TRACE [2020-08-06 17:53:19] Reading yaml configuration
-TRACE [2020-08-06 17:53:19] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
-TRACE [2020-08-06 17:53:19] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
-TRACE [2020-08-06 17:53:19] Processing 1 of 2: /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:16] 5 data set(s) created by cee.Rmd
+TRACE [2020-08-07 16:40:16] NEWS.md file not found, creating!
+TRACE [2020-08-07 16:40:16] NEWS.md file found, updating!
+TRACE [2020-08-07 16:40:16] Saving to data
+TRACE [2020-08-07 16:40:16] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
+TRACE [2020-08-07 16:40:16] Done
+TRACE [2020-08-07 16:40:16] DataPackageR succeeded
+TRACE [2020-08-07 16:40:16] Building documentation
+TRACE [2020-08-07 16:40:17] Building package
+TRACE [2020-08-07 16:40:18] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-08-07 16:40:18] Processing data
+TRACE [2020-08-07 16:40:18] Reading yaml configuration
+TRACE [2020-08-07 16:40:18] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:18] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-07 16:40:18] Processing 1 of 2: /cloud/project/BRSPackage/data-raw/cee.Rmd
 
-TRACE [2020-08-06 17:53:20] 5 data set(s) created by cee.Rmd
-TRACE [2020-08-06 17:53:20] Processing 2 of 2: /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-07 16:40:20] 5 data set(s) created by cee.Rmd
+TRACE [2020-08-07 16:40:20] Processing 2 of 2: /cloud/project/BRSPackage/data-raw/locations.Rmd
 
-TRACE [2020-08-06 17:53:20] 1 data set(s) created by locations.Rmd
-TRACE [2020-08-06 17:53:20] NEWS.md file found, updating!
-DEBUG [2020-08-06 17:53:20] locations added.
-DEBUG [2020-08-06 17:53:20] locations added.
-DEBUG [2020-08-06 17:53:20] locations added.
-TRACE [2020-08-06 17:53:20] NEWS.md file found, updating!
-TRACE [2020-08-06 17:53:20] NEWS.md file found, updating!
-TRACE [2020-08-06 17:53:20] Data has been updated and DataVersion string incremented automatically to 0.1.1
-TRACE [2020-08-06 17:53:20] Saving to data
-TRACE [2020-08-06 17:53:20] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
-TRACE [2020-08-06 17:53:20] Done
-TRACE [2020-08-06 17:53:20] DataPackageR succeeded
-TRACE [2020-08-06 17:53:20] Building documentation
-TRACE [2020-08-06 17:53:21] Building package
-TRACE [2020-08-06 17:53:23] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
-TRACE [2020-08-06 17:53:23] Processing data
-TRACE [2020-08-06 17:53:23] Reading yaml configuration
-TRACE [2020-08-06 17:53:23] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
-TRACE [2020-08-06 17:53:23] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
-TRACE [2020-08-06 17:53:23] Found /cloud/project/BRSPackage/data-raw/series.Rmd
-TRACE [2020-08-06 17:53:23] Processing 1 of 3: /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:20] 1 data set(s) created by locations.Rmd
+TRACE [2020-08-07 16:40:20] NEWS.md file found, updating!
+DEBUG [2020-08-07 16:40:20] locations added.
+DEBUG [2020-08-07 16:40:20] locations added.
+DEBUG [2020-08-07 16:40:20] locations added.
+TRACE [2020-08-07 16:40:20] NEWS.md file found, updating!
+TRACE [2020-08-07 16:40:20] NEWS.md file found, updating!
+TRACE [2020-08-07 16:40:20] Data has been updated and DataVersion string incremented automatically to 0.1.1
+TRACE [2020-08-07 16:40:20] Saving to data
+TRACE [2020-08-07 16:40:20] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
+TRACE [2020-08-07 16:40:20] Done
+TRACE [2020-08-07 16:40:20] DataPackageR succeeded
+TRACE [2020-08-07 16:40:20] Building documentation
+TRACE [2020-08-07 16:40:21] Building package
+TRACE [2020-08-07 16:40:23] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-08-07 16:40:23] Processing data
+TRACE [2020-08-07 16:40:23] Reading yaml configuration
+TRACE [2020-08-07 16:40:23] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:23] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-07 16:40:23] Found /cloud/project/BRSPackage/data-raw/series.Rmd
+TRACE [2020-08-07 16:40:23] Processing 1 of 3: /cloud/project/BRSPackage/data-raw/cee.Rmd
 
-TRACE [2020-08-06 17:53:25] 6 data set(s) created by cee.Rmd
-TRACE [2020-08-06 17:53:25] Processing 2 of 3: /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-07 16:40:24] 6 data set(s) created by cee.Rmd
+TRACE [2020-08-07 16:40:24] Processing 2 of 3: /cloud/project/BRSPackage/data-raw/locations.Rmd
 
-TRACE [2020-08-06 17:53:25] 1 data set(s) created by locations.Rmd
-TRACE [2020-08-06 17:53:25] Processing 3 of 3: /cloud/project/BRSPackage/data-raw/series.Rmd
+TRACE [2020-08-07 16:40:25] 1 data set(s) created by locations.Rmd
+TRACE [2020-08-07 16:40:25] Processing 3 of 3: /cloud/project/BRSPackage/data-raw/series.Rmd
 
-TRACE [2020-08-06 17:53:26] 1 data set(s) created by series.Rmd
-TRACE [2020-08-06 17:53:27] NEWS.md file found, updating!
-DEBUG [2020-08-06 17:53:27] series added.
-DEBUG [2020-08-06 17:53:27] series_xts added.
-DEBUG [2020-08-06 17:53:27] series added.
-DEBUG [2020-08-06 17:53:27] series_xts added.
-DEBUG [2020-08-06 17:53:27] series added.
-DEBUG [2020-08-06 17:53:27] series_xts added.
-TRACE [2020-08-06 17:53:27] NEWS.md file found, updating!
-TRACE [2020-08-06 17:53:27] NEWS.md file found, updating!
-TRACE [2020-08-06 17:53:27] Data has been updated and DataVersion string incremented automatically to 0.1.2
-TRACE [2020-08-06 17:53:27] Saving to data
-TRACE [2020-08-06 17:53:27] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
-TRACE [2020-08-06 17:53:27] Done
-TRACE [2020-08-06 17:53:27] DataPackageR succeeded
-TRACE [2020-08-06 17:53:27] Building documentation
-TRACE [2020-08-06 17:53:28] Building package
-TRACE [2020-08-06 17:53:33] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
-TRACE [2020-08-06 17:53:33] Processing data
-TRACE [2020-08-06 17:53:33] Reading yaml configuration
-TRACE [2020-08-06 17:53:33] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
-TRACE [2020-08-06 17:53:33] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
-TRACE [2020-08-06 17:53:33] Found /cloud/project/BRSPackage/data-raw/series.Rmd
-TRACE [2020-08-06 17:53:33] Found /cloud/project/BRSPackage/data-raw/series_range.Rmd
-TRACE [2020-08-06 17:53:33] Processing 1 of 4: /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:26] 1 data set(s) created by series.Rmd
+TRACE [2020-08-07 16:40:26] NEWS.md file found, updating!
+DEBUG [2020-08-07 16:40:26] series added.
+DEBUG [2020-08-07 16:40:26] series_xts added.
+DEBUG [2020-08-07 16:40:26] series added.
+DEBUG [2020-08-07 16:40:26] series_xts added.
+DEBUG [2020-08-07 16:40:26] series added.
+DEBUG [2020-08-07 16:40:26] series_xts added.
+TRACE [2020-08-07 16:40:26] NEWS.md file found, updating!
+TRACE [2020-08-07 16:40:26] NEWS.md file found, updating!
+TRACE [2020-08-07 16:40:26] Data has been updated and DataVersion string incremented automatically to 0.1.2
+TRACE [2020-08-07 16:40:26] Saving to data
+TRACE [2020-08-07 16:40:26] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
+TRACE [2020-08-07 16:40:26] Done
+TRACE [2020-08-07 16:40:26] DataPackageR succeeded
+TRACE [2020-08-07 16:40:26] Building documentation
+TRACE [2020-08-07 16:40:27] Building package
+TRACE [2020-08-07 16:40:32] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-08-07 16:40:32] Processing data
+TRACE [2020-08-07 16:40:32] Reading yaml configuration
+TRACE [2020-08-07 16:40:32] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:32] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-07 16:40:32] Found /cloud/project/BRSPackage/data-raw/series.Rmd
+TRACE [2020-08-07 16:40:32] Found /cloud/project/BRSPackage/data-raw/series_range.Rmd
+TRACE [2020-08-07 16:40:32] Processing 1 of 4: /cloud/project/BRSPackage/data-raw/cee.Rmd
 
-TRACE [2020-08-06 17:53:34] 6 data set(s) created by cee.Rmd
-TRACE [2020-08-06 17:53:34] Processing 2 of 4: /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-07 16:40:33] 6 data set(s) created by cee.Rmd
+TRACE [2020-08-07 16:40:34] Processing 2 of 4: /cloud/project/BRSPackage/data-raw/locations.Rmd
 
-TRACE [2020-08-06 17:53:34] 1 data set(s) created by locations.Rmd
-TRACE [2020-08-06 17:53:34] Processing 3 of 4: /cloud/project/BRSPackage/data-raw/series.Rmd
+TRACE [2020-08-07 16:40:34] 1 data set(s) created by locations.Rmd
+TRACE [2020-08-07 16:40:34] Processing 3 of 4: /cloud/project/BRSPackage/data-raw/series.Rmd
 
-TRACE [2020-08-06 17:53:35] 1 data set(s) created by series.Rmd
-TRACE [2020-08-06 17:53:35] Processing 4 of 4: /cloud/project/BRSPackage/data-raw/series_range.Rmd
+TRACE [2020-08-07 16:40:35] 1 data set(s) created by series.Rmd
+TRACE [2020-08-07 16:40:35] Processing 4 of 4: /cloud/project/BRSPackage/data-raw/series_range.Rmd
 
-TRACE [2020-08-06 17:53:36] 1 data set(s) created by series_range.Rmd
-TRACE [2020-08-06 17:53:36] NEWS.md file found, updating!
-DEBUG [2020-08-06 17:53:36] series_range added.
-DEBUG [2020-08-06 17:53:36] series_range added.
-DEBUG [2020-08-06 17:53:36] series_range added.
-TRACE [2020-08-06 17:53:36] NEWS.md file found, updating!
-TRACE [2020-08-06 17:53:36] NEWS.md file found, updating!
-TRACE [2020-08-06 17:53:36] Data has been updated and DataVersion string incremented automatically to 0.1.3
-TRACE [2020-08-06 17:53:36] Saving to data
-TRACE [2020-08-06 17:53:36] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
-TRACE [2020-08-06 17:53:36] Done
-TRACE [2020-08-06 17:53:36] DataPackageR succeeded
-TRACE [2020-08-06 17:53:36] Building documentation
-TRACE [2020-08-06 17:53:37] Building package
-TRACE [2020-08-06 17:53:42] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
-TRACE [2020-08-06 17:53:42] Processing data
-TRACE [2020-08-06 17:53:42] Reading yaml configuration
-TRACE [2020-08-06 17:53:42] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
-TRACE [2020-08-06 17:53:42] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
-TRACE [2020-08-06 17:53:42] Found /cloud/project/BRSPackage/data-raw/series.Rmd
-TRACE [2020-08-06 17:53:42] Found /cloud/project/BRSPackage/data-raw/series_range.Rmd
-TRACE [2020-08-06 17:53:42] Found /cloud/project/BRSPackage/data-raw/locations_intersect.Rmd
-TRACE [2020-08-06 17:53:42] Processing 1 of 5: /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:35] 1 data set(s) created by series_range.Rmd
+TRACE [2020-08-07 16:40:36] NEWS.md file found, updating!
+DEBUG [2020-08-07 16:40:36] series_range added.
+DEBUG [2020-08-07 16:40:36] series_range added.
+DEBUG [2020-08-07 16:40:36] series_range added.
+TRACE [2020-08-07 16:40:36] NEWS.md file found, updating!
+TRACE [2020-08-07 16:40:36] NEWS.md file found, updating!
+TRACE [2020-08-07 16:40:36] Data has been updated and DataVersion string incremented automatically to 0.1.3
+TRACE [2020-08-07 16:40:36] Saving to data
+TRACE [2020-08-07 16:40:36] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
+TRACE [2020-08-07 16:40:36] Done
+TRACE [2020-08-07 16:40:36] DataPackageR succeeded
+TRACE [2020-08-07 16:40:36] Building documentation
+TRACE [2020-08-07 16:40:37] Building package
+TRACE [2020-08-07 16:40:42] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-08-07 16:40:42] Processing data
+TRACE [2020-08-07 16:40:42] Reading yaml configuration
+TRACE [2020-08-07 16:40:42] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:42] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-07 16:40:42] Found /cloud/project/BRSPackage/data-raw/series.Rmd
+TRACE [2020-08-07 16:40:42] Found /cloud/project/BRSPackage/data-raw/series_range.Rmd
+TRACE [2020-08-07 16:40:42] Found /cloud/project/BRSPackage/data-raw/locations_intersect.Rmd
+TRACE [2020-08-07 16:40:42] Processing 1 of 5: /cloud/project/BRSPackage/data-raw/cee.Rmd
 
-TRACE [2020-08-06 17:53:43] 6 data set(s) created by cee.Rmd
-TRACE [2020-08-06 17:53:43] Processing 2 of 5: /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-07 16:40:43] 6 data set(s) created by cee.Rmd
+TRACE [2020-08-07 16:40:43] Processing 2 of 5: /cloud/project/BRSPackage/data-raw/locations.Rmd
 
-TRACE [2020-08-06 17:53:44] 1 data set(s) created by locations.Rmd
-TRACE [2020-08-06 17:53:44] Processing 3 of 5: /cloud/project/BRSPackage/data-raw/series.Rmd
+TRACE [2020-08-07 16:40:44] 1 data set(s) created by locations.Rmd
+TRACE [2020-08-07 16:40:44] Processing 3 of 5: /cloud/project/BRSPackage/data-raw/series.Rmd
 
-TRACE [2020-08-06 17:53:45] 1 data set(s) created by series.Rmd
-TRACE [2020-08-06 17:53:45] Processing 4 of 5: /cloud/project/BRSPackage/data-raw/series_range.Rmd
+TRACE [2020-08-07 16:40:45] 1 data set(s) created by series.Rmd
+TRACE [2020-08-07 16:40:45] Processing 4 of 5: /cloud/project/BRSPackage/data-raw/series_range.Rmd
 
-TRACE [2020-08-06 17:53:45] 1 data set(s) created by series_range.Rmd
-TRACE [2020-08-06 17:53:45] Processing 5 of 5: /cloud/project/BRSPackage/data-raw/locations_intersect.Rmd
+TRACE [2020-08-07 16:40:45] 1 data set(s) created by series_range.Rmd
+TRACE [2020-08-07 16:40:45] Processing 5 of 5: /cloud/project/BRSPackage/data-raw/locations_intersect.Rmd
 
-TRACE [2020-08-06 17:53:46] 1 data set(s) created by locations_intersect.Rmd
-TRACE [2020-08-06 17:53:46] NEWS.md file found, updating!
-DEBUG [2020-08-06 17:53:46] processed_locations added.
-DEBUG [2020-08-06 17:53:46] processed_locations added.
-DEBUG [2020-08-06 17:53:46] processed_locations added.
-TRACE [2020-08-06 17:53:46] NEWS.md file found, updating!
-TRACE [2020-08-06 17:53:46] NEWS.md file found, updating!
-TRACE [2020-08-06 17:53:46] Data has been updated and DataVersion string incremented automatically to 0.1.4
-TRACE [2020-08-06 17:53:46] Saving to data
-TRACE [2020-08-06 17:53:46] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
-TRACE [2020-08-06 17:53:46] Done
-TRACE [2020-08-06 17:53:46] DataPackageR succeeded
-TRACE [2020-08-06 17:53:46] Building documentation
-TRACE [2020-08-06 17:53:47] Building package
-TRACE [2020-08-06 17:53:53] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
-TRACE [2020-08-06 17:53:53] Processing data
-TRACE [2020-08-06 17:53:53] Reading yaml configuration
-TRACE [2020-08-06 17:53:53] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
-TRACE [2020-08-06 17:53:53] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
-TRACE [2020-08-06 17:53:53] Found /cloud/project/BRSPackage/data-raw/series.Rmd
-TRACE [2020-08-06 17:53:53] Found /cloud/project/BRSPackage/data-raw/series_range.Rmd
-TRACE [2020-08-06 17:53:53] Found /cloud/project/BRSPackage/data-raw/locations_intersect.Rmd
-TRACE [2020-08-06 17:53:53] Found /cloud/project/BRSPackage/data-raw/Gonio_Aux_Locs_Merge.Rmd
-TRACE [2020-08-06 17:53:53] Processing 1 of 6: /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:46] 1 data set(s) created by locations_intersect.Rmd
+TRACE [2020-08-07 16:40:46] NEWS.md file found, updating!
+DEBUG [2020-08-07 16:40:46] processed_locations added.
+DEBUG [2020-08-07 16:40:46] processed_locations added.
+DEBUG [2020-08-07 16:40:46] processed_locations added.
+TRACE [2020-08-07 16:40:46] NEWS.md file found, updating!
+TRACE [2020-08-07 16:40:46] NEWS.md file found, updating!
+TRACE [2020-08-07 16:40:46] Data has been updated and DataVersion string incremented automatically to 0.1.4
+TRACE [2020-08-07 16:40:46] Saving to data
+TRACE [2020-08-07 16:40:46] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
+TRACE [2020-08-07 16:40:46] Done
+TRACE [2020-08-07 16:40:46] DataPackageR succeeded
+TRACE [2020-08-07 16:40:46] Building documentation
+TRACE [2020-08-07 16:40:47] Building package
+TRACE [2020-08-07 16:40:53] Logging to /cloud/project/BRSPackage/inst/extdata/Logfiles/processing.log
+TRACE [2020-08-07 16:40:53] Processing data
+TRACE [2020-08-07 16:40:53] Reading yaml configuration
+TRACE [2020-08-07 16:40:53] Found /cloud/project/BRSPackage/data-raw/cee.Rmd
+TRACE [2020-08-07 16:40:53] Found /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-07 16:40:53] Found /cloud/project/BRSPackage/data-raw/series.Rmd
+TRACE [2020-08-07 16:40:53] Found /cloud/project/BRSPackage/data-raw/series_range.Rmd
+TRACE [2020-08-07 16:40:53] Found /cloud/project/BRSPackage/data-raw/locations_intersect.Rmd
+TRACE [2020-08-07 16:40:53] Found /cloud/project/BRSPackage/data-raw/Gonio_Aux_Locs_Merge.Rmd
+TRACE [2020-08-07 16:40:53] Processing 1 of 6: /cloud/project/BRSPackage/data-raw/cee.Rmd
 
-TRACE [2020-08-06 17:53:54] 6 data set(s) created by cee.Rmd
-TRACE [2020-08-06 17:53:54] Processing 2 of 6: /cloud/project/BRSPackage/data-raw/locations.Rmd
+TRACE [2020-08-07 16:40:54] 6 data set(s) created by cee.Rmd
+TRACE [2020-08-07 16:40:54] Processing 2 of 6: /cloud/project/BRSPackage/data-raw/locations.Rmd
 
-TRACE [2020-08-06 17:53:55] 1 data set(s) created by locations.Rmd
-TRACE [2020-08-06 17:53:55] Processing 3 of 6: /cloud/project/BRSPackage/data-raw/series.Rmd
+TRACE [2020-08-07 16:40:54] 1 data set(s) created by locations.Rmd
+TRACE [2020-08-07 16:40:54] Processing 3 of 6: /cloud/project/BRSPackage/data-raw/series.Rmd
 
-TRACE [2020-08-06 17:53:56] 1 data set(s) created by series.Rmd
-TRACE [2020-08-06 17:53:56] Processing 4 of 6: /cloud/project/BRSPackage/data-raw/series_range.Rmd
+TRACE [2020-08-07 16:40:56] 1 data set(s) created by series.Rmd
+TRACE [2020-08-07 16:40:56] Processing 4 of 6: /cloud/project/BRSPackage/data-raw/series_range.Rmd
 
-TRACE [2020-08-06 17:53:56] 1 data set(s) created by series_range.Rmd
-TRACE [2020-08-06 17:53:56] Processing 5 of 6: /cloud/project/BRSPackage/data-raw/locations_intersect.Rmd
+TRACE [2020-08-07 16:40:56] 1 data set(s) created by series_range.Rmd
+TRACE [2020-08-07 16:40:56] Processing 5 of 6: /cloud/project/BRSPackage/data-raw/locations_intersect.Rmd
 
-TRACE [2020-08-06 17:53:57] 1 data set(s) created by locations_intersect.Rmd
-TRACE [2020-08-06 17:53:57] Processing 6 of 6: /cloud/project/BRSPackage/data-raw/Gonio_Aux_Locs_Merge.Rmd
+TRACE [2020-08-07 16:40:56] 1 data set(s) created by locations_intersect.Rmd
+TRACE [2020-08-07 16:40:56] Processing 6 of 6: /cloud/project/BRSPackage/data-raw/Gonio_Aux_Locs_Merge.Rmd
 
-TRACE [2020-08-06 17:54:12] 3 data set(s) created by Gonio_Aux_Locs_Merge.Rmd
-TRACE [2020-08-06 17:54:13] NEWS.md file found, updating!
-DEBUG [2020-08-06 17:54:13] processed_gonio_aux_locs added.
-DEBUG [2020-08-06 17:54:13] raw_aux added.
-DEBUG [2020-08-06 17:54:13] raw_gonio added.
-DEBUG [2020-08-06 17:54:13] processed_gonio_aux_locs added.
-DEBUG [2020-08-06 17:54:13] raw_aux added.
-DEBUG [2020-08-06 17:54:13] raw_gonio added.
-DEBUG [2020-08-06 17:54:13] processed_gonio_aux_locs added.
-DEBUG [2020-08-06 17:54:13] raw_aux added.
-DEBUG [2020-08-06 17:54:13] raw_gonio added.
-TRACE [2020-08-06 17:54:13] NEWS.md file found, updating!
-TRACE [2020-08-06 17:54:13] NEWS.md file found, updating!
-TRACE [2020-08-06 17:54:13] Data has been updated and DataVersion string incremented automatically to 0.1.5
-TRACE [2020-08-06 17:54:13] Saving to data
-TRACE [2020-08-06 17:54:13] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
-TRACE [2020-08-06 17:54:13] Done
-TRACE [2020-08-06 17:54:13] DataPackageR succeeded
-TRACE [2020-08-06 17:54:13] Building documentation
-TRACE [2020-08-06 17:54:14] Building package
-TRACE [2020-08-06 17:54:50] Rebuilding data package documentation.
+TRACE [2020-08-07 16:41:12] 3 data set(s) created by Gonio_Aux_Locs_Merge.Rmd
+TRACE [2020-08-07 16:41:12] NEWS.md file found, updating!
+DEBUG [2020-08-07 16:41:12] processed_gonio_aux_locs added.
+DEBUG [2020-08-07 16:41:12] raw_aux added.
+DEBUG [2020-08-07 16:41:12] raw_gonio added.
+DEBUG [2020-08-07 16:41:12] processed_gonio_aux_locs added.
+DEBUG [2020-08-07 16:41:12] raw_aux added.
+DEBUG [2020-08-07 16:41:12] raw_gonio added.
+DEBUG [2020-08-07 16:41:12] processed_gonio_aux_locs added.
+DEBUG [2020-08-07 16:41:12] raw_aux added.
+DEBUG [2020-08-07 16:41:12] raw_gonio added.
+TRACE [2020-08-07 16:41:12] NEWS.md file found, updating!
+TRACE [2020-08-07 16:41:12] NEWS.md file found, updating!
+TRACE [2020-08-07 16:41:12] Data has been updated and DataVersion string incremented automatically to 0.1.5
+TRACE [2020-08-07 16:41:12] Saving to data
+TRACE [2020-08-07 16:41:12] Copied documentation to /cloud/project/BRSPackage/R/BRSPackage.R
+TRACE [2020-08-07 16:41:12] Done
+TRACE [2020-08-07 16:41:12] DataPackageR succeeded
+TRACE [2020-08-07 16:41:12] Building documentation
+TRACE [2020-08-07 16:41:14] Building package
+TRACE [2020-08-07 16:48:00] Rebuilding data package documentation.
