@@ -18,6 +18,8 @@ library(timetk)
 ```{r cars}
 series <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/All_Series.csv") %>%
     mutate(date_time = as.POSIXct(paste(Day, as.character(Time)), format = "%d-%B-%Y %H:%M:%S"))
+series <- series %>%
+    filter(Day != "01-Jul-2019")
 series
 ```
 

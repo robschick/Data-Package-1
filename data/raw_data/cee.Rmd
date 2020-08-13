@@ -20,6 +20,8 @@ cee <- read_csv(file = "/cloud/project/data/raw_data/ATLANTIC-BRS_CEE Metadata.c
 cee
 series <- read_csv("/cloud/project/data/raw_data/All_Series.csv") %>%
   mutate(date_time = as.POSIXct(paste(Day, as.character(Time)), format = "%d-%B-%Y %H:%M:%S"))
+series <- series %>%
+    filter(Day != "01-Jul-2019")
 series
 ```
 
@@ -83,6 +85,7 @@ cee_function <- function(cee_start, cee_end) {
   
   return(final_df)
 }
+final_df
 ```
 
 
