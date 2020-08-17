@@ -46,3 +46,5 @@ We also processed the gonio merge file and grouped each deployID within 2 minute
 * cee19_03
 * cee19_04
 * series_xts
+
+We intersected the cee metadata with the dataframe containing locations, gonio, and aux. We created a function to create this intersection with all cees. 
