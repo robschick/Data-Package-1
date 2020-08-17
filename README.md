@@ -4,7 +4,7 @@
 Type "R CMD INSTALL BRSPackage_1.0.tar.gz" in the terminal.
 
 ## Overview
-This package contains data from controlled exposure events (CEEs) from 2019 on beaked and pilot whales. There were 4 CEEs - two in the spring, two in the summer. They were all scaled source exposures, and the summary of the CEE metadata are shown in the cee data frame.
+This package contains data from controlled exposure events (CEEs) from 2019 on Cuvier's beaked whales (Ziphius cavirostris) and long-finned pilot whales (Globicephala melas). There were 4 CEEs - two in the spring, two in the summer. They were all scaled source exposures, and the summary of the CEE metadata are shown in the cee data frame.
 
 ## Dataframes
 This package provides the following data tables: 
@@ -23,7 +23,19 @@ This package provides the following data tables:
 * processed_gonio_aux_locs
 
 ### Raw Data
+* locations
+* series
+* series_range
+* raw_aux
+* raw_gonio
 
 ### Processing Steps
 
+
 ### Final Processed Data
+* cee
+* cee19_01
+* cee19_02
+* cee19_03
+* cee19_04
+* series_xts
