@@ -23,11 +23,11 @@ This package provides the following data tables:
 * processed_gonio_aux_locs
 
 ### Raw Data
-* locations
-* series
-* series_range
-* raw_aux
-* raw_gonio
+* locations: 
+* series: depth data
+* series_range: 
+* raw_aux: 
+* raw_gonio: 
 
 ### Processing Steps
 The processing steps include the following dataframes:
