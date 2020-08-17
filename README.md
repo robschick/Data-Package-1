@@ -23,11 +23,11 @@ This package provides the following data tables:
 * processed_gonio_aux_locs
 
 ### Raw Data
-* locations: 
-* series: depth data
-* series_range: 
-* raw_aux: 
-* raw_gonio: 
+* locations: the locations data from the satellite tag
+* series: the depth data
+* series_range: the depth bins
+* raw_aux: the auxiliary data from tagging, tracking, and sightings
+* raw_gonio: the data from the goniometer
 
 ### Processing Steps
 The processing steps include the following dataframes:
