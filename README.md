@@ -31,7 +31,11 @@ This package provides the following data tables:
 
 ### Processing Steps
 
-We processed the gonio merge file and grouped each deployID within 2 minutes, and chose the row with the lowest strength_db. We also created a new column for distance based on the strength_db, using the upper range. We merged the gonio and the aux data using the crawl function, and finally, we merged it with the locations data. We processed the data by creating dataframes for the series data showing depths, depth bins, and the locations data. We prepared the series_xts dataframe, which consists of the series data prepared for the dygraph (converted into an xts object). We temporally intersected the deployment locations with the locations data to remove any locations reported by the tag before it was actually on the whale. This resulted in the processed_gonio_aux_locs dataframe, which was used in creating cee19_01 through cee19_04.
+We prepared the series_xts dataframe, which consists of the series data prepared for the dygraph (converted into an xts object). 
+
+We temporally intersected the deployment locations with the locations data to remove any locations reported by the tag before it was actually on the whale to create the processed_locations dataframe. 
+
+We processed the gonio merge file and grouped each deployID within 2 minutes, and chose the row with the lowest strength_db. We also created a new column for distance based on the strength_db, using the upper range. We merged the gonio and the aux data using the crawl function, and finally, we merged it with the locations data. We processed the data by creating dataframes for the series data showing depths, depth bins, and the locations data. This resulted in the processed_gonio_aux_locs dataframe, which was used in creating cee19_01 through cee19_04.
 
 ### Final Processed Data
 * processed_locations: the locations and deployment locations intersection
