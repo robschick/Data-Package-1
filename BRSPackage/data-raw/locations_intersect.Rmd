@@ -58,3 +58,6 @@ removed_locations <- locations %>%
 removed_locations
 ```
 
+```{r new csv}
+write.csv(processed_locations, "processed_locations.csv")
+```
