@@ -12,7 +12,8 @@ library(BRSPackage)
 
 ## R Markdown
 
-* We created a Data Package that consists of raw data, including the series data that show the depths, the series data that show the depth bins, the locations data, the deployment locations, the cee metadata on the ships locations and timing of each event, and the auxiliary data. 
+#### Raw Data
+* We created a Data Package that consists of raw data, including the series data that show the depths, the series data that show the depth bins, the locations data, the goniometer data, the cee metadata on the ships locations and timing of each event, and the auxiliary data. 
 
 ```{r raw_data}
 locations
@@ -23,12 +24,19 @@ raw_aux
 raw_gonio
 ```
 
-
-* We also processed the gonio merge file and grouped each deployID within 2 minutes, and chose the row with the lowest strength_db. We also created a new column for distance based on the strength_db, using the upper range. 
-* We merged the gonio and the aux data using the crawl function, and finally, we merged it with the locations data. 
-* We processed the data by creating dataframes for the series data showing depths, depth bins, and the locations data. 
+#### series_xts
 * We prepared the series_xts dataframe, which consists of the series data prepared for the dygraph.
+
+#### processed_locations
 * We temporally intersected the deployment locations with the locations data to remove any locations reported by the tag before it was actually on the whale.
+
+#### processed_gonio_aux_locs
+* We also processed the gonio merge file and grouped each deployID within 2 minutes, and chose the row with the lowest strength_db. We also created a new column for distance based on the strength_db, using the upper range. 
+* We merged the gonio and the aux data, and finally, we merged it with the processed locations data. 
+* We used the crawl function to filter out duplicate times and erroneous speeds. 
+* We processed the data by creating dataframes for the series data showing depths, depth bins, and the locations data.
+
+
 
 ```{r processing_data}
 series_xts
@@ -36,6 +44,7 @@ processed_locations
 processed_gonio_aux_locs
 ```
 
+#### Final CEE Summaries
 * We intersected the cee metadata with the dataframe containing locations, gonio, and aux. 
 * We created a function to create this intersection with all cees. 
 

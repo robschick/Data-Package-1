@@ -22,7 +22,7 @@ library(devtools)
 ## R Markdown
 
 ```{r locations}
-locations <- read_csv("/cloud/project/data/raw_data/All_Locations.csv")
+locations <- read_csv("/cloud/project/data/raw_data/processed_locations.csv")
 
 locations <- locations %>%
   mutate(date_time = parse_datetime(Date, format = "%H:%M:%S %d-%b-%Y", locale = locale(tz = 'UTC')),
