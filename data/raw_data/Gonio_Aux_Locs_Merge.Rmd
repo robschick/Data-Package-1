@@ -166,7 +166,6 @@ processed_gonio_aux_locs <- processed_combined %>%
 
 processed_gonio_aux_locs %>% dplyr::summarise(n = n())
 processed_gonio_aux_locs <- processed_gonio_aux_locs %>%
-  filter(DeployID == "ZcTag093") %>%
   filter(date_time != "2019-05-27 15:05:28") %>%
   filter(date_time != "2019-05-27 15:06:31") %>%
   filter(date_time != "2019-05-27 15:07:36") %>%
