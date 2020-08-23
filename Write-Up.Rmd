@@ -32,7 +32,7 @@ raw_gonio
 
 #### processed_gonio_aux_locs
 * We also processed the gonio merge file and grouped each deployID within 2 minutes, and chose the row with the lowest strength_db. We also created a new column for distance based on the strength_db, using the upper range. 
-* We merged the gonio and the aux data, and finally, we merged it with the locations data. 
+* We merged the gonio and the aux data, and finally, we merged it with the processed locations data. 
 * We used the crawl function to filter out duplicate times and erroneous speeds. 
 * We processed the data by creating dataframes for the series data showing depths, depth bins, and the locations data.
 
