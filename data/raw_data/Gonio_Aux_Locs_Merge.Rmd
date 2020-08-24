@@ -165,7 +165,11 @@ processed_gonio_aux_locs <- processed_combined %>%
   dplyr::arrange(DeployID,date_time)
 
 processed_gonio_aux_locs %>% dplyr::summarise(n = n())
-processed_gonio_aux_locs
+processed_gonio_aux_locs <- processed_gonio_aux_locs %>%
+  filter(date_time != "2019-05-27 15:05:28") %>%
+  filter(date_time != "2019-05-27 15:06:31") %>%
+  filter(date_time != "2019-05-27 15:07:36") %>%
+  filter(date_time != "2019-06-02 14:21:46")
 ```
 
 ```{r new csv}
