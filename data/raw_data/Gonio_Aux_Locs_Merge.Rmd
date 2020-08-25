@@ -52,7 +52,6 @@ gonio <- raw_gonio %>%
   dplyr::rename(date_time = date)
 
 gonio <- gonio %>%
-  mutate(date_time = parse_datetime(date, format = "%Y-%m-%d %H:%M:%S", locale = locale(tz = 'UTC'))) %>% 
   filter(!gps_gonio_time_difference_s > 60, strength_db < 0)
 gonio$gap <- c(0, diff(gonio$date_time) > 120) 
 gonio$group <- cumsum(gonio$gap) + 1
