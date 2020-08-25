@@ -380,25 +380,26 @@ summary {
 ##   Longitude = col_double(),
 ##   Error.Semi.major.axis = col_double(),
 ##   Quality = col_character(),
+##   Source = col_character(),
 ##   Error.Semi.minor.axis = col_double(),
 ##   Error.Ellipse.orientation = col_double(),
 ##   date_time = col_datetime(format = &quot;&quot;)
 ## )</code></pre>
 <pre class="r"><code>processed</code></pre>
-<pre><code>## # A tibble: 4,615 x 9
-##       X1 DeployID Latitude Longitude Error.Semi.majo… Quality Error.Semi.mino…
-##    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
-##  1     1 GmTag223     35.7     -74.8               50 User                  50
-##  2     2 GmTag223     35.7     -74.8               50 User                  50
-##  3     3 GmTag223     35.7     -74.8              100 User                 100
-##  4     4 GmTag223     35.6     -74.8            34766 0                    393
-##  5     5 GmTag223     35.6     -74.8             4955 0                   1009
-##  6     6 GmTag223     35.6     -74.8             6698 0                    838
-##  7     7 GmTag223     35.6     -74.8             6012 0                   1335
-##  8     8 GmTag223     35.6     -74.8             3179 1                    460
-##  9     9 GmTag223     35.6     -74.8             2929 1                    252
-## 10    10 GmTag223     35.6     -74.8             6750 1                    322
-## # … with 4,605 more rows, and 2 more variables:
+<pre><code>## # A tibble: 4,612 x 10
+##       X1 DeployID Latitude Longitude Error.Semi.majo… Quality Source
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; 
+##  1     1 GmTag223     35.7     -74.8               50 User    aux   
+##  2     2 GmTag223     35.7     -74.8               50 User    aux   
+##  3     3 GmTag223     35.7     -74.8              100 User    gonio 
+##  4     4 GmTag223     35.6     -74.8            34766 0       locat…
+##  5     5 GmTag223     35.6     -74.8             4955 0       locat…
+##  6     6 GmTag223     35.6     -74.8             6698 0       locat…
+##  7     7 GmTag223     35.6     -74.8             6012 0       locat…
+##  8     8 GmTag223     35.6     -74.8             3179 1       locat…
+##  9     9 GmTag223     35.6     -74.8             2929 1       locat…
+## 10    10 GmTag223     35.6     -74.8             6750 1       locat…
+## # … with 4,602 more rows, and 3 more variables: Error.Semi.minor.axis &lt;dbl&gt;,
 ## #   Error.Ellipse.orientation &lt;dbl&gt;, date_time &lt;dttm&gt;</code></pre>
 <pre class="r"><code>cee &lt;- read_csv(file = &quot;/cloud/project/data/raw_data/ATLANTIC-BRS_CEE Metadata.csv&quot;) %&gt;%
   mutate(date_time = as.POSIXct(paste(Date, as.character(CEE.Times)), format = &quot;%m/%d/%y %H:%M:%S&quot;))</code></pre>
@@ -429,48 +430,130 @@ summary {
 ## 7 CEE #1… simulat… Kahuna           ZcTag095  Zc… 8/19… 19:11:00   35.8 -74.8
 ## 8 CEE #1… simulat… Kahuna           ZcTag095  Zc… 8/19… 19:41:00   35.8 -74.8
 ## # … with 3 more variables: X9 &lt;lgl&gt;, X10 &lt;lgl&gt;, date_time &lt;dttm&gt;</code></pre>
-<p>``{r} cee19_01 &lt;- data.frame(DeployID=character(), Start.Date.Locs=as.Date(character()), End.Date.Locs=as.Date(character()), Length.Locs=integer(), Num.Data.Points.Locs=integer(), Num.Satellite=integer(), Num.Aux=integer(), Num.Locs.Before.CEE=integer(), Num.Locs.After.CEE=integer(), Start.Date.Series=as.Date(character()), End.Date.Series=as.Date(character()), Length.Series=integer(), Num.Data.Points.Series=integer(), Num.Series.Before.CEE=integer(), Num.Series.After.CEE=integer(), stringsAsFactors=TRUE)</p>
-<pre><code>
+<pre class="r"><code>series &lt;- read_csv(&quot;/cloud/project/data/raw_data/All_Series.csv&quot;) %&gt;%
+  mutate(date_time = as.POSIXct(paste(Day, as.character(Time)), format = &quot;%d-%B-%Y %H:%M:%S&quot;))</code></pre>
+<pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre><code>## Warning: Duplicated column names deduplicated: &#39;X1&#39; =&gt; &#39;X1_1&#39; [2]</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   X1 = col_double(),
+##   X1_1 = col_double(),
+##   DeployID = col_character(),
+##   Ptt = col_double(),
+##   DepthSensor = col_double(),
+##   Source = col_character(),
+##   Instr = col_character(),
+##   Day = col_character(),
+##   Time = col_time(format = &quot;&quot;),
+##   LocationQuality = col_logical(),
+##   Latitude = col_logical(),
+##   Longitude = col_logical(),
+##   Depth = col_double(),
+##   DRange = col_double(),
+##   Temperature = col_logical(),
+##   TRange = col_logical(),
+##   Activity = col_logical(),
+##   ARange = col_logical(),
+##   date_time = col_datetime(format = &quot;&quot;)
+## )</code></pre>
+<pre class="r"><code>series</code></pre>
+<pre><code>## # A tibble: 50,244 x 19
+##       X1  X1_1 DeployID    Ptt DepthSensor Source Instr Day   Time 
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;tim&gt;
+##  1     1     1 ZcTag084 180753           1 Trans… Mk10  23-M… 12:50
+##  2     2     2 ZcTag084 180753           1 Trans… Mk10  23-M… 12:55
+##  3     3     3 ZcTag084 180753           1 Trans… Mk10  23-M… 13:00
+##  4     4     4 ZcTag084 180753           1 Trans… Mk10  23-M… 13:05
+##  5     5     5 ZcTag084 180753           1 Trans… Mk10  23-M… 13:10
+##  6     6     6 ZcTag084 180753           1 Trans… Mk10  23-M… 13:15
+##  7     7     7 ZcTag084 180753           1 Trans… Mk10  23-M… 13:20
+##  8     8     8 ZcTag084 180753           1 Trans… Mk10  23-M… 13:25
+##  9     9     9 ZcTag084 180753           1 Trans… Mk10  23-M… 13:30
+## 10    10    10 ZcTag084 180753           1 Trans… Mk10  23-M… 13:35
+## # … with 50,234 more rows, and 10 more variables: LocationQuality &lt;lgl&gt;,
+## #   Latitude &lt;lgl&gt;, Longitude &lt;lgl&gt;, Depth &lt;dbl&gt;, DRange &lt;dbl&gt;,
+## #   Temperature &lt;lgl&gt;, TRange &lt;lgl&gt;, Activity &lt;lgl&gt;, ARange &lt;lgl&gt;,
+## #   date_time &lt;dttm&gt;</code></pre>
+<pre class="r"><code>cee_function &lt;- function(cee_start, cee_end) {
+  #Jennifer&#39;s chunk
+  this_cee &lt;- processed %&gt;%
+    # filter(DeployID %in% animals) %&gt;%
+    dplyr::group_by(DeployID) %&gt;%
+    dplyr::summarize(start_date = range(date_time)[1],
+              end_date = range(date_time)[2],
+              num_fixes = n()) %&gt;%
+    mutate(date_range = end_date - start_date) %&gt;%
+    mutate(date_range = as.integer(date_range)) %&gt;%
+    mutate(average_locs = num_fixes/date_range)
+  
+  series_cee &lt;- series %&gt;%
+    # filter(DeployID %in% animals) %&gt;%
+    group_by(DeployID) %&gt;%
+    dplyr::summarize(series_start_date = range(date_time)[1],
+              series_end_date = range(date_time)[2])
+  
+  series_cee &lt;- series_cee %&gt;%
+    mutate(series_date_range = series_end_date - series_start_date)
+  
+  total &lt;- merge(this_cee, series_cee, by= &quot;DeployID&quot;, all=TRUE)
+  
+  #Larry&#39;s chunk
+  
+  cee_counts &lt;- processed %&gt;%
+    # filter(DeployID %in% animals) %&gt;%
+    group_by(DeployID) %&gt;%
+    dplyr::count(Source) %&gt;%
+    spread(Source, n)
+    
+  cee_bef &lt;- processed %&gt;%
+    # filter(DeployID %in% animals) %&gt;%
+    filter(date_time &lt; cee_start) %&gt;%
+    group_by(DeployID) %&gt;%
+    dplyr::count() %&gt;%
+    dplyr::rename(num_before_cee = n)
+  
+  cee_after &lt;- processed %&gt;%
+    # filter(DeployID %in% animals) %&gt;%
+    filter(date_time &gt; cee_end) %&gt;%
+    group_by(DeployID) %&gt;%
+    dplyr::count() %&gt;%
+    dplyr::rename(num_after_cee = n)
+  
+  
+  total2 &lt;- merge(cee_counts, cee_bef, by= &quot;DeployID&quot;, all=TRUE)
+  total2 &lt;- merge(total2, cee_after, by= &quot;DeployID&quot;, all=TRUE) %&gt;% 
+    replace(is.na(.), 0)
+  
+  final_df &lt;- merge(total, total2, by= &quot;DeployID&quot;, all=TRUE)
+  
+  final_df &lt;- final_df %&gt;%
+    filter(start_date &lt; cee_end,
+           end_date &gt; cee_start)
+  
+  return(final_df)
+}</code></pre>
+<p>Loop</p>
+<pre class="r"><code>cee_names &lt;- c(&quot;cee19_01&quot;, &quot;cee19_02&quot;, &quot;cee19_03&quot;, &quot;cee19_04&quot;)
+name_index &lt;- 1
 
-```r
-deploy_ids_tib &lt;- cee[1, &quot;Focal.animals&quot;]
-deploy_ids &lt;- deploy_ids_tib  %&gt;%
-  pull(Focal.animals) %&gt;%
-  str_split(&quot;  &quot;)
-
-deploy_ids &lt;- as.vector(unlist(deploy_ids, use.names=FALSE))
-
-
-cee19_01 &lt;- data.frame(deploy_ids,
-                 stringsAsFactors=TRUE) </code></pre>
-<p>Vector Initializations ``{r} len &lt;- length(deploy_ids)</p>
-<p>Start.Date.Locs &lt;- rep(now(), length = len) End.Date.Locs &lt;- rep(now(), length = len) Length.Locs &lt;- rep(NA, length = len) Num.Data.Points.Locs &lt;- vector(length = len) Num.Satellite &lt;- vector(length = len) Num.Aux &lt;- vector(length = len) Num.Locs.Before.CEE &lt;- vector(length = len) Num.Locs.After.CEE &lt;- vector(length = len) Start.Date.Series &lt;- rep(now(), length = len) End.Date.Series &lt;- rep(now(), length = len) Length.Series &lt;- rep(NA, length = len) Num.Data.Points.Series &lt;- vector(length = len) Num.Series.Before.CEE &lt;- vector(length = len) Num.Series.After.CEE &lt;- vector(length = len)</p>
-<pre><code>
-
-
-Test of the loop
-``{r}
-individual_locs &lt;- locations %&gt;%
-    filter(DeployID == deploy_ids[1])
-
-Start.Date.Locs[1] &lt;- as.POSIXct(first(individual_locs$Date),  format = &quot;%H:%M:%S %d-%B-%Y&quot;)
-
-# Start.Date.Locs &lt;- c(Start.Date.Locs, as.POSIXct(first(individual_locs$Date),  format = &quot;%H:%M:%S %d-%B-%Y&quot;))
-End.Date.Locs[1] &lt;- as.POSIXct(last(individual_locs$Date),  format = &quot;%H:%M:%S %d-%B-%Y&quot;)
-Length.Locs[1] &lt;- (End.Date.Locs[1] - Start.Date.Locs[1])
-
-Num.Data.Points.Locs[1] &lt;- nrow(individual_locs)
-# Num.Satellite &lt;- vector(length = len)
-# Num.Aux &lt;- vector(length = len)
-
-# For before and after: make two subsetted dataframes of locations filtered by datetime before and after cee
-
-locs_before_count &lt;- individual_locs %&gt;%
-  filter(Date &lt; )
-
-# Num.Locs.Before.CEE &lt;- vector(length = len)
-# Num.Locs.After.CEE &lt;- vector(length = len)</code></pre>
-<p>Loop ``{r} for (i in length(deploy_ids)) { individual_locs &lt;- locations %&gt;% filter(DeployID = deploy_ids[i]) } ```</p>
+for (i in seq(from = 1, to = nrow(cee), by = 2)) {
+  cee_start &lt;- cee$date_time[i]
+  cee_end &lt;- cee$date_time[i+1]
+  # animals &lt;- strsplit(cee$Focal.animals[i], &quot; &quot;)
+  # animals &lt;- unlist(animals)
+  
+  assign(cee_names[name_index], cee_function(cee_start, cee_end))
+  name_index &lt;- name_index + 1
+}</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code>#paste(&quot;cee19_0&quot;, as.character(i),sep=&quot;&quot;)</code></pre>
 </div>
 
 
