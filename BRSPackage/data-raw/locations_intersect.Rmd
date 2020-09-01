@@ -26,7 +26,7 @@ deploy
 
 ```{r deploy-make-datetime}
 deploy <- deploy %>%
-  mutate(date_time = as.POSIXct(paste(date, " ", as.character(TimeOn)), format = "%d-%B-%y %H:%M:%S"))
+  mutate(date_time = as.POSIXct(paste(date, " ", as.character(TimeOn)), tz = "UTC", format = "%d-%B-%y %H:%M:%S"))
 deploy
 ```
 
@@ -40,7 +40,7 @@ locations$tag_on <- tag_on_vec
 # Subset: [rows, columns]. 27th column is datetime of when tag on
 
 locations <- locations %>%
-  mutate(date_time = as.POSIXct(Date, format = "%H:%M:%S %d-%B-%Y"))
+  mutate(date_time = as.POSIXct(Date, format = "%H:%M:%S %d-%B-%Y"), tz = "UTC")
 # Use B for month format because months are written out, not in decimal format
 locations
 ```
