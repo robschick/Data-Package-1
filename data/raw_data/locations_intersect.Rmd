@@ -15,39 +15,80 @@ library(lubridate)
 
 
 ```{r cars}
-locations <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/All_Locations.csv")
-deploy <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/2019_SatTag_DeployLocations.csv")
+locations <- read_csv("BRSPackage/inst/extdata/raw_data/All_Locations.csv") %>% 
+  select(-c(X1,"Offset", "Offset.orientation", "GPE.MSD", "GPE.U", "Count", "Comment"))
+deploy <- read_csv("/cloud/project/BRSPackage/inst/extdata/raw_data/2019_SatTag_DeployLocations.csv") %>% 
+  rename(DeployID = SatTag_ID, Latitude = Lat_Tag_on, Longitude = Long_Tag_on) %>% 
+  mutate(Quality = 'DP', Error.Semi.major.axis = 25, Error.Semi.minor.axis = 25,
+         Error.Ellipse.orientation = 0)
 ```
 
 ```{r}
-deploy$SatTag_ID = substr(deploy$SatTag_ID,1,nchar(deploy$SatTag_ID)-5)
+deploy$DeployID = substr(deploy$DeployID,1,nchar(deploy$DeployID)-5)
 deploy
 ```
 
 ```{r deploy-make-datetime}
 deploy <- deploy %>%
-  mutate(date_time = as.POSIXct(paste(date, " ", as.character(TimeOn)), format = "%d-%B-%y %H:%M:%S"))
+  mutate(date_time = as.POSIXct(paste(date, " ", as.character(TimeOn)), tz = "UTC", format = "%d-%B-%y %H:%M:%S"))
 deploy
 ```
 
 
+
 ```{r}
 # Add column of when tag was put on the individual
-tag_on_tib <- deploy[match(locations$DeployID, deploy$SatTag_ID),27]
+tag_on_tib <- deploy[match(locations$DeployID, deploy$DeployID), 'date_time']
 tag_on_vec <- pull(tag_on_tib, date_time)
 
 locations$tag_on <- tag_on_vec
 # Subset: [rows, columns]. 27th column is datetime of when tag on
 
 locations <- locations %>%
-  mutate(date_time = as.POSIXct(Date, format = "%H:%M:%S %d-%B-%Y"))
+  mutate(date_time = as.POSIXct(Date, format = "%H:%M:%S %d-%B-%Y", tz = "UTC"))
 # Use B for month format because months are written out, not in decimal format
 locations
 ```
 
+Here, we make the structure of `deploy` match that of `locations`. This block is a bit ugly, but I think works.
+
+```{r}
+deploy_new <- data.frame(
+  DeployID = deploy$DeployID,
+  Ptt = as.numeric(0),
+  Instr = as.character('Mk10'),
+  Date = deploy$date,
+  Type = 'Argos',
+  Quality = 'DP',
+  Latitude = deploy$Latitude,
+  Longitude = deploy$Longitude,
+  Error.radius = 0,
+  Error.Semi.major.axis = 25,
+  Error.Semi.minor.axis = 25,
+  Error.Ellipse.orientation = 0,
+  tag_on = deploy$date_time,
+  date_time = deploy$date_time
+)
+
+deploy_new <- deploy_new %>% 
+  drop_na()
+ 
+```
+
+In the next block of code, we filter out locations from a tag that were reported and recorded prior to the tag being deployed on the animal. This sometimes happen when the tags are tested prior to deployment. In addition to doing this intersection, we want to make it so that we pull the actual location of the deployment and add it to the locations file, since this is the first (and likely best) location of the animal's path. We'll merge, and then sort `locations` by `DeployID` and `date_time`. First we'll pare down the deploy data frame, since we don't need all of these variables at present:
+
+
+
+
+```{r}
+new_locations <- bind_rows(locations, deploy_new) %>% 
+  arrange(DeployID, date_time)
+```
+
+
 ```{r}
 # Remove observations where Date is before tag was on
-processed_locations <- locations %>%
+processed_locations <- new_locations %>%
   filter(date_time >= tag_on)
 
 processed_locations
@@ -58,3 +99,6 @@ removed_locations <- locations %>%
 removed_locations
 ```
 
+```{r new csv}
+write.csv(processed_locations, "processed_locations.csv")
+```
